@@ -8,7 +8,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'Feature Probe',
   tagline: 'An open source feature management service',
-  url: 'https://github.com/FeatureProbe/FeatureProbe',
+  url: '/FeatureProbe',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -24,7 +24,15 @@ const config = {
   // to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'en',
-    locales: ['en'],
+    locales: ['en', 'zh-CN'],
+    localeConfigs: {
+      en: {
+        label: 'English',
+      },
+      'zh-CN': {
+        label: '中文（中国）',
+      },
+    },
   },
 
   presets: [
@@ -34,9 +42,6 @@ const config = {
       ({
         docs: {
           routeBasePath: '/', 
-          // sidebarPath: require.resolve('./sidebars.js'),
-          // editUrl:
-          //   'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
         // blog: {
         //   showReadingTime: true,
@@ -72,6 +77,10 @@ const config = {
           //   label: 'Blog', 
           //   position: 'left'
           // },
+          {
+            type: 'localeDropdown',
+            position: 'right',
+          },
           {
             href: 'https://github.com/FeatureProbe',
             label: 'GitHub',

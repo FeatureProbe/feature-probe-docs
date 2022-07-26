@@ -3,5 +3,5 @@ slug: /
 sidebar_position: 1
 ---
 
-# What is Feature Management
+# 什么是功能管理
 

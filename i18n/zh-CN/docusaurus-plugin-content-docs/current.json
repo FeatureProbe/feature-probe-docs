@@ -1,0 +1,38 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.defaultSidebar.category.Introduction": {
+    "message": "简介",
+    "description": "The label for category Introduction in sidebar defaultSidebar"
+  },
+  "sidebar.defaultSidebar.category.Introduction.link.generated-index.description": {
+    "message": "我是简介",
+    "description": "The generated-index page description for category Introduction in sidebar defaultSidebar"
+  },
+  "sidebar.defaultSidebar.category.How-to guides": {
+    "message": "使用方法",
+    "description": "The label for category How-to guides in sidebar defaultSidebar"
+  },
+  "sidebar.defaultSidebar.category.How-to guides.link.generated-index.description": {
+    "message": "FeatureProbe使用方法",
+    "description": "The generated-index page description for category How-to guides in sidebar defaultSidebar"
+  },
+  "sidebar.defaultSidebar.category.SDK": {
+    "message": "SDK",
+    "description": "The label for category SDK in sidebar defaultSidebar"
+  },
+  "sidebar.defaultSidebar.category.SDK.link.generated-index.description": {
+    "message": "sdk",
+    "description": "The generated-index page description for category SDK in sidebar defaultSidebar"
+  },
+  "sidebar.defaultSidebar.category.Best Practices": {
+    "message": "最佳实践",
+    "description": "The label for category Best Practices in sidebar defaultSidebar"
+  },
+  "sidebar.defaultSidebar.category.Best Practices.link.generated-index.description": {
+    "message": "最佳实践",
+    "description": "The generated-index page description for category Best Practices in sidebar defaultSidebar"
+  }
+}
