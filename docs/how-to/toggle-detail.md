@@ -2,4 +2,4 @@
 sidebar_position: 3
 ---
 
-# Toggle detail
+# 开关配置
