@@ -2,5 +2,5 @@
 sidebar_position: 1
 ---
 
-# What is Feature Management
+#   什么是『功能』管理
 
