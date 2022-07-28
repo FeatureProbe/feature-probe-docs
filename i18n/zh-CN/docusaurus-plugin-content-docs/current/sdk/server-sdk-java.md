@@ -5,6 +5,7 @@ sidebar_position: 6
 # Java SDK
 
 ## 快速尝试 Demo Code
+
 我们提供了一个可运行的演示代码，让您了解如何使用 FeatureProbe SDK。
 
 1. 使用 docker composer 启动 FeatureProbe 服务。 [How to](https://github.com/FeatureProbe/FeatureProbe#1-starting-featureprobe-service-with-docker-compose)
@@ -18,8 +19,7 @@ mvn package
 java -jar ./target/server-sdk-java-1.2.1.jar
 ```
 
-3. 从此处下载 [example](https://github.com/FeatureProbe/server-sdk-java/blob/main/src/main/java/com/featureprobe/sdk/example/FeatureProbeDemo.java),
-做一些修改并再次运行程序
+3. 从此处下载 [example](https://github.com/FeatureProbe/server-sdk-java/blob/main/src/main/java/com/featureprobe/sdk/example/FeatureProbeDemo.java), 做一些修改并再次运行程序
 
 ```bash
 mvn package
