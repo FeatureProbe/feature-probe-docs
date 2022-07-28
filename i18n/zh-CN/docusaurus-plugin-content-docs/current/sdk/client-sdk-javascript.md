@@ -6,7 +6,7 @@ sidebar_position: 2
 
 ## 快速尝试 Demo Code
 
-我们提供了一个可运行的演示代码，让您了解如何使用 FeatureProbe SDK
+我们提供了一个可运行的演示代码，让您了解如何使用 FeatureProbe SDK。
 
 1. 使用 docker composer 启动 FeatureProbe 服务。 [How to](https://github.com/FeatureProbe/FeatureProbe#1-starting-featureprobe-service-with-docker-compose)
 
@@ -19,7 +19,7 @@ cd client-sdk-js
 ```
 
 3. 从此处下载 [example](https://github.com/FeatureProbe/client-sdk-js/tree/main/example),
-do some change and run the program again.
+做一些修改并再次运行程序。
 
 ```
 // open example/index.html in browser
@@ -91,9 +91,7 @@ test("feature probe unit testing", (done) => {
 });
 ```
 
-## Available options
-
-此 SDK 采用以下选项：
+## 此 SDK 采用以下选项：
 
 | 选项            | 是否必填       | 默认值 | 描述                                                                                                                                      |
 |-------------------|----------------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------|
