@@ -2,7 +2,7 @@
 sidebar_position: 4
 ---
 
-# Mobile SDK
+# Client SDK iOS
 
 ## iOS Usage
 

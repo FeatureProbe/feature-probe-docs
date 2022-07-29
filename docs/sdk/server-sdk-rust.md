@@ -2,7 +2,7 @@
 sidebar_position: 7
 ---
 
-# Rust SDK
+# Server SDK Rust
 
 ## Try Out Demo Code
 

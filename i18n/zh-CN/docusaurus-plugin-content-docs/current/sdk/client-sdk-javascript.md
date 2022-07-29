@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# JavaScript SDK
+# Client SDK JavaScript
 
 ## 快速尝试 Demo Code
 
