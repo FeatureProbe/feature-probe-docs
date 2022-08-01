@@ -44,10 +44,12 @@ const config = {
         docs: {
           routeBasePath: '/', 
           editUrl: 'https://github.com/FeatureProbe/feature-probe-docs/tree/main/',
+          editLocalizedFiles: true,
         },
         blog: {
           showReadingTime: true,
           editUrl: 'https://github.com/FeatureProbe/feature-probe-docs/tree/main/',
+          editLocalizedFiles: true,
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
