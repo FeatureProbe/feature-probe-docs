@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>Feature Probe Blog</title>
+        <link>https://feature-probe-docs.github.io/zh-CN/blog</link>
+        <description>Feature Probe Blog</description>
+        <lastBuildDate>Mon, 01 Aug 2022 00:00:00 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <language>zh-CN</language>
+        <item>
+            <title><![CDATA[为什么 FeatureProbe 用 Rust 和 uniffi-rs 开发跨平台移动端 SDK？]]></title>
+            <link>https://feature-probe-docs.github.io/zh-CN/blog/Rust</link>
+            <guid>Rust</guid>
+            <pubDate>Mon, 01 Aug 2022 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[FeatureProbe：如何快速、安全地进行功能发布]]></title>
+            <link>https://feature-probe-docs.github.io/zh-CN/blog/FeatureProbe</link>
+            <guid>FeatureProbe</guid>
+            <pubDate>Fri, 29 Jul 2022 00:00:00 GMT</pubDate>
+        </item>
+    </channel>
+</rss>
