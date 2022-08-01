@@ -39,4 +39,6 @@ This command generates static content into the `build` directory and can be serv
 
 ### Deployment
 
-Comming soon!
+```
+$ npm run deploy
+```

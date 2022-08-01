@@ -8,7 +8,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'Feature Probe',
   tagline: 'An open source feature management service',
-  url: 'https://feature-probe-docs.github.io',
+  url: 'https://featureprobe.github.io',
   baseUrl: '/feature-probe-docs/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
