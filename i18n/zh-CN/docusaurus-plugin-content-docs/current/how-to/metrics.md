@@ -5,9 +5,7 @@ sidebar_position: 4
 # 数据监控
 
 ### 查看开关的访问信息
-支持查看Variation【name】、【value】两个维度的访问数据（各环境间独立）
-
-![evaluations screenshot](./pictures/evaluations.png)
+支持查看Variation【name】、【value】两个维度的访问数据（各环境间独立）![evaluations screenshot](../../pictures/evaluations.png)
 
 1. 统计信息：展示筛选时间段内每个Variation的总访问量
 2. 统计粒度：目前默认展示24小时内的访问信息，点击可切换查看7天内的访问信息
