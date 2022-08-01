@@ -42,12 +42,12 @@ const config = {
       ({
         docs: {
           routeBasePath: '/', 
+          editUrl: 'https://github.com/FeatureProbe/feature-probe-docs/tree/main/',
         },
-        // blog: {
-        //   showReadingTime: true,
-        //   editUrl:
-        //     'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-        // },
+        blog: {
+          showReadingTime: true,
+          editUrl: 'https://github.com/FeatureProbe/feature-probe-docs/tree/main/',
+        },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -66,17 +66,17 @@ const config = {
           srcDark: 'img/logo-light.svg',
         },
         items: [
-          // {
-          //   type: 'doc',
-          //   docId: 'Overview',
-          //   position: 'left',
-          //   label: 'Docs',
-          // },
-          // {
-          //   to: '/blog', 
-          //   label: 'Blog', 
-          //   position: 'left'
-          // },
+          {
+            type: 'doc',
+            docId: 'introduction/what',
+            position: 'left',
+            label: 'Docs',
+          },
+          {
+            to: '/blog', 
+            label: 'Blog', 
+            position: 'left'
+          },
           {
             type: 'localeDropdown',
             position: 'right',
@@ -98,10 +98,6 @@ const config = {
                 label: 'Docs',
                 to: '/',
               },
-              {
-                label: 'Github',
-                href: 'https://github.com/FeatureProbe/FeatureProbe',
-              },
             ],
           },
           {
@@ -114,6 +110,19 @@ const config = {
               {
                 label: 'Twitter',
                 href: 'https://twitter.com/featureprobe',
+              },
+            ],
+          },
+          {
+            title: 'More',
+            items: [
+              {
+                label: 'Blog',
+                to: '/blog',
+              },
+              {
+                label: 'GitHub',
+                href: 'https://github.com/FeatureProbe/FeatureProbe',
               },
             ],
           },
