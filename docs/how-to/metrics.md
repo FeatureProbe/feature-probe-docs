@@ -3,7 +3,7 @@ sidebar_position: 4
 ---
 
 # 数据监控
-
+![evaluations screenshot](../../pictures/WechatIMG27.jpeg)
 ### 查看开关的访问信息
 支持查看Variation【name】、【value】两个维度的访问数据（各环境间独立）
 
