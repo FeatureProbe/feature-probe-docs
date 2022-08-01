@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://feature-probe-docs.github.io/blog</id>
+    <id>https://feature-probe-docs.github.io/feature-probe-docs/blog</id>
     <title>Feature Probe Blog</title>
     <updated>2022-08-01T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://feature-probe-docs.github.io/blog"/>
+    <link rel="alternate" href="https://feature-probe-docs.github.io/feature-probe-docs/blog"/>
     <subtitle>Feature Probe Blog</subtitle>
-    <icon>https://feature-probe-docs.github.io/img/favicon.ico</icon>
+    <icon>https://feature-probe-docs.github.io/feature-probe-docs/img/favicon.ico</icon>
     <entry>
         <title type="html"><![CDATA[为什么 FeatureProbe 用 Rust 和 uniffi-rs 开发跨平台移动端 SDK？]]></title>
         <id>Rust</id>
-        <link href="https://feature-probe-docs.github.io/blog/Rust"/>
+        <link href="https://feature-probe-docs.github.io/feature-probe-docs/blog/Rust"/>
         <updated>2022-08-01T00:00:00.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[FeatureProbe：如何快速、安全地进行功能发布]]></title>
         <id>FeatureProbe</id>
-        <link href="https://feature-probe-docs.github.io/blog/FeatureProbe"/>
+        <link href="https://feature-probe-docs.github.io/feature-probe-docs/blog/FeatureProbe"/>
         <updated>2022-07-29T00:00:00.000Z</updated>
     </entry>
 </feed>
