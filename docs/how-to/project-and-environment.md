@@ -9,7 +9,7 @@ sidebar_position: 1
 系统会有一个初始化项目（My First Project），初始项目下有2个环境（test、online）每个环境都有自己的SDK密钥，用于将FeatureProbe SDK连接到特定环境。
 ### 添加项目
 
-![create project screenshot](../../pictures/create_project.png)
+![create project screenshot](../../pictures/en-create_project.png)
 
 1. 点击顶导“Projects”，进入项目列表页
 2. 点击添加项目按钮
@@ -21,7 +21,7 @@ sidebar_position: 1
 
 ### 编辑项目
 
-![create environment screenshot](../../pictures/create_environment.png)
+![create environment screenshot](../../pictures/en-create_environment.png)
 
 
 1. 点击编辑项目icon
@@ -39,7 +39,7 @@ sidebar_position: 1
 
 ### 编辑环境
 
-![edit environment screenshot](../../pictures/edit_environment.png)
+![edit environment screenshot](../../pictures/en-edit_environment.png)
 
 1. 点击编辑环境
 2. 编辑环境信息
