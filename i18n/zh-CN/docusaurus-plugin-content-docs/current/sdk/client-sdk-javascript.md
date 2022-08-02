@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Client SDK JavaScript
+# 客户端 SDK JavaScript
 
 ## 快速尝试 Demo Code
 
@@ -33,11 +33,14 @@ cd client-sdk-js
 
 首先，在您的应用程序中安装 FeatureProbe SDK 作为依赖项。
 
+NPM：
+
+
 ```js
 npm install featureprobe-client-sdk-js --save
 ```
 
-或者通过 CDN:
+或者通过CDN：
 
 ```js
 <script type="text/javascript" src="https://unpkg.com/featureprobe-client-sdk-js@latest/dist/featureprobe-client-sdk-js.min.js"></script>
@@ -47,14 +50,33 @@ npm install featureprobe-client-sdk-js --save
 
 安装并导入 SDK 后，创建 FeatureProbe sdk 的单个共享实例。
 
+NPM：
+
+
 ```js
-const user = new featureProbe.FPUser("user");
-user.with("key", "value");
+const uniqueUserId = /* uniqueUserId */;
+const user = new FPUser(uniqueUserId);
+user.with("userId", /* userId */);
+
+const fp = new FeatureProbe({
+  remoteUrl: "https://127.0.0.1:4007",
+  clientSdkKey: /* clientSdkKey */
+  user,
+});
+fp.start();
+```
+
+或者通过CDN：
+
+```js
+const uniqueUserId = /* uniqueUserId */;
+const user = new featureProbe.FPUser(uniqueUserId);
+user.with("userId", /* userId */);
 
 const fp = new featureProbe.FeatureProbe({
-    remoteUrl: "https://127.0.0.1:4007",
-    clientSdkKey: '#YOUR-CLIENT-SDK-KEY#',
-    user,
+  remoteUrl: "https://127.0.0.1:4007",
+  clientSdkKey: /* clientSdkKey */
+  user,
 });
 fp.start();
 ```
@@ -78,13 +100,30 @@ fp.on('ready', function() {
 
 ### 步骤 4. 单元测试 (可选)
 
+NPM：
+
 ```js
 test("feature probe unit testing", (done) => {
   let fp = FeatureProbe.newForTest({ testToggle: true });
   fp.start();
 
   fp.on("ready", function () {
-    let t = fp.boolValue("testToggle", false);
+    let t = fp.boolValue(/* toggleKey */, false);
+    expect(t).toBe(true);
+    done();
+  });
+});
+```
+
+或者通过CDN：
+
+```js
+test("feature probe unit testing", (done) => {
+  let fp = featureProbe.FeatureProbe.newForTest({ testToggle: true });
+  fp.start();
+
+  fp.on("ready", function () {
+    let t = fp.boolValue(/* toggleKey */, false);
     expect(t).toBe(true);
     done();
   });

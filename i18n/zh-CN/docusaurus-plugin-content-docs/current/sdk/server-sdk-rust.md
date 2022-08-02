@@ -2,7 +2,7 @@
 sidebar_position: 7
 ---
 
-# Server SDK Rust
+# 服务端 SDK Rust
 
 ## 快速尝试 Demo Code
 

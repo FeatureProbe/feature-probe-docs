@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# Client SDK Android
+# 客户端 SDK Android
 
 ## Kotlin
 

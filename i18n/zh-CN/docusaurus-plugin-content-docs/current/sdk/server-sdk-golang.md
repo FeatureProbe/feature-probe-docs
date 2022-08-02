@@ -2,7 +2,7 @@
 sidebar_position: 5
 ---
 
-# Server SDK Golang
+# 服务端 SDK Golang
 
 ## 快速尝试 Demo Code
 

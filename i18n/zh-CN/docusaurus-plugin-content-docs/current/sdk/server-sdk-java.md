@@ -2,7 +2,7 @@
 sidebar_position: 6
 ---
 
-# Server SDK Java
+# 服务端 SDK Java
 
 ## 快速尝试 Demo Code
 
