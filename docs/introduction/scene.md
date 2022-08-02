@@ -11,7 +11,7 @@ sidebar_position: 2
 
    + Process Description
      * The operator adds a new project "My First Project" on FeatureProbe and creates a switch named "Promotional Campaign" in the "online" environment of the project:
-     ![commodity spike activity screenshot](../../../../../pictures/en-Commodity_spike_activity.png)
+     ![commodity spike activity screenshot](../../pictures/en-Commodity_spike_activity.png)
      * The developer references the FeatureProbe sdk in the code, configures the "online" key, associates the key of the switch (promotion_activity), and sets the number type variations (user price hierarchy) corresponding to the defined parameter city
   
     ```java
@@ -28,7 +28,7 @@ sidebar_position: 2
  - Example: Generally when the dependent commodity inventory service finds a failure, the developer is required to downgrade by modifying the code, so using FeatureProbe, once the dependent commodity inventory service finds a failure, it can quickly downgrade to get the equivalent commodity inventory data from the cache.
    + Process Description
      * The developer creates a switch called "Service Degrade" in the "online" environment of the project "My First Project", and the switch is configured as shown in the following figure:
-     ![storage service fallback screenshot](../../../../../pictures/en-Store_service_fallback.png)
+     ![storage service fallback screenshot](../../pictures/en-Store_service_fallback.png)
      * The developer associates the key of the switch (service_degrade) in the code to set the boolean type variations (whether to turn on degrade)
   
     ```java
@@ -48,7 +48,7 @@ sidebar_position: 2
 
    + Process Description
      * The operator created a switch called "Button Color AB Test" in the "online" environment of the project "My First Project", and the switch configuration is shown below:
-     ![AB test screenshot](../../../../../pictures/en-Color_ab_test.png)
+     ![AB test screenshot](../../pictures/en-Color_ab_test.png)
      * The developer associates the key of the switch (color_ab_test) in the code and sets the variations of the string type (color classification) corresponding to the well-defined parameter city
   
     ```java
