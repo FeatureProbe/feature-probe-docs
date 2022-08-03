@@ -130,7 +130,6 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} 滴滴云计算有限公司 京ICP备19038628号-2`,
       },
       prism: {
         theme: lightCodeTheme,
