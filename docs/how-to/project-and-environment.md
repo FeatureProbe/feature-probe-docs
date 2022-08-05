@@ -2,45 +2,44 @@
 sidebar_position: 1
 ---
 
-# 项目与环境
+# Project and Environment
 
-## 项目管理
-项目允许一个FeatureProbe帐户管理多个不同的业务目标。一般一个项目对应一个系统平台。例如，您可以创建一个名为“移动端应用程序”的项目和另一个名为“服务端应用程序”的项目。每个项目都有自己独特的环境和对应的功能开关。您可以在每个项目中创建多个环境，所有项目必须至少有一个环境
-系统会有一个初始化项目（My First Project），初始项目下有2个环境（test、online）每个环境都有自己的SDK密钥，用于将FeatureProbe SDK连接到特定环境。
-### 添加项目
+## Project Management
+Projects allow one FeatureProbe account to manage multiple different business goals. Generally a project corresponds to a system platform. For example, you can create a project called "Mobile Application" and another project called "Server Application". Each project has its own unique environment and corresponding functional switches. You can create multiple environments in each project, all projects must have at least one environment
+The system will have an initial project (My First Project) with 2 environments (test, online) each with its own SDK key to connect the FeatureProbe SDK to the specific environment.
+### Add project
 
 ![create project screenshot](../../pictures/en-create_project.png)
 
-1. 点击顶导“Projects”，进入项目列表页
-2. 点击添加项目按钮
-3. 填写项目名称
-4. 填写key（项目的唯一性标识，一旦创建不可编辑）
-5. 填写描述
-6. 点击创建按钮，即可完成项目的创建（项目一旦被创建，则不能删除。新创建的项目会自带一个online环境）
-7. 点击项目下的环境卡片，可直接进入该项目下该环境的开关列表页面
+1. Click "Projects" in the top menu to enter the project list page
+2. Click the Add Project button
+3. fill in the project name
+4. fill in the key (the project's unique identifier, once created, cannot be edited)
+5. Fill in the description
+6. Click the Create button to complete the creation of the project (once the project is created, it cannot be deleted. The newly created project will come with an online environment)
+7. Click the environment card under the project to go directly to the list of switches for that environment under the project
 
-### 编辑项目
+### Edit project
 
 ![create environment screenshot](../../pictures/en-create_environment.png)
 
+1. Click Edit Project Icon
+2. Edit the project information
+3. Click the Save button to finish editing the project
 
-1. 点击编辑项目icon
-2. 编辑项目信息
-3. 点击保存按钮，即可完成项目的编辑
+### Adding an environment
 
-### 添加环境
+1. Click Add Environment
+2. Fill in the environment name
+3. fill in the key (the unique identifier of the environment, unique under the same project, once created, cannot be edited)
+4. click the Create button to complete the creation of the environment (once the environment is created, it cannot be deleted)
 
-1. 点击添加环境
-2. 填写环境名称
-3. 填写key（环境的唯一性标识，同项目下唯一，一旦创建不可编辑）
-4. 点击创建按钮，即可完成环境的创建（环境一旦被创建，则不能删除）
+- Note: After the new environment is created, it will share the list of switches under the project (the template information of the switches), and the configuration information of the switches will need to be configured independently by entering the environment.
 
-- 注：新环境创建后，会共享该项目下的开关列表（开关的模板信息），开关的配置信息则需进入该环境去自主配置。
-
-### 编辑环境
+### Edit environment
 
 ![edit environment screenshot](../../pictures/en-edit_environment.png)
 
-1. 点击编辑环境
-2. 编辑环境信息
-3. 点击保存按钮，即可完成环境的编辑
+1. Click Edit Environment
+2. Edit the environment information
+3. Click the Save button to finish editing the environment

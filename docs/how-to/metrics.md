@@ -2,13 +2,13 @@
 sidebar_position: 4
 ---
 
-# 数据监控
+### Metrics
 
-### 查看开关的访问信息
-支持查看Variation【name】、【value】两个维度的访问数据（各环境间独立）
+### View the metrics of the toggle
+Support viewing access data of Variation [name] and [value] dimensions (independent between each environment)
 
-![evaluations screenshot](../../pictures/evaluations.png)
+![evaluations screenshot](../../pictures/en-evaluations.png)
 
-1. 统计信息：展示筛选时间段内每个Variation的总访问量
-2. 统计粒度：目前默认展示24小时内的访问信息，点击可切换查看7天内的访问信息
-3. 变更记录：每次【版本变更】都会展示变更标签（一个时间粒度内多次变更会合并展示一个变更标志），点击可跳转到对应的开关版本中，方便用户感知版本变更对访问数据的影响
+1. statistics: show the total number of visits for each Variation in the filtered time period
+2. Statistical granularity: the current default display of 24 hours of access information, click to switch to view the 7 days of access information
+3. Change records: Each time [version change] will display change labels (multiple changes within a time granularity will be combined to display a change flag), click to jump to the corresponding switch version, so that users can sense the impact of version changes on access data

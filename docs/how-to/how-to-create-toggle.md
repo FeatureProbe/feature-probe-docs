@@ -2,35 +2,35 @@
 sidebar_position: 2
 ---
 
-# 使用功能开关
+## Using Feature toggles
 
-## 使用功能开关
-FeatureProbe平台提供了强大的功能开关管理模块，功能开关通过选择目标流量，进行功能投放，通过持续观测数据逐步放量直到全量部署。
-### 开关仪表盘
+The FeatureProbe platform provides a powerful feature switch management module. Feature switches are used for feature placement by selecting target traffic and gradually releasing data through continuous observation until full volume is deployed.
+### Switch Dashboard
 
 ![toggles screenshot](../../pictures/en-toggles.png)
 
-1. 默认展示My First Project的online环境的开关列表信息
-2. 左侧导航栏提供了快速切换环境的入口（点击环境右侧的下拉icon）
-3. 通过筛选条件，我们可以根据"evaluated","enabled/disabled","tags","name/key/description"对开关进行快速的筛选
+1. default display of My First Project's online environment switch list information
+2. the left navigation bar provides a quick entry to switch environments (click the drop-down icon to the right of the environment)
+3. filter conditions allow us to quickly filter the switches by "evaluated", "enabled/disabled", "tags", "name/key/description"
 
-### 添加开关模板
-开关的“模板信息”（开关创建成功后，将同步成为已有环境的初始化信息）
+### Adding switch templates
+Switch "template information" (when the switch is created successfully, it will be synchronized with the initialization information of the existing environment)
 
 ![create toggle screenshot](../../pictures/en-create_toggle.png)
 
-1. 填写开关名称
-2. 填写开关的key（开关的唯一性标识，同项目下唯一，一旦创建不可编辑）
-3. 填写描述信息
-4. 选择标签（无初始值，可自行创建）
-5. 选择sdk类型
-6. 选择开关的return type（支持4种：Boolean、String、Number、JSON），一旦创建不可编辑
-7. 填写Variations
-    - 默认两个variations，value为空（最少2个，可自行增减）【value可更改，name可更改，description可更改】
+1. fill in the switch name
+2. fill in the key of the switch (a unique identifier for the switch, unique under the same project, not editable once created)
+3. fill in the description information
+4. select the label (no initial value, you can create it yourself)
+5. select the sdk type
+6. select the return type of the switch (4 types: Boolean, String, Number, JSON), which cannot be edited once created
+7. Fill in the Variations
+    - Default two variations, value is empty (at least 2, can be increased or decreased) [value can be changed, name can be changed, description can be changed].
 
-8. 填写disabled return value（开关禁用时的返回值），默认同步variation1的数据，可更改
-9. 点击创建按钮，完成开关的创建
+8. fill in the disabled return value (the return value when the switch is disabled), the default synchronization variation1 data, can be changed
+9. Click the Create button to complete the creation of the switch
 
-### 编辑开关模板
-开关的“模板信息”（编辑成功后，不会影响已有环境中的开关配置信息，仅同步到未来新环境的初始化信息）
+### Edit the switch template
+The "template information" of the switch (after successful editing, it will not affect the switch configuration information in the existing environment, but only synchronize the initialization information to the new environment in the future)
 
+Translated with www.DeepL.com/Translator (free version)

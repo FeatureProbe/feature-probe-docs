@@ -16,7 +16,9 @@ FeatureProbe平台提供了强大的功能开关管理模块，功能开关通�
 3. 通过筛选条件，我们可以根据"evaluated","enabled/disabled","tags","name/key/description"对开关进行快速的筛选
 
 ### 添加开关模板
-开关的“模板信息”（开关创建成功后，将同步成为已有环境的初始化信息）![create toggle screenshot](../../../../../pictures/create_toggle.png)
+开关的“模板信息”（开关创建成功后，将同步成为已有环境的初始化信息）
+
+![create toggle screenshot](../../../../../pictures/create_toggle.png)
 
 1. 填写开关名称
 2. 填写开关的key（开关的唯一性标识，同项目下唯一，一旦创建不可编辑）

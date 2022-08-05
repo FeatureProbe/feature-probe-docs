@@ -2,33 +2,33 @@
 sidebar_position: 5
 ---
 
-# 人群组
+# Segments
 
-## 人群组管理
-### 添加人群组
-常用人群可以设立单独的用户组，方便在开关中反复选用。
+## Segments management
+### Add Segment
+Commonly used groups of people can be set up as separate user groups, making it easy to select them repeatedly in the switch
 
 ![segment screenshot](../../pictures/en-segment.png)
 
-1. 填写人群组名称
-2. 填写人群组的key（人群组的唯一性标识，同项目下唯一，一旦创建不可编辑）
-3. 填写描述信息
-4. Rules：多个Rule之间为“或”关系（rule的顺序很重要，一个用户进来，是从上往下依次筛选的，命中了第一个Rule就不会再匹配下面的Rule，没命中的才会继续往下筛）
+1. fill in the group name
+2. fill in the crowd group key (the crowd group's unique identifier, unique under the same project, once created can not be edited)
+3. fill in the description information
+4. Rules: multiple Rule for the "or" relationship between (the order of rules is very important, a user comes in, from the top to the bottom in order to filter, hit the first Rule will not match the following Rule, not hit before continuing down the screen)
 
-  - 添加Rule：满足某些条件的“指定人群”
+  - Add Rule: "specified people" that meet certain conditions
  
-    + 填写rule名称
-    + 根据“用户属性”筛选“指定人群”，条件之间为且的关系
-      * 添加条件：选择用户属性（自定义添加，回车生效）、选择关系符、填写具体的值（自定义添加，回车生效）
-      * 删除条件：点击条件行右侧的删除icon，即可删除该条件
-    + 点击Rule卡片区域并拖动，可以对rule进行自由排序
-    + 删除Rule卡片：点击卡片右上角删除icon即可删除整条Rule
+    + Fill in the rule name
+    + filter "specified people" based on "user attributes", and the relationship between the conditions is and
+      * Add condition: select user attributes (custom add, enter to take effect), select relationship, fill in specific values (custom add, enter to take effect)
+      * Delete condition: click the delete icon on the right side of the condition line to delete the condition
+    + Click on the Rule card area and drag to sort the rules freely
+    + Delete Rule card: Click the delete icon in the upper right corner of the card to delete the whole Rule
 
-5. 点击创建按钮，即可完成人群组的创建
+5. Click the Create button to complete the creation of the crowd group
 
 
-### 编辑人群组
-编辑后的人群组，将同步到已使用该人群组的开关中。
+### Edit group
+The edited group will be synced to the switches that already use the group.
 
-### 删除人群组
-只有未被任何开关使用的人群组，才可以被删除。
+### Deleting Crowd Groups
+Only groups that are not used by any switch can be deleted.
