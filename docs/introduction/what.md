@@ -3,7 +3,7 @@ slug: /
 sidebar_position: 1
 ---
 
-#   What is Function Management
+#   What is Feature Management
 
 With the popularity of the agile movement and continuous delivery practices in the software development space, the software industry is increasingly relying on shorter delivery cycles to improve competitive advantage and achieve business success. However, for R&D team leaders, they need to be aware that continuous integration and continuous delivery bring many fundamental challenges to their teams' R&D efforts, and that increased speed inevitably increases the risk of delivery and disruption in the development process. Developers need tools specifically designed for the era of continuous integration and continuous delivery in order to increase speed while controlling risk and enhancing control.
   + We want every change to be deployed independently and grayed out so that problems can be identified early

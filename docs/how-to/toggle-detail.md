@@ -5,12 +5,12 @@ sidebar_position: 3
 ## Toggle targeting
 
 ### Toggle targeting
-The "configuration information" of the switch (not shared between each environment, independently owned, modification of the configuration information will not be synchronized to the "template information" of the switch), please switch to the target environment, and then configure (the initial information of the configuration information will be automatically synchronized to the "template information" of the switch) ")
+The "configuration information" of the toggle (not shared between each environment, independently owned, modification of the configuration information will not be synchronized to the "template information" of the toggle), please toggle to the target environment, and then configure (the initial information of the configuration information will be automatically synchronized to the "template information" of the toggle) ")
 
 ![toggle targeting screenshot](../../pictures/en-toggle_targeting.png)
 
-1. Status: the status of the switch (Disabled return value when disabled, Rules and Default Rule in the switch configuration when enabled)
-2. Variations: template information of the default synchronization switch (can be changed)
+1. Status: the status of the toggle (Disabled return value when disabled, Rules and Default Rule in the toggle configuration when enabled)
+2. Variations: template information of the default synchronization toggle (can be changed)
 3. Rules: "or" relationship between multiple Rules (the order of rules is very important, a user comes in and is screened from top to bottom, the first Rule hit will not match the following Rule, and the one not hit will continue to be screened down)
 
   - Add Rule: set "return value" for "specified group"
@@ -24,7 +24,7 @@ The "configuration information" of the switch (not shared between each environme
     + Delete Rule card: click the delete icon in the upper right corner of the card to delete the whole Rule
 
 4. Set Default Rule: set the default return value for "unspecified population": choose from variations [you can choose a certain variation (100% of this item), or specify a percentage for each variation (the sum of all the variations (the sum of all the variations must be 100%)] 5.
-5. Disabled return value: the template information of the default synchronization switch (can be changed)
+5. Disabled return value: the template information of the default synchronization toggle (can be changed)
 6. Click Publish to display the diff information before and after the change, and support filling in the [change description] (back in the history of the version)
 7. Click confirm to finish publishing
 

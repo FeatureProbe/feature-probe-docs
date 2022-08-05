@@ -5,7 +5,7 @@ sidebar_position: 1
 # Project and Environment
 
 ## Project Management
-Projects allow one FeatureProbe account to manage multiple different business goals. Generally a project corresponds to a system platform. For example, you can create a project called "Mobile Application" and another project called "Server Application". Each project has its own unique environment and corresponding functional switches. You can create multiple environments in each project, all projects must have at least one environment
+Projects allow one FeatureProbe account to manage multiple different business goals. Generally a project corresponds to a system platform. For example, you can create a project called "Mobile Application" and another project called "Server Application". Each project has its own unique environment and corresponding functional toggles. You can create multiple environments in each project, all projects must have at least one environment
 The system will have an initial project (My First Project) with 2 environments (test, online) each with its own SDK key to connect the FeatureProbe SDK to the specific environment.
 ### Add project
 
@@ -17,7 +17,7 @@ The system will have an initial project (My First Project) with 2 environments (
 4. fill in the key (the project's unique identifier, once created, cannot be edited)
 5. Fill in the description
 6. Click the Create button to complete the creation of the project (once the project is created, it cannot be deleted. The newly created project will come with an online environment)
-7. Click the environment card under the project to go directly to the list of switches for that environment under the project
+7. Click the environment card under the project to go directly to the list of toggles for that environment under the project
 
 ### Edit project
 
@@ -34,7 +34,7 @@ The system will have an initial project (My First Project) with 2 environments (
 3. fill in the key (the unique identifier of the environment, unique under the same project, once created, cannot be edited)
 4. click the Create button to complete the creation of the environment (once the environment is created, it cannot be deleted)
 
-- Note: After the new environment is created, it will share the list of switches under the project (the template information of the switches), and the configuration information of the switches will need to be configured independently by entering the environment.
+- Note: After the new environment is created, it will share the list of toggles under the project (the template information of the toggles), and the configuration information of the toggles will need to be configured independently by entering the environment.
 
 ### Edit environment
 

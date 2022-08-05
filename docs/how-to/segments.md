@@ -6,7 +6,7 @@ sidebar_position: 5
 
 ## Segments management
 ### Add Segment
-Commonly used groups of people can be set up as separate user groups, making it easy to select them repeatedly in the switch
+Commonly used groups of people can be set up as separate user groups, making it easy to select them repeatedly in the toggle
 
 ![segment screenshot](../../pictures/en-segment.png)
 
@@ -28,7 +28,7 @@ Commonly used groups of people can be set up as separate user groups, making it 
 
 
 ### Edit group
-The edited group will be synced to the switches that already use the group.
+The edited group will be synced to the toggles that already use the group.
 
 ### Deleting Crowd Groups
-Only groups that are not used by any switch can be deleted.
+Only groups that are not used by any toggle can be deleted.
