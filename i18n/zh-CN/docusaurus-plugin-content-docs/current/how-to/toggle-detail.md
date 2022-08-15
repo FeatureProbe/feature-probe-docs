@@ -30,13 +30,16 @@ sidebar_position: 3
 
 
 ### 连接SDK
-便于用户简单、高效的接入我们的SDK、明确知悉接入状态![sdk screenshot](../../../../../pictures/sdk.png)
+便于用户简单、高效的接入我们的SDK、明确知悉接入状态
+
+![sdk screenshot](../../../../../pictures/sdk.png)
 
 1. 步骤1：选择目标语言的SDK，点击【保存并继续】
 2. 步骤2：根据SDK生成代码行，可以快速复制到代码中，点击【继续】
 3. 步骤3：测试应用接入情况，返回接入结果。
 
 ### 查看历史版本
+
 ![history screenshot](../../../../../pictures/history.png)
 
 支持查看功能配置变更的完整历程

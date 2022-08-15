@@ -6,7 +6,9 @@ sidebar_position: 5
 
 ## 人群组管理
 ### 添加人群组
-常用人群可以设立单独的用户组，方便在开关中反复选用。![segment screenshot](../../../../../pictures/segment.png)
+常用人群可以设立单独的用户组，方便在开关中反复选用。
+
+![segment screenshot](../../../../../pictures/segment.png)
 
 1. 填写人群组名称
 2. 填写人群组的key（人群组的唯一性标识，同项目下唯一，一旦创建不可编辑）
