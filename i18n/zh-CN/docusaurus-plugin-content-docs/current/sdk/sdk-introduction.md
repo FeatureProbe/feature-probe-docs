@@ -14,25 +14,25 @@ SDK 通过 User 对象存储用户的特有属性，根据在 FeatureProbe 的 U
 ## 主要数据结构
 
 - FPConfig
-  - remote url: 服务端地址
-  - sdk key: 分为 server 和 client 两种，用于拉取开关信息，在 UI 平台的项目列表中可以找到
-  - refresh interval: 开关拉取间隔和开关访问信息上报间隔
-  - wait first response: 是否等待拉取开关后返回，如果是否，刚启动时的开关求值会拿到默认值 
+  - `remote url`: 服务端地址
+  - `sdk key`: 分为 server 和 client 两种，用于拉取开关信息，在 UI 平台的项目列表中可以找到
+  - `refresh interval`: 开关拉取间隔和开关访问信息上报间隔
+  - `wait first response`: 是否等待拉取开关后返回，如果是否，刚启动时的开关求值会拿到默认值 
 
 - FPUser
-  - new 方法: 参数为用户在业务中的唯一标识，用于区分不同的用户
-  - with 方法: 用来上传属性，会在平台的规则中根据属性返回不同的值
+  - `new` 方法: 参数为用户在业务中的唯一标识，用于区分不同的用户
+  - `with` 方法: 用来上传属性，会在平台的规则中根据属性返回不同的值
 
 - FeatureProbe
-  - value 方法: 分为 bool/string/number/json 四种，用于获取 UI 平台中规则对应的值，四种类型对应平台开关创建的四种类型
-  - detail 方法: 分为 bool/string/number/json 四种，用于获取 UI 平台中规则对应的值，和更多的调试信息
+  - `value` 方法: 分为 bool/string/number/json 四种，用于获取 UI 平台中规则对应的值，四种类型对应平台开关创建的四种类型
+  - `detail` 方法: 分为 bool/string/number/json 四种，用于获取 UI 平台中规则对应的值，和更多的调试信息
 
 - FPDetail
-  - value : UI 平台中规则对应的值
-  - rule index: 命中规则的在 UI 配置中规则的序号
-  - variation index: 返回的值，在 UI 平台中variation列表中的序号
-  - version: 命中开关的版本
-  - reason: 返回值对应的原因，如 disabled, default, not exist 等
+  - `value` : UI 平台中规则对应的值
+  - `rule index`: 命中规则的在 UI 配置中规则的序号
+  - `variation index`: 返回的值，在 UI 平台中variation列表中的序号
+  - `version`: 命中开关的版本
+  - `reason`: 返回值对应的原因，如 disabled, default, not exist 等
 
 
 ## SDK 区别
