@@ -10,7 +10,7 @@ This document mainly introduces the classification, implementation, similarities
 
 SDK matches the user attributes according to the toggle rules pre-configured in the UI platform of FeatureProbe, and returns the rule value. For example, for a feature in the APP is pre-set in advance to control the opening and closing. After running for a period of time, it is found that a bug will be triggered under certain circumstances, then we can have a rule that is lower than the specified version, and this rule value returns false . Then we need to add the `app_version` attribute to SDK User object, so that when the attribute is passed to the FeatureProbe server, the corresponding rule will return false for the lower version, closing that feature.
 
-## Main Data Structure
+## Core Data Structure
 
 - FPConfig
   - `remote url`: url to connect featureprobe service.
