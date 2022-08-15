@@ -11,6 +11,30 @@ sidebar_position: 1
 SDK 通过 User 对象存储用户的特有属性，根据在 FeatureProbe 的 UI 平台中配置的开关规则，匹配属性，返回对应设置的值。
 比如 APP 中某个功能，提前预埋了功能开关，控制功能的打开和关闭，运行一段时间，发现某种情况下会触发 BUG，那么我们可以有一条规则是低于指定版本，这个 feature 返回 false。那就需要我们的 User 对象中，加入了 app_version 这个属性，这样属性传给 FeatureProbe 服务端时，对应规则就会对低版本返回 false，关闭对应功能。
 
+## 主要数据结构
+
+- FPConfig
+  - remote url: 服务端地址
+  - sdk key: 分为 server 和 client 两种，用于拉取开关信息，在 UI 平台的项目列表中可以找到
+  - refresh interval: 开关拉取间隔和开关访问信息上报间隔
+  - wait first response: 是否等待拉取开关后返回，如果是否，刚启动时的开关求值会拿到默认值 
+
+- FPUser
+  - new 方法: 参数为用户在业务中的唯一标识，用于区分不同的用户
+  - with 方法: 用来上传属性，会在平台的规则中根据属性返回不同的值
+
+- FeatureProbe
+  - value 方法: 分为 bool/string/number/json 四种，用于获取 UI 平台中规则对应的值，四种类型对应平台开关创建的四种类型
+  - detail 方法: 分为 bool/string/number/json 四种，用于获取 UI 平台中规则对应的值，和更多的调试信息
+
+- FPDetail
+  - value : UI 平台中规则对应的值
+  - rule index: 命中规则的在 UI 配置中规则的序号
+  - variation index: 返回的值，在 UI 平台中variation列表中的序号
+  - version: 命中开关的版本
+  - reason: 返回值对应的原因，如 disabled, default, not exist 等
+
+
 ## SDK 区别
 
 目前 SDK 分为 Client-side SDK 和 Server-side SDK 两种
