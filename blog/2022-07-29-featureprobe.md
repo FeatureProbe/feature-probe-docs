@@ -129,11 +129,10 @@ if enableFeature123 {
 
 如果你对功能开关管理感兴趣，欢迎加入到我们的开源项目中来，共同来推动软件开发行业的效能。同时也可以扫描以下二维码加入我们的开源沟通群大家一起来沟通探讨。
 
-<img width="239" alt="image" src="https://user-images.githubusercontent.com/20610466/184835902-4a466b69-6f53-4898-850e-ea6e5548d015.png">
+<img src="https://user-images.githubusercontent.com/20610466/184835902-4a466b69-6f53-4898-850e-ea6e5548d015.png" width = "200" height = "300" div align=center />
+
 
 如以上二维码失效，可扫描以下二维码，添加我们的工作人员。
 
-<img width="239" alt="image" src="https://user-images.githubusercontent.com/20610466/184836044-fc5396aa-8ac9-4a95-b8eb-70050caa686f.png">
-
-
+<img src="https://user-images.githubusercontent.com/20610466/184836044-fc5396aa-8ac9-4a95-b8eb-70050caa686f.png" width = "220" height = "200" div align=center />
 
