@@ -9,7 +9,7 @@ const config = {
   title: 'Feature Probe',
   tagline: 'An open source feature management service',
   url: 'https://featureprobe.github.io',
-  baseUrl: '/feature-probe-docs/',
+  baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
