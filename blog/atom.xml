@@ -2,22 +2,24 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://featureprobe.github.io/feature-probe-docs/blog</id>
     <title>Feature Probe Blog</title>
-    <updated>2022-08-01T00:00:00.000Z</updated>
+    <updated>2022-08-29T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://featureprobe.github.io/feature-probe-docs/blog"/>
     <subtitle>Feature Probe Blog</subtitle>
     <icon>https://featureprobe.github.io/feature-probe-docs/img/favicon.ico</icon>
     <entry>
-        <title type="html"><![CDATA[为什么 FeatureProbe 用 Rust 和 uniffi-rs 开发跨平台移动端 SDK？]]></title>
-        <id>Rust</id>
-        <link href="https://featureprobe.github.io/feature-probe-docs/blog/Rust"/>
-        <updated>2022-08-01T00:00:00.000Z</updated>
+        <title type="html"><![CDATA[FeatureProbe的架构设计和主要特点]]></title>
+        <id>FeatureProbe Architecture</id>
+        <link href="https://featureprobe.github.io/feature-probe-docs/blog/FeatureProbe Architecture"/>
+        <updated>2022-08-29T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Coming soon!]]></summary>
+        <content type="html"><![CDATA[<p>Coming soon!</p>]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[FeatureProbe：如何快速、安全地进行功能发布]]></title>
         <id>FeatureProbe</id>
         <link href="https://featureprobe.github.io/feature-probe-docs/blog/FeatureProbe"/>
-        <updated>2022-07-29T00:00:00.000Z</updated>
+        <updated>2022-08-15T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[在产品快速迭代中，要做到高效的功能发布同时还要降低上线风险，需要采用合适的技术对功能发布进行精细化的管控。FeatureProbe 就是一个高效的功能管理（Feature management）开源服务，它提供了灰度放量、AB实验、实时配置变更等针对功能粒度的一系列管理能力，本文将介绍如何使用 FeatureProbe 进行快速、安全地做功能发布和迭代。]]></summary>
         <content type="html"><![CDATA[<p>在产品快速迭代中，要做到高效的功能发布同时还要降低上线风险，需要采用合适的技术对功能发布进行精细化的管控。FeatureProbe 就是一个高效的功能管理（Feature management）开源服务，它提供了灰度放量、AB实验、实时配置变更等针对功能粒度的一系列管理能力，本文将介绍如何使用 FeatureProbe 进行快速、安全地做功能发布和迭代。</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="一动态配置">一、动态配置<a class="hash-link" href="#一动态配置" title="Direct link to heading">​</a></h3><p>如果你没有接触过功能管理服务，那相信你对配置中心不会陌生。从分布式系统兴起之后，配置中心已经是分布式系统中不可或缺的一部分。从技术上来说，功能管理或配置中心本质上都是通过配置规则动态控制应用程序行为，所带来的好处是省去了修改代码、编译、打包、部署流程。在动态配置的实践中，我们通常会以 <strong>Key-Value</strong> 的形式将配置规则存储在某个服务中统一管理，并通过数据分发将配置传输至应用程序中，同时还有一个可以给应用程序获取配置的客户端库(SDK)。
 下面通过一个示例演示 <strong>Key-Value</strong> 配置以及如何通过代码获取配置：</p><div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">// key-value config:</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">{ "enable_feature_124": true }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">// sdk code: </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">sdkClient.BooleanValue("enable_feature_124") =&gt; true</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg class="copyButtonIcon_y97N" viewBox="0 0 24 24"><path d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg class="copyButtonSuccessIcon_LjdS" viewBox="0 0 24 24"><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div><p>对于一些简单配置需求都可以用这种 <strong>Key-Value</strong> 方式组织和获取配置，例如： </p><ul><li><strong>“控制功能 #124 关闭或开启”</strong>    </li><li><strong>“将 'name' 文本框的字符大小限制为 256 个字符”</strong></li><li><strong>“redis 的连接地址是 '172.48.1.4:6379' ”</strong></li></ul><p>与上述类似的使用方式已经在功能开关、应用程序配置、快速限流降级等领域被广泛应用。
