@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://featureprobe.github.io/feature-probe-docs/zh-CN/blog</id>
+    <id>https://featureprobe.github.io/zh-CN/blog</id>
     <title>Feature Probe Blog</title>
     <updated>2022-08-29T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://featureprobe.github.io/feature-probe-docs/zh-CN/blog"/>
+    <link rel="alternate" href="https://featureprobe.github.io/zh-CN/blog"/>
     <subtitle>Feature Probe Blog</subtitle>
-    <icon>https://featureprobe.github.io/feature-probe-docs/zh-CN/img/favicon.ico</icon>
+    <icon>https://featureprobe.github.io/zh-CN/img/favicon.ico</icon>
     <entry>
         <title type="html"><![CDATA[FeatureProbe的架构设计和主要特点]]></title>
         <id>FeatureProbe Architecture</id>
-        <link href="https://featureprobe.github.io/feature-probe-docs/zh-CN/blog/FeatureProbe Architecture"/>
+        <link href="https://featureprobe.github.io/zh-CN/blog/FeatureProbe Architecture"/>
         <updated>2022-08-29T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Coming soon!]]></summary>
         <content type="html"><![CDATA[<p>Coming soon!</p>]]></content>
@@ -18,7 +18,7 @@
     <entry>
         <title type="html"><![CDATA[FeatureProbe：如何快速、安全地进行功能发布]]></title>
         <id>FeatureProbe</id>
-        <link href="https://featureprobe.github.io/feature-probe-docs/zh-CN/blog/FeatureProbe"/>
+        <link href="https://featureprobe.github.io/zh-CN/blog/FeatureProbe"/>
         <updated>2022-08-15T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[在产品快速迭代中，要做到高效的功能发布同时还要降低上线风险，需要采用合适的技术对功能发布进行精细化的管控。FeatureProbe 就是一个高效的功能管理（Feature management）开源服务，它提供了灰度放量、AB实验、实时配置变更等针对功能粒度的一系列管理能力，本文将介绍如何使用 FeatureProbe 进行快速、安全地做功能发布和迭代。]]></summary>
         <content type="html"><![CDATA[<p>在产品快速迭代中，要做到高效的功能发布同时还要降低上线风险，需要采用合适的技术对功能发布进行精细化的管控。FeatureProbe 就是一个高效的功能管理（Feature management）开源服务，它提供了灰度放量、AB实验、实时配置变更等针对功能粒度的一系列管理能力，本文将介绍如何使用 FeatureProbe 进行快速、安全地做功能发布和迭代。</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="一动态配置">一、动态配置<a class="hash-link" href="#一动态配置" title="标题的直接链接">​</a></h3><p>如果你没有接触过功能管理服务，那相信你对配置中心不会陌生。从分布式系统兴起之后，配置中心已经是分布式系统中不可或缺的一部分。从技术上来说，功能管理或配置中心本质上都是通过配置规则动态控制应用程序行为，所带来的好处是省去了修改代码、编译、打包、部署流程。在动态配置的实践中，我们通常会以 <strong>Key-Value</strong> 的形式将配置规则存储在某个服务中统一管理，并通过数据分发将配置传输至应用程序中，同时还有一个可以给应用程序获取配置的客户端库(SDK)。
