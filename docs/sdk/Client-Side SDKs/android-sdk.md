@@ -1,8 +1,8 @@
 ---
-sidebar_position: 3
+sidebar_position: 2
 ---
 
-# Client SDK Android
+# Android SDK
 
 ## Kotlin
 

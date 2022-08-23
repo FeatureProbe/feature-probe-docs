@@ -1,6 +1,6 @@
 {
-  "label": "Server-Side SDKs",
-  "position": 2,
+  "label": "Client-Side SDKs",
+  "position": 3,
   "link": {
     "type": "generated-index",
     "description": " "

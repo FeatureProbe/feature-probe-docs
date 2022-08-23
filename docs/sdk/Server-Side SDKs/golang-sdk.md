@@ -2,13 +2,19 @@
 sidebar_position: 2
 ---
 
-# Server SDK Golang
+# Golang SDK
+
+Feature Probe is an open source feature management service. This SDK is used to control features in golang programs. 
+This SDK is designed primarily for use in multi-user systems such as web servers and applications.
 
 ## Try Out Demo Code
 
-We provide a runnable demo code for you to understand how FeatureProbe SDK is used.
+We provide a runnable [demo code](https://github.com/FeatureProbe/server-sdk-java/blob/main/src/main/java/com/featureprobe/sdk/example/) for you to understand how FeatureProbe SDK is used.
 
-1. Start FeatureProbe Service with docker composer. [How to](https://github.com/FeatureProbe/FeatureProbe#1-starting-featureprobe-service-with-docker-compose)
+1. Select a FeatureProbe platform to connect to.
+    * You can use our online demo environment [FeatureProbe Demo](https://featureprobe.io/login).
+    * Or you can use docker composer to [set up your own FeatureProbe service](https://github.com/FeatureProbe/FeatureProbe#1-starting-featureprobe-service-with-docker-compose)
+
 2. Download this repo and run the demo program:
 ```bash
 git clone https://github.com/FeatureProbe/server-sdk-go.git
@@ -46,8 +52,8 @@ After you install and import the SDK, create a single, shared instance of the Fe
 ```go
 
 config := featureprobe.FPConfig{
-    RemoteUrl:       "https://127.0.0.1:4007",
-    ServerSdkKey:    "serverSdkKey",
+    RemoteUrl:       "FEATURE_PROBE_SERVER_URL",
+    ServerSdkKey:    "FEATURE_PROBE_SERVER_SDK_KEY",
     RefreshInterval: 1000,
 }
 
@@ -59,8 +65,9 @@ fp, err := featureprobe.NewFeatureProbe(config)
 You can use sdk to check which variation a particular user will receive for a given feature flag.
 
 ```go
-user := featureprobe.NewUser("user")
-val := fp.BoolValue("bool_toggle", user, true)
+user := featureprobe.NewUser("USER_ID_FOR_PERCENTAGE_ROLLOUT")
+user.With("ATTRIBUTE_NAME_IN_RULE", VALUE_OF_ATTRIBUTE);    // Call With() for each attribute used in Rule.
+val := fp.BoolValue("YOUR_TOGGLE_KEY", user, true)
 ```
 
 ### Step 4. Unit Testing (Optional)
