@@ -20,8 +20,8 @@ We provide a runnable [demo code](https://github.com/FeatureProbe/server-sdk-jav
 git clone https://github.com/FeatureProbe/server-sdk-java.git
 cd server-sdk-java
 ```
-3. Find the Demo code in `src/main/java/com/featureprobe/sdk/example/FeatureProbeDemo.java` change `server url` and
-   `server sdk key` to match the platform you selected.
+3. Find the Demo code in `src/main/java/com/featureprobe/sdk/example/FeatureProbeDemo.java` change `FEATURE_PROBE_SERVER_URL` and
+   `FEATURE_PROBE_SERVER_SDK_KEY` to match the platform you selected.
     * For online demo environment:
         * `FEATURE_PROBE_SERVER_URL` = "https://featureprobe.io/server"
         * `FEATURE_PROBE_SERVER_SDK_KEY` please copy from GUI:
@@ -102,11 +102,11 @@ git pull --recurse-submodules
 mvn test
 ```
 
-## Mock
+## Mock FeatureProbe for Unittest
 
 You can mock FeatureProbe SDK returned value, to run unittest of your code.
 
-### 1、Add powermock SDK to your project:
+### 1. Add powermock SDK to your project:
 
 ```xml
 <dependency>
@@ -123,7 +123,7 @@ You can mock FeatureProbe SDK returned value, to run unittest of your code.
 </dependency>
 ```
 
-### 2、Mock Toggle
+### 2. Mock Toggle
 
 #### Target Method
 
