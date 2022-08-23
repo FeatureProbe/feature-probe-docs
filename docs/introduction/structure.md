@@ -8,7 +8,7 @@ sidebar_position: 4
 
 ![featureprobe architecture](../../pictures/structure.png)
 
-* **FeatureProbe UI** - provides users with a visual UI interface for managing and publishing feature switches.
+* **FeatureProbe UI** - Provides users with a visual UI interface for managing and publishing feature switches.
 * **FeatureProbe API** - Provides data management capabilities for the UI and external Open API services, designed to strictly adhere to Restful specifications, and as a common API for feature management domain not only provides core data management capabilities for the UI, but you can also automate switch rule changes and publishing based on this API. View OpenAPI documentation
 * **FeatureProbe Server** - Provides a high-performance switch rule determination engine and second-level data distribution capabilities.
 * **FeatureProbe SDK** - We provide SDKs for all major languages to obtain switch rule determination results, allowing you to quickly access FeatureProbe in your application to implement the corresponding feature switching capabilities.
