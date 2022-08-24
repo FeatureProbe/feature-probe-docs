@@ -34,5 +34,21 @@
   "sidebar.defaultSidebar.category.Best Practices.link.generated-index.description": {
     "message": "最佳实践",
     "description": "The generated-index page description for category Best Practices in sidebar defaultSidebar"
+  },
+  "sidebar.defaultSidebar.category.Server-Side SDKs": {
+    "message": "服务端SDK",
+    "description": "The label for category Server-Side SDKs in sidebar defaultSidebar"
+  },
+  "sidebar.defaultSidebar.category.Server-Side SDKs.link.generated-index.description": {
+    "message": " ",
+    "description": "The generated-index page description for category Server-Side SDKs in sidebar defaultSidebar"
+  },
+  "sidebar.defaultSidebar.category.Client-Side SDKs": {
+    "message": "客户端SDK",
+    "description": "The label for category Client-Side SDKs in sidebar defaultSidebar"
+  },
+  "sidebar.defaultSidebar.category.Client-Side SDKs.link.generated-index.description": {
+    "message": " ",
+    "description": "The generated-index page description for category Client-Side SDKs in sidebar defaultSidebar"
   }
 }
