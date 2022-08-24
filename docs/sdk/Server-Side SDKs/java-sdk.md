@@ -15,7 +15,7 @@ We provide a runnable [demo code](https://github.com/FeatureProbe/server-sdk-jav
     * You can use our online demo environment [FeatureProbe Demo](https://featureprobe.io/login).
     * Or you can use docker composer to [set up your own FeatureProbe service](https://github.com/FeatureProbe/FeatureProbe#1-starting-featureprobe-service-with-docker-compose)
 
-2. Download this repo and run the demo program:
+2. Download this repo:
 ```bash
 git clone https://github.com/FeatureProbe/server-sdk-java.git
 cd server-sdk-java
@@ -80,7 +80,6 @@ public class Demo {
 You can use sdk to check which variation a particular user will receive for a given feature flag.
 
 ```java
-
 FPUser user = new FPUser(/* uniqueUserId for percentage rollout */);
 user.with("ATTRIBUTE_NAME_IN_RULE", VALUE_OF_ATTRIBUTE);    // Call with() for each attribute used in Rule.
 boolean boolValue = fpClient.boolValue("YOUR_TOGGLE_KEY", user, false);
@@ -89,7 +88,6 @@ if (boolValue) {
 } else {
    // the code to run if the toggle is off
 }
-
 ```
 
 ## Test of this SDK

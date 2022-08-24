@@ -1,8 +1,8 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
 ---
 
-# 客户端 SDK JavaScript
+# JavaScript SDK
 
 ## 快速尝试 Demo Code
 

@@ -1,8 +1,8 @@
 ---
-sidebar_position: 4
+sidebar_position: 3
 ---
 
-# 客户端 SDK iOS
+# iOS SDK
 
 ## iOS Usage
 

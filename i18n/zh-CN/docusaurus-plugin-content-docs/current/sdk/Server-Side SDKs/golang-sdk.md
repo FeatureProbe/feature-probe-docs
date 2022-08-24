@@ -1,8 +1,12 @@
 ---
-sidebar_position: 5
+sidebar_position: 2
 ---
 
 # 服务端 SDK Golang
+
+使用此SDK可以在后端Golang项目中使用FeatureProbe。后端项目通常只需要实例化一个FeatureProbe SDK（Client）
+然后针对不同用户的请求，调用FeatureProbe Client获取对每一个用户的开关处理结果。
+服务端SDK采用异步连接FeatureProbe服务器，并将判定规则在本地内存缓存的实现方式。所有对用户代码暴露的接口都只涉及内存操作，用户完全不必担心性能问题。
 
 ## 快速尝试 Demo Code
 
