@@ -12,7 +12,7 @@
     "description": "The generated-index page description for category Introduction in sidebar defaultSidebar"
   },
   "sidebar.defaultSidebar.category.How-to guides": {
-    "message": "使用方法",
+    "message": "用户手册",
     "description": "The label for category How-to guides in sidebar defaultSidebar"
   },
   "sidebar.defaultSidebar.category.How-to guides.link.generated-index.description": {
@@ -20,11 +20,11 @@
     "description": "The generated-index page description for category How-to guides in sidebar defaultSidebar"
   },
   "sidebar.defaultSidebar.category.SDK": {
-    "message": "SDK",
+    "message": "接入SDK",
     "description": "The label for category SDK in sidebar defaultSidebar"
   },
   "sidebar.defaultSidebar.category.SDK.link.generated-index.description": {
-    "message": "sdk",
+    "message": "FeatureProbe提供了适合各种编程语言的SDK",
     "description": "The generated-index page description for category SDK in sidebar defaultSidebar"
   },
   "sidebar.defaultSidebar.category.Best Practices": {

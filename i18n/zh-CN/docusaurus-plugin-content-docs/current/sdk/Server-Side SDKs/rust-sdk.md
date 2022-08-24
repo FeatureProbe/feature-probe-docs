@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# 服务端 SDK Rust
+# Rust SDK
 
 使用此SDK可以在后端Rust项目中使用FeatureProbe。后端项目通常只需要实例化一个FeatureProbe SDK（Client）
 然后针对不同用户的请求，调用FeatureProbe Client获取对每一个用户的开关处理结果。

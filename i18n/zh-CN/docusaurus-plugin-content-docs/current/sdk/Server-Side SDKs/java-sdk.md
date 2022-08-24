@@ -2,10 +2,11 @@
 sidebar_position: 1
 ---
 
-# 服务端 SDK Java
+# Java SDK
 
-使用此SDK可以在后端Java项目中使用FeatureProbe。后端项目通常只需要实例化一个FeatureProbe SDK（Client）
+使用此SDK可以在后端Java项目中使用FeatureProbe。后端项目通常只需要实例化一个FeatureProbe SDK（Client）。
 然后针对不同用户的请求，调用FeatureProbe Client获取对每一个用户的开关处理结果。
+
 服务端SDK采用异步连接FeatureProbe服务器，并将判定规则在本地内存缓存的实现方式。所有对用户代码暴露的接口都只涉及内存操作，用户完全不必担心性能问题。
 
 ## 快速尝试 Demo Code
@@ -39,9 +40,9 @@ mvn package
 java -jar ./target/server-sdk-java-1.2.1.jar
 ```
 
-## 服务接入指南
+## 接入指南
 
-在本指南中，我们解释了如何使用 FeatureProbe 在 Java 应用程序中使用功能开关。
+以下将介绍如何在用户工程代码中使用 FeatureProbe 与功能开关。
 
 ### 步骤 1. 安装 FeatureProbe SDK
 
