@@ -2,13 +2,12 @@
 sidebar_position: 5
 ---
 
-# Segments
+# How to use segments
 
-## Segments management
-### Add Segment
+## Add Segment
 Commonly used groups of people can be set up as separate user groups, making it easy to select them repeatedly in the toggle
 
-![segment screenshot](../../pictures/en-segment.png)
+![segment screenshot](../../pictures/segment_en.png)
 
 1. fill in the group name
 2. fill in the crowd group key (the crowd group's unique identifier, unique under the same project, once created can not be edited)
@@ -27,8 +26,8 @@ Commonly used groups of people can be set up as separate user groups, making it 
 5. Click the Create button to complete the creation of the crowd group
 
 
-### Edit group
+## Edit group
 The edited group will be synced to the toggles that already use the group.
 
-### Deleting Crowd Groups
+## Deleting Crowd Groups
 Only groups that are not used by any toggle can be deleted.

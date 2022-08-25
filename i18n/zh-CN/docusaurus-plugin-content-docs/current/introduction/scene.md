@@ -14,7 +14,7 @@ FeatureProbe最常见的应用场景是新功能的发布或新版本的发布�
 
    + 流程说明
      * 运营人员在FeatureProbe上新增项目"My First Project"，并在项目的"online"环境下创建一个名叫"Promotional Campaign"的开关，开关配置如下图所示:
-     ![commodity spike activity screenshot](../../../../../pictures/en-Commodity_spike_activity.png)
+     ![commodity spike activity screenshot](../../../../../pictures/commodity_spike_activity.png)
      * 开发人员在代码中引用FeatureProbe的sdk，配置"online"的密钥，并关联开关的key（promotion_activity），设置number类型的variations（用户价格分层）对应好定义的参数city
   
     ```java
@@ -36,7 +36,7 @@ FeatureProbe最常见的应用场景是新功能的发布或新版本的发布�
 
    + 流程说明
      * 开发人员在项目My First Project"的"online"环境下创建一个名叫"Service Degrade"的开关，开关配置如下图所示:
-     ![storage service fallback screenshot](../../../../../pictures/en-Store_service_fallback.png)
+     ![storage service fallback screenshot](../../../../../pictures/store_service_fallback.png)
      * 开发人员在代码中关联开关的key（service_degrade），设置boolean类型的variations（是否打开降级）
   
     ```java
@@ -56,7 +56,7 @@ FeatureProbe最常见的应用场景是新功能的发布或新版本的发布�
 - 操作流程
    + 流程说明
      * 运营人员在项目My First Project"的"online"环境下创建一个名叫"Button Color AB Test"的开关，开关配置如下图所示:
-     ![AB test screenshot](../../../../../pictures/en-Color_ab_test.png)
+     ![AB test screenshot](../../../../../pictures/color_ab_test.png)
      * 开发人员在代码中关联开关的key（color_ab_test），设置string类型的variations（颜色分类）对应好定义的参数city
   
     ```java

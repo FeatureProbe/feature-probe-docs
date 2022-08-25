@@ -4,13 +4,12 @@ sidebar_position: 1
 
 # 项目与环境
 
-
 ## 项目管理
 项目允许一个FeatureProbe帐户管理多个不同的业务目标。一般一个项目对应一个系统平台。例如，您可以创建一个名为“移动端应用程序”的项目和另一个名为“服务端应用程序”的项目。每个项目都有自己独特的环境和对应的功能开关。您可以在每个项目中创建多个环境，所有项目必须至少有一个环境
 系统会有一个初始化项目（My First Project），初始项目下有2个环境（test、online）每个环境都有自己的SDK密钥，用于将FeatureProbe SDK连接到特定环境。
 ### 添加项目
 
-![create project screenshot](../../../../../pictures/create_project.png)
+![create project screenshot](../../../../../pictures/create_project_zh.png)
 
 1. 点击顶导“Projects”，进入项目列表页
 2. 点击添加项目按钮
@@ -22,7 +21,7 @@ sidebar_position: 1
 
 ### 编辑项目
 
-![create environment screenshot](../../../../../pictures/create_environment.png)
+![create environment screenshot](../../../../../pictures/create_environment_zh.png)
 
 1. 点击编辑项目icon
 2. 编辑项目信息
@@ -39,7 +38,7 @@ sidebar_position: 1
 
 ### 编辑环境
 
-![edit environment screenshot](../../../../../pictures/edit_environment.png)
+![edit environment screenshot](../../../../../pictures/edit_environment_zh.png)
 
 1. 点击编辑环境
 2. 编辑环境信息

@@ -2,7 +2,7 @@
 sidebar_position: 4
 ---
 
-# FeatureProbe 架构
+# 架构设计
 
 下图是  FeatureProbe 的整体架构模块的概览：
 

@@ -29,7 +29,7 @@ cd server-sdk-java
     * 对于在线演示环境:
         * `FEATURE_PROBE_SERVER_URL` = "https://featureprobe.io/server"
         * `FEATURE_PROBE_SERVER_SDK_KEY` please copy from GUI:
-          ![server_sdk_key snapshot](../../../../../../pictures/server_sdk_key.png)
+          ![server_sdk_key snapshot](../../../../../../pictures/server_sdk_key_zh.png)
     * 对于本地docker环境:
         * `FEATURE_PROBE_SERVER_URLl` = "http://YOUR_DOCKER_IP:4009/server"
         * `FEATURE_PROBE_SERVER_SDK_KEY` = "server-8ed48815ef044428826787e9a238b9c6a479f98c"

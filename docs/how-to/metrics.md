@@ -2,12 +2,12 @@
 sidebar_position: 4
 ---
 
-### Metrics
+# How to use metrics
 
-### View the metrics of the toggle
+## View the toggle metrics
 Support viewing access data of Variation [name] and [value] dimensions (independent between each environment)
 
-![evaluations screenshot](../../pictures/en-evaluations.png)
+![evaluations screenshot](../../pictures/evaluations_en.png)
 
 1. statistics: show the total number of visits for each Variation in the filtered time period
 2. Statistical granularity: the current default display of 24 hours of access information, click to toggle to view the 7 days of access information
