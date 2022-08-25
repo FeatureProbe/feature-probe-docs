@@ -9,7 +9,7 @@ sidebar_position: 2
 ### Step 1. Install SDK
 
 ```shel
-implementation 'com.featureprobe.mobile:android_sdk:1.1.0@aar'
+implementation 'com.featureprobe.mobile:android_sdk:1.2.0@aar'
 implementation 'net.java.dev.jna:jna:5.7.0@aar'
 ```
 
@@ -18,8 +18,8 @@ implementation 'net.java.dev.jna:jna:5.7.0@aar'
 ```kotlin
 import com.featureprobe.mobile.*;
 
-val url = FpUrlBuilder("remote_url/").build();
-val user = FpUser("user@company.com")
+val url = FpUrlBuilder("featureprobe.io/server").build();
+val user = FpUser()
 user.setAttr("name", "bob")
 val config = FpConfig(url!!, "client-9d885a68ca2955dfb3a7c95435c0c4faad70b50d", 10u, true)
 val fp = FeatureProbe(config, user)
@@ -28,7 +28,7 @@ val fp = FeatureProbe(config, user)
 ### Step 3.  Use the feature toggle
 
 ``` kotlin
-val showFeature = fp.boolValue("your.toggle.key", false)
+val showFeature = fp.boolValue("toggle_key", false)
 if (showFeature) {
     # application code to show the feature
 } else {

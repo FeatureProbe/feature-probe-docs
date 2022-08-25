@@ -25,8 +25,8 @@ Cocoapods:
 ```swift
 import featureprobe
 
-let url = FpUrlBuilder(remoteUrl: "remote_url/").build();
-let user = FpUser(key: "user@company.com")
+let url = FpUrlBuilder(remoteUrl: "featureprobe.io/server").build();
+let user = FpUser()
 user.setAttr(key: "name", value: "bob")
 let config = FpConfig(
     remoteUrl: url!,
@@ -37,10 +37,10 @@ let config = FpConfig(
 let fp = FeatureProbe(config: config, user: user)
 ```
 
-#### 步骤 3.  使用 FeatureProbe 开关
+#### 步骤 3. 使用 FeatureProbe 开关
 
 ```swift
-let showFeature = fp.boolValue("your.toggle.key", false)
+let showFeature = fp.boolValue("toggle_key", false)
 if showFeature {
     # application code to show the feature
 } else {
@@ -60,7 +60,7 @@ Find the Demo code in [example](https://github.com/FeatureProbe/client-sdk-mobil
 
 ### Objective-C
 
-####  步骤 1. 安装 SDK
+#### 步骤 1. 安装 SDK
 
 Cocoapods
 
@@ -73,9 +73,9 @@ add `pod 'FeatureProbe', :git => 'git@github.com:FeatureProbe/client-sdk-ios.git
 ```objective-c
 #import "FeatureProbe-Swift.h"
 
-NSString *urlStr = @"remote_url/";
+NSString *urlStr = @"featureprobe.io/server";
 FpUrl *url = [[[FpUrlBuilder alloc] initWithRemoteUrl: urlStr] build];
-FpUser *user = [[FpUser alloc] initWithKey:@"user_key"];
+FpUser *user = [[FpUser alloc] init];
 [user setAttrWithKey:@"name" value:@"bob"];
 FpConfig *config = [[FpConfig alloc] initWithRemoteUrl: url
                                           clientSdkKey:@"client-9d885a68ca2955dfb3a7c95435c0c4faad70b50d"
@@ -84,10 +84,10 @@ FpConfig *config = [[FpConfig alloc] initWithRemoteUrl: url
 FeatureProbe *fp = [[FeatureProbe alloc] initWithConfig:config user:user];
 ```
 
-#### 步骤 3.  使用 FeatureProbe 开关
+#### 步骤 3. 使用 FeatureProbe 开关
 
 ```objective-c
-bool showFeature = [fp boolValueWithKey: @"your.toggle.key" defaultValue: false];
+bool showFeature = [fp boolValueWithKey: @"toggle_key" defaultValue: false];
 if (showFeature) {
     # application code to show the feature
 } else {

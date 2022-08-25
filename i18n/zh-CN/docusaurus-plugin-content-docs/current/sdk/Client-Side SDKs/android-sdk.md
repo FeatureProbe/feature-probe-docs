@@ -9,7 +9,7 @@ sidebar_position: 2
 ### 步骤 1. 安装 SDK
 
 ```shell
-implementation 'com.featureprobe.mobile:android_sdk:1.0.1@aar'
+implementation 'com.featureprobe.mobile:android_sdk:1.2.0@aar'
 implementation 'net.java.dev.jna:jna:5.7.0@aar'
 ```
 
@@ -18,7 +18,7 @@ implementation 'net.java.dev.jna:jna:5.7.0@aar'
 ```kotlin
 import com.featureprobe.mobile.*;
 
-val url = FpUrlBuilder("remote_url/").build();
+val url = FpUrlBuilder("featureprobe.io/server").build();
 val user = FpUser("user@company.com")
 user.setAttr("name", "bob")
 val config = FpConfig(url!!, "client-9d885a68ca2955dfb3a7c95435c0c4faad70b50d", 10u, true)
@@ -28,7 +28,7 @@ val fp = FeatureProbe(config, user)
 ### 步骤 3.  使用 FeatureProbe 开关
 
 ``` kotlin
-val showFeature = fp.boolValue("your.toggle.key", false)
+val showFeature = fp.boolValue("toggle_key", false)
 if (showFeature) {
     # application code to show the feature
 } else {

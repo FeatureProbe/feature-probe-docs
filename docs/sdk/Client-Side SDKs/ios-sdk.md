@@ -25,8 +25,8 @@ Cocoapods:
 ```swift
 import featureprobe
 
-let url = FpUrlBuilder(remoteUrl: "remote_url/").build();
-let user = FpUser(key: "user@company.com")
+let url = FpUrlBuilder(remoteUrl: "featureprobe.io/server").build();
+let user = FpUser()
 user.setAttr(key: "name", value: "bob")
 let config = FpConfig(
     remoteUrl: url!,
@@ -40,7 +40,7 @@ let fp = FeatureProbe(config: config, user: user)
 #### Step 3. Use the feature toggle
 
 ```swift
-let showFeature = fp.boolValue("your.toggle.key", false)
+let showFeature = fp.boolValue("toggle_key", false)
 if showFeature {
     # application code to show the feature
 } else {
@@ -75,7 +75,7 @@ add `pod 'FeatureProbe', :git => 'git@github.com:FeatureProbe/client-sdk-ios.git
 
 NSString *urlStr = @"remote_url/";
 FpUrl *url = [[[FpUrlBuilder alloc] initWithRemoteUrl: urlStr] build];
-FpUser *user = [[FpUser alloc] initWithKey:@"user_key"];
+FpUser *user = [[FpUser alloc] init];
 [user setAttrWithKey:@"name" value:@"bob"];
 FpConfig *config = [[FpConfig alloc] initWithRemoteUrl: url
                                           clientSdkKey:@"client-9d885a68ca2955dfb3a7c95435c0c4faad70b50d"
@@ -87,7 +87,7 @@ FeatureProbe *fp = [[FeatureProbe alloc] initWithConfig:config user:user];
 #### Step 3. Use the feature toggle
 
 ```objective-c
-bool showFeature = [fp boolValueWithKey: @"your.toggle.key" defaultValue: false];
+bool showFeature = [fp boolValueWithKey: @"toggle_key" defaultValue: false];
 if (showFeature) {
     # application code to show the feature
 } else {
