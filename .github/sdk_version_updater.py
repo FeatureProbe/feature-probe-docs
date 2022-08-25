@@ -72,4 +72,4 @@ if __name__ == '__main__':
     update_java_docs('docs/sdk/Server-Side SDKs/java-sdk.md')
     update_java_docs('i18n/zh-CN/docusaurus-plugin-content-docs/current/sdk/Server-Side SDKs/java-sdk.md')
     update_android_docs('docs/sdk/Client-Side SDKs/android-sdk.md')
-    update_android_docs('i18n/zh-CN/docusaurus-plugin-content-docs/current/sdk/Server-Side SDKs/android-sdk.md')        
+    update_android_docs('i18n/zh-CN/docusaurus-plugin-content-docs/current/sdk/Client-Side SDKs/android-sdk.md')        
