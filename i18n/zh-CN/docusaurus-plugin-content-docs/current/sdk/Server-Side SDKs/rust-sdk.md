@@ -77,7 +77,7 @@ fn main() {
 您可以使用 sdk 拿到对应开关名设置的值。
 
 ```rust
-let user = FPUser::new("user@company.com").with("name", "bob");
+let user = FPUser::new().with("name", "bob");
 let show_feature = fp.bool_value("your.toggle.key", &user, false);
 
 if show_feature {
@@ -91,7 +91,7 @@ if show_feature {
 
 ```rust
 let fp = FeatureProbe::new_for_test("toggle_1", Value::Bool(false));
-let u = FPUser::new("key");
+let u = FPUser::new();
 assert_eq!(fp.bool_value("toggle_1", &u, true), false);
 
 let mut toggles: HashMap<String, Value> = HashMap::new();
