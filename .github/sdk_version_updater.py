@@ -44,7 +44,7 @@ def parse_crates_io(artifact: str) -> str:
     return resp['crate']['max_stable_version']
 
 
-def update_java_docs():
+def update_java_us_docs():
     JAVA_DOC_PATH = 'docs/sdk/Server-Side SDKs/java-sdk.md'
     with open(JAVA_DOC_PATH, 'r', encoding='utf-8') as f:
         content = f.read()
@@ -54,9 +54,27 @@ def update_java_docs():
     with open(JAVA_DOC_PATH, 'w', encoding='utf-8') as f:
         f.write(content)
 
+def update_java_cn_docs():
+    JAVA_DOC_PATH = 'i18n/zh-CN/docusaurus-plugin-content-docs/current/sdk/Server-Side SDKs/java-sdk.md'
+    with open(JAVA_DOC_PATH, 'r', encoding='utf-8') as f:
+        content = f.read()
+        content = re.sub('<artifactId>server-sdk-java</artifactId>\n    <version>.*</version>', f'<artifactId>server-sdk-java</artifactId>\n    <version>{sdk_versions["java"]}</version>', content)
+        content = re.sub("implementation 'com\\.featureprobe:server-sdk-java:.*'", f"implementation 'com.featureprobe:server-sdk-java:{sdk_versions['java']}'", content)
+        content = re.sub("./target/server-sdk-java-.*\\.jar", f"./target/server-sdk-java-{sdk_versions['java']}.jar", content)
+    with open(JAVA_DOC_PATH, 'w', encoding='utf-8') as f:
+        f.write(content)
 
-def update_android_docs():
+
+def update_android_us_docs():
     ANDROID_DOC_PATH = 'docs/sdk/Client-Side SDKs/android-sdk.md'
+    with open(ANDROID_DOC_PATH, 'r', encoding='utf-8') as f:
+        content = f.read()
+        content = re.sub('com\\.featureprobe\\.mobile:android_sdk:.*@aar', f'com.featureprobe.mobile:android_sdk:{sdk_versions["android"]}@aar', content)
+    with open(ANDROID_DOC_PATH, 'w', encoding='utf-8') as f:
+        f.write(content)
+
+def update_android_cn_docs():
+    ANDROID_DOC_PATH = 'i18n/zh-CN/docusaurus-plugin-content-docs/current/sdk/Server-Side SDKs/android-sdk.md'
     with open(ANDROID_DOC_PATH, 'r', encoding='utf-8') as f:
         content = f.read()
         content = re.sub('com\\.featureprobe\\.mobile:android_sdk:.*@aar', f'com.featureprobe.mobile:android_sdk:{sdk_versions["android"]}@aar', content)
@@ -71,5 +89,7 @@ if __name__ == '__main__':
 
     print(sdk_versions)
     
-    update_java_docs()
-    update_android_docs()
+    update_java_us_docs()
+    update_java_cn_docs()
+    update_android_us_docs()
+    update_android_cn_docs()        
