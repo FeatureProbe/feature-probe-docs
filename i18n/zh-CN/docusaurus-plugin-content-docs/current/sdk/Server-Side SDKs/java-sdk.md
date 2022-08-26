@@ -24,17 +24,18 @@ cd server-sdk-java
 ```
 
 3. 修改演示代码`src/main/java/com/featureprobe/sdk/example/FeatureProbeDemo.java` 把 `FEATURE_PROBE_SERVER_URL` 和
-    `FEATURE_PROBE_SERVER_SDK_KEY` 配置成你选择的FeatureProbe环境信息.
+    `FEATURE_PROBE_SERVER_SDK_KEY` 配置成你选择的FeatureProbe环境信息。
 
     * 对于在线演示环境:
         * `FEATURE_PROBE_SERVER_URL` = "https://featureprobe.io/server"
-        * `FEATURE_PROBE_SERVER_SDK_KEY` please copy from GUI:
+        * `FEATURE_PROBE_SERVER_SDK_KEY` 请从如下界面中拷贝：
           ![server_sdk_key snapshot](../../../../../../pictures/server_sdk_key_zh.png)
     * 对于本地docker环境:
-        * `FEATURE_PROBE_SERVER_URLl` = "http://YOUR_DOCKER_IP:4009/server"
+        * `FEATURE_PROBE_SERVER_URL` = "http://YOUR_DOCKER_IP:4009/server"
         * `FEATURE_PROBE_SERVER_SDK_KEY` = "server-8ed48815ef044428826787e9a238b9c6a479f98c"
 
-4. 运行修改后的代码，查看程序输出
+4. 运行修改后的代码，查看程序输。
+
 ```bash
 mvn package
 java -jar ./target/server-sdk-java-1.3.0.jar
