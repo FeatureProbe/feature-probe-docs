@@ -25,7 +25,8 @@ Cocoapods:
 ```swift
 import featureprobe
 
-let url = FpUrlBuilder(remoteUrl: "featureprobe.io/server").build();
+
+let url = FpUrlBuilder(remoteUrl: "https://featureprobe.io/server").build();
 let user = FpUser()
 user.setAttr(key: "name", value: "bob")
 let config = FpConfig(
@@ -56,7 +57,7 @@ let is_true = fp2.boolValue(key: "toggle_1", defaultValue: false)
 assert(is_true == true);
 ```
 
-Find the Demo code in [example](https://github.com/FeatureProbe/client-sdk-mobile/tree/main/sdk-ios/demo-cocoapods)
+Find the Demo code in [example](https://github.com/FeatureProbe/client-sdk-mobile/tree/main/examples/)
 
 ### Objective-C
 
@@ -73,7 +74,7 @@ add `pod 'FeatureProbe', :git => 'git@github.com:FeatureProbe/client-sdk-ios.git
 ```objective-c
 #import "FeatureProbe-Swift.h"
 
-NSString *urlStr = @"remote_url/";
+NSString *urlStr = @"https://featureprobe.io/server";
 FpUrl *url = [[[FpUrlBuilder alloc] initWithRemoteUrl: urlStr] build];
 FpUser *user = [[FpUser alloc] init];
 [user setAttrWithKey:@"name" value:@"bob"];
@@ -106,4 +107,4 @@ NSString *value = [fp stringValueWithKey:@"ab_test" defaultValue:@"red"];
 NSLog(@"value is %@", value);
 ```
 
-Find the Demo code in [example](https://github.com/FeatureProbe/client-sdk-mobile/tree/main/sdk-ios/demo-objc)
+Find the Demo code in [example](https://github.com/FeatureProbe/client-sdk-mobile/tree/main/examples/)
