@@ -9,7 +9,7 @@ sidebar_position: 2
 ### 步骤 1. 安装 SDK
 
 ```shell
-implementation 'com.featureprobe.mobile:android_sdk:1.2.0@aar'
+implementation 'com.featureprobe.mobile:android_sdk:1.1.0@aar'
 implementation 'net.java.dev.jna:jna:5.7.0@aar'
 ```
 

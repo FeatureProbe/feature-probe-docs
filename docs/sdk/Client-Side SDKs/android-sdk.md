@@ -9,7 +9,7 @@ sidebar_position: 2
 ### Step 1. Install SDK
 
 ```shel
-implementation 'com.featureprobe.mobile:android_sdk:1.2.0@aar'
+implementation 'com.featureprobe.mobile:android_sdk:1.1.0@aar'
 implementation 'net.java.dev.jna:jna:5.7.0@aar'
 ```
 
