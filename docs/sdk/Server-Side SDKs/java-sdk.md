@@ -33,7 +33,7 @@ cd server-sdk-java
 4. Run the program.
 ```bash
 mvn package
-java -jar ./target/server-sdk-java-1.2.1.jar
+java -jar ./target/server-sdk-java-1.3.0.jar
 ```
 
 ## Step-by-Step Guide
@@ -50,14 +50,14 @@ First, install the FeatureProbe SDK as a dependency in your application.
 <dependency>
     <groupId>com.featureprobe</groupId>
     <artifactId>server-sdk-java</artifactId>
-    <version>1.2.1</version>
+    <version>1.3.0</version>
 </dependency>
 ```
 
 #### Gradle Groovy DSL
 
 ```text
-implementation 'com.featureprobe:server-sdk-java:1.2.1'
+implementation 'com.featureprobe:server-sdk-java:1.3.0'
 ```
 
 ### Step 2. Create a FeatureProbe instance
