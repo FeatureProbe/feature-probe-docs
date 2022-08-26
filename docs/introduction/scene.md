@@ -51,7 +51,7 @@ the essential services work without disruption by using the cached data rather t
 - Operation Procedure
    * The R&D team adds a new project named "My First Project" and adds a feature toggle 
    named "store\_service\_fallback" for the "online" environment. Shown in below picture:
-   ![storage service fallback screenshot](../../pictures/Store_service_fallback.png)
+   ![storage service fallback screenshot](../../pictures/store_service_fallback.png)
    * The developer imports the FeatureProbe SDK in the code base (Java code as an example), and uses the "store\_service\_fallback" toggle 
    by setting the sdk Key which is assigned by FeatureProbe to "My First Project" "online" environment. 
    The variations type is boolean, and its result enables or disables the degradation.  

@@ -54,12 +54,12 @@ NPM：
 
 
 ```js
-const uniqueUserId = /* uniqueUserId */;
-const user = new FPUser(uniqueUserId);
+const user = new FPUser();
 user.with("userId", /* userId */);
 
 const fp = new FeatureProbe({
-  remoteUrl: "https://127.0.0.1:4007",
+  remoteUrl: "https://featureprobe.io/server",
+  // remoteUrl: "https://127.0.0.1:4007", // for local docker
   clientSdkKey: /* clientSdkKey */
   user,
 });
@@ -69,12 +69,12 @@ fp.start();
 或者通过CDN：
 
 ```js
-const uniqueUserId = /* uniqueUserId */;
-const user = new featureProbe.FPUser(uniqueUserId);
+const user = new featureProbe.FPUser();
 user.with("userId", /* userId */);
 
 const fp = new featureProbe.FeatureProbe({
-  remoteUrl: "https://127.0.0.1:4007",
+  remoteUrl: "https://featureprobe.io/server",
+  // remoteUrl: "https://127.0.0.1:4007", // for local docker
   clientSdkKey: /* clientSdkKey */
   user,
 });
