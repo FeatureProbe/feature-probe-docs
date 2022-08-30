@@ -143,8 +143,6 @@ test("feature probe unit testing", (done) => {
 
 ## 测试
 
-我们对所有 SDK 进行了统一的集成测试。集成测试用例作为每个 SDK 存储库的子模块添加。所以
-在运行测试之前，请务必先拉取子模块以获取最新的集成测试。
 
 ```js
 npm run test
