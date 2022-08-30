@@ -6,20 +6,29 @@ sidebar_position: 1
 
 ## 快速尝试 Demo Code
 
-我们提供了一个可运行的演示代码，让您了解如何使用 FeatureProbe SDK。
+我们提供了一个可运行的演示代码，让您了解如何使用 FeatureProbe SDK
 
-1. 使用 docker composer 启动 FeatureProbe 服务。 [How to](https://github.com/FeatureProbe/FeatureProbe#1-starting-featureprobe-service-with-docker-compose)
+1. 首先需要选择通过连接哪个环境的FeatureProbe来控制你的程序
+    * 可以使用我们提供的在线的[演示环境](https://featureprobe.io/login)
+    * 也可以使用自己搭建的[docker环境](https://gitee.com/featureprobe/FeatureProbe#%E5%90%AF%E5%8A%A8featureprobe)
 
-2. 下载此 repo 并运行演示程序：
+2. 下载此 repo 中的演示代码：
 
 ```bash
-git clone https://github.com/FeatureProbe/client-sdk-js.git
+git clone https://gitee.com/FeatureProbe/client-sdk-js.git
 cd client-sdk-js
-// open example/index.html in browser
 ```
 
-3. 从此处下载 [example](https://github.com/FeatureProbe/client-sdk-js/tree/main/example),
-做一些修改并再次运行程序。
+3. 修改`example/index.html`程序中的链接信息。
+    * 对于在线演示环境:
+        * `remoteUrl` = "https://featureprobe.io/server"
+        * `clientSdkKey` please copy from GUI:
+          ![client_sdk_key snapshot](../../../../../../pictures/client_sdk_key_snapshot_cn.png)
+    * 对于本地docker环境:
+        * `remoteUrl` = "http://YOUR_DOCKER_IP:4009/server"
+        * `clientSdkKey` = "client-25614c7e03e9cb49c0e96357b797b1e47e7f2dff"
+
+4. 运行程序。
 
 ```
 // open example/index.html in browser
@@ -27,7 +36,7 @@ cd client-sdk-js
 
 ## 分步指南
 
-在本指南中，我们解释了如何使用 FeatureProbe 在 JavaScript 应用程序中使用功能开关。
+本指南将说明中如何在 JavaScript 应用程序中使用 FeatureProbe 功能开关。
 
 ### 步骤 1. 安装 JavaScript SDK
 
@@ -35,8 +44,7 @@ cd client-sdk-js
 
 NPM：
 
-
-```js
+```shell
 npm install featureprobe-client-sdk-js --save
 ```
 
@@ -52,15 +60,13 @@ npm install featureprobe-client-sdk-js --save
 
 NPM：
 
-
 ```js
 const user = new FPUser();
-user.with("userId", /* userId */);
+user.with("ATTRIBUTE_NAME_IN_RULE", VALUE_OF_ATTRIBUTE);
 
 const fp = new FeatureProbe({
-  remoteUrl: "https://featureprobe.io/server",
-  // remoteUrl: "https://127.0.0.1:4007", // for local docker
-  clientSdkKey: /* clientSdkKey */
+  remoteUrl: /* FeatureProbe Server URI */,
+  clientSdkKey: /* FeatureProbe Server SDK Key */,
   user,
 });
 fp.start();
@@ -70,13 +76,12 @@ fp.start();
 
 ```js
 const user = new featureProbe.FPUser();
-user.with("userId", /* userId */);
+user.with("ATTRIBUTE_NAME_IN_RULE", VALUE_OF_ATTRIBUTE);
 
 const fp = new featureProbe.FeatureProbe({
-  remoteUrl: "https://featureprobe.io/server",
-  // remoteUrl: "https://127.0.0.1:4007", // for local docker
-  clientSdkKey: /* clientSdkKey */
-  user,
+    remoteUrl: /* FeatureProbe Server URI */,
+    clientSdkKey: /* FeatureProbe Server SDK Key */,
+    user,
 });
 fp.start();
 ```
@@ -87,13 +92,13 @@ fp.start();
 
 ```js
 fp.on('ready', function() {
-    const result = fp.boolValue('ui_demo_toggle', false);
+    const result = fp.boolValue('YOUR_TOGGLE_KEY', false);
     if (result) {
         do_some_thing();
     } else {
         do_other_thing();
     }
-    const reason = fp.boolDetail('ui_demo_toggle', false);
+    const reason = fp.boolDetail('YOUR_TOGGLE_KEY', false);
     console.log(reason);
 })
 ```
@@ -108,7 +113,7 @@ test("feature probe unit testing", (done) => {
   fp.start();
 
   fp.on("ready", function () {
-    let t = fp.boolValue(/* toggleKey */, false);
+    let t = fp.boolValue('YOUR_TOGGLE_KEY', false);
     expect(t).toBe(true);
     done();
   });
@@ -123,7 +128,7 @@ test("feature probe unit testing", (done) => {
   fp.start();
 
   fp.on("ready", function () {
-    let t = fp.boolValue(/* toggleKey */, false);
+    let t = fp.boolValue('YOUR_TOGGLE_KEY', false);
     expect(t).toBe(true);
     done();
   });
@@ -136,14 +141,15 @@ test("feature probe unit testing", (done) => {
 |-------------------|----------------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------|
 | remoteUrl         | 若其他URL未填写则必填 | n/a     | 远端 URL 用来获取开关和上报事件 |
 | togglesUrl        | no             | n/a     | 单独设置开关下发 URL，如果设置会忽略 remoteUrl前缀的地址 |
-| eventsUrl         | no             | n/a     | 单独设置时间上报 URL，如果设置会忽略 remoteUrl前缀的地址 |
+| eventsUrl         | no             | n/a     | 单独设置事件上报 URL，如果设置会忽略 remoteUrl前缀的地址 |
 | clientSdkKey      | yes            | n/a     | SDK Key用来验证权限   |
 | user              | yes            | n/a     | User 对象可以通过With方法设置属性，用来根据属性判断开关规则 |
 | refreshInterval   | no            | 1000    | 设置 SDK 的开关和事件刷新时间   |
 
-## 测试
+## 集成测试
 
+我们对所有 SDK 提供了统一的集成测试。通过以下命令运行测试。
 
-```js
+```shell
 npm run test
 ```

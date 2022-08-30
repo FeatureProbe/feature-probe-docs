@@ -10,19 +10,29 @@ sidebar_position: 3
 
 ## 快速尝试 Demo Code
 
-我们提供了一个可运行的演示代码，让您了解如何使用 FeatureProbe SDK。
+我们提供了一个可运行的演示代码，让您了解如何使用 FeatureProbe SDK
 
-1. 使用 docker composer 启动 FeatureProbe 服务。 [How to](https://github.com/FeatureProbe/FeatureProbe#1-starting-featureprobe-service-with-docker-compose)
+1. 首先需要选择通过连接哪个环境的FeatureProbe来控制你的程序
+    * 可以使用我们提供的在线的[演示环境](https://featureprobe.io/login)
+    * 也可以使用自己搭建的[docker环境](https://gitee.com/featureprobe/FeatureProbe#%E5%90%AF%E5%8A%A8featureprobe)
 
-2. 下载此 repo 并运行演示程序：
+2. 下载此 repo 中的演示代码：
 
  ```bash
  git clone https://github.com/FeatureProbe/server-sdk-rust.git
  cd server-sdk-rust
- cargo run --example demo
  ```
 
-3. 从此处下载 [examples](https://github.com/FeatureProbe/server-sdk-rust/tree/main/examples), 做一些修改并再次运行程序
+3. 修改`examples/demo.rs`程序中的链接信息。
+    * 对于在线演示环境:
+        * `remote_url` = "https://featureprobe.io/server"
+        * `server_sdk_key` please copy from GUI:
+          ![server_sdk_key snapshot](../../../../../../pictures/server_sdk_key_zh.png)
+    * 对于本地docker环境:
+        * `remote_url` = "http://YOUR_DOCKER_IP:4009/server"
+        * `server_sdk_key` = "server-8ed48815ef044428826787e9a238b9c6a479f98c"
+
+4. 运行修改后的代码，查看程序输出
 
  ```bash
  cargo run --example demo
@@ -53,11 +63,9 @@ use feature_probe_server_sdk::{FPConfig, FPUser, FeatureProbe};
 
 ```rust
 fn main() {
-    let remote_url = "http://localhost:4007";
-
     let config = FPConfig {
-        remote_url: remote_url.to_owned(),
-        server_sdk_key: args.server_sdk_key.to_owned(),
+        remote_url: /* FeatureProbe Server URI */,
+        server_sdk_key: /* FeatureProbe Server SDK Key */,
         refresh_interval: Duration::from_secs(5),
         wait_first_resp: true,
     };
@@ -77,8 +85,8 @@ fn main() {
 您可以使用 sdk 拿到对应开关名设置的值。
 
 ```rust
-let user = FPUser::new().with("name", "bob");
-let show_feature = fp.bool_value("your.toggle.key", &user, false);
+let user = FPUser::new().with("ATTRIBUTE_NAME_IN_RULE", VALUE_OF_ATTRIBUTE);
+let show_feature = fp.bool_value("YOUR_TOGGLE_KEY", &user, false);
 
 if show_feature {
     # application code to show the feature
@@ -87,7 +95,15 @@ if show_feature {
 }
 ```
 
-### 步骤 4. 单元测试 (可选)
+### 步骤 4. 程序退出前关闭 FeatureProbe Client
+
+退出前关闭client，保证数据上报准确。
+
+```rust
+fp.close();
+```
+
+## 单元测试中使用 FeatureProbe
 
 ```rust
 let fp = FeatureProbe::new_for_test("toggle_1", Value::Bool(false));
@@ -102,12 +118,12 @@ assert_eq!(fp.number_value("toggle_2", &u, 20.0), 12.5);
 assert_eq!(fp.string_value("toggle_3", &u, "val".to_owned()), "value");
 ```
 
-## 测试
+## 回归测试
 
 我们对所有 SDK 进行了统一的集成测试。集成测试用例作为每个 SDK 存储库的子模块添加。所以
 在运行测试之前，请务必先拉取子模块以获取最新的集成测试。
 
 ```shell
-git pull --recurse-submodules
+git submodule update --init
 cargo test
 ```

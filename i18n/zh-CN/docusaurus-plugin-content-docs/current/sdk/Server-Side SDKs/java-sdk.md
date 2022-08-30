@@ -84,7 +84,7 @@ public class Demo {
 您可以使用 sdk 拿到对应开关名设置的值。
 
 ```java
-FPUser user = new FPUser(/* uniqueUserId for percentage rollout */);
+FPUser user = new FPUser();
     user.with("ATTRIBUTE_NAME_IN_RULE", VALUE_OF_ATTRIBUTE);    // Call with() for each attribute used in Rule.
     boolean boolValue = fpClient.boolValue("YOUR_TOGGLE_KEY", user, false);
     if (boolValue) {
@@ -94,13 +94,21 @@ FPUser user = new FPUser(/* uniqueUserId for percentage rollout */);
     }
 ```
 
+### 步骤 4. 程序退出前关闭 FeatureProbe Client
+
+退出前关闭client，保证数据上报准确。
+
+```java
+fpClient.close();
+```
+
 ## SDK回归测试
 
 我们对所有 SDK 进行了统一的集成测试。集成测试用例作为每个 SDK 存储库的子模块添加。所以
 在运行测试之前，请务必先拉取子模块以获取最新的集成测试。
 
 ```shell
-git pull --recurse-submodules
+git submodule update --init
 mvn test
 ```
 
