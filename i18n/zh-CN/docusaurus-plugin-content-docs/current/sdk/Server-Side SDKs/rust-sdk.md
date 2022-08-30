@@ -26,7 +26,7 @@ sidebar_position: 3
 3. 修改`examples/demo.rs`程序中的链接信息。
     * 对于在线演示环境:
         * `remote_url` = "https://featureprobe.io/server"
-        * `server_sdk_key` please copy from GUI:
+        * `server_sdk_key`  请从如下界面中拷贝：
           ![server_sdk_key snapshot](../../../../../../pictures/server_sdk_key_zh.png)
     * 对于本地docker环境:
         * `remote_url` = "http://YOUR_DOCKER_IP:4009/server"
