@@ -27,13 +27,13 @@ cd server-sdk-java
         * `FEATURE_PROBE_SERVER_SDK_KEY` please copy from GUI:
           ![server_sdk_key snapshot](../../../pictures/server_sdk_key_en.png)
     * For docker environment:
-        * `FEATURE_PROBE_SERVER_URLl` = "http://YOUR_DOCKER_IP:4009/server"
+        * `FEATURE_PROBE_SERVER_URL` = "http://YOUR_DOCKER_IP:4009/server"
         * `FEATURE_PROBE_SERVER_SDK_KEY` = "server-8ed48815ef044428826787e9a238b9c6a479f98c"
 
 4. Run the program.
 ```bash
 mvn package
-java -jar ./target/server-sdk-java-1.2.1.jar
+java -jar ./target/server-sdk-java-1.3.0.jar
 ```
 
 ## Step-by-Step Guide
@@ -50,14 +50,14 @@ First, install the FeatureProbe SDK as a dependency in your application.
 <dependency>
     <groupId>com.featureprobe</groupId>
     <artifactId>server-sdk-java</artifactId>
-    <version>1.2.1</version>
+    <version>1.3.0</version>
 </dependency>
 ```
 
 #### Gradle Groovy DSL
 
 ```text
-implementation 'com.featureprobe:server-sdk-java:1.2.1'
+implementation 'com.featureprobe:server-sdk-java:1.3.0'
 ```
 
 ### Step 2. Create a FeatureProbe instance
