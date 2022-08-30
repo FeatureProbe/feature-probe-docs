@@ -26,6 +26,7 @@ SDK 通过 User 对象存储用户的特有属性，根据在 FeatureProbe 的 U
 - FeatureProbe
   - `value` 方法: 分为 bool/string/number/json 四种，用于获取 UI 平台中规则对应的值，四种类型对应平台开关创建的四种类型
   - `detail` 方法: 分为 bool/string/number/json 四种，用于获取 UI 平台中规则对应的值，和更多的调试信息
+  - `close` 方法: 优雅关闭FeatureProbe client，确保所有监控信息上传完毕。
 
 - FPDetail
   - `value` : UI 平台中规则对应的值
