@@ -18,7 +18,7 @@ FeatureProbe最常见的应用场景是新功能的发布或新版本的发布�
      * 开发人员在代码中引用FeatureProbe的sdk，配置"online"的密钥，并关联开关的key（promotion_activity），设置number类型的variations（用户价格分层）对应好定义的参数city
   
     ```java
-   FPUser user = new FPUser(user_id);
+   FPUser user = new FPUser();
    user.with("city", city_name);
    double discount = fpClient.numberValue("promotion_activity", user, 1.0);
    discountSetTo(discount);
@@ -40,7 +40,7 @@ FeatureProbe最常见的应用场景是新功能的发布或新版本的发布�
      * 开发人员在代码中关联开关的key（service_degrade），设置boolean类型的variations（是否打开降级）
   
     ```java
-   FPUser user = new FPUser(user_id);
+   FPUser user = new FPUser();
     boolean fallback = fpClient.boolValue("service_degrade", user, false);
     if (fallback) {
     	// Do something.
@@ -60,7 +60,7 @@ FeatureProbe最常见的应用场景是新功能的发布或新版本的发布�
      * 开发人员在代码中关联开关的key（color_ab_test），设置string类型的variations（颜色分类）对应好定义的参数city
   
     ```java
-   FPUser user = new FPUser(user_id);
+   FPUser user = new FPUser();
     user.with("city", city_name);
     String color = fpClient.stringValue("color_ab_test", user, "red");
     setButtonColor(color);
