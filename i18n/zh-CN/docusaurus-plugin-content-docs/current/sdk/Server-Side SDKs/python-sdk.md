@@ -75,8 +75,8 @@ conda install featureprobe-server-sdk-python
 ```python
 import featureprobe as fp
 
-config = fp.Config(remote_uri='http://127.0.0.1:4007', sync_mode='pooling', refresh_interval=3)
-client = fp.Client('server-8ed48815ef044428826787e9a238b9c6a479f98c', config)
+config = fp.Config(remote_uri=/* FeatureProbe Server URI */, sync_mode='pooling', refresh_interval=3)
+client = fp.Client(/* FeatureProbe Server SDK Key */, config)
 ```
 
 > 注：您可以使用`上下文管理器`（即 `with`）来创建一个 fp.Client，在离开上下文时会自动 close 该实例。
@@ -86,13 +86,8 @@ client = fp.Client('server-8ed48815ef044428826787e9a238b9c6a479f98c', config)
 您可以使用 sdk 拿到对应开关名设置的值。
 
 ```python
-user = fp.User(
-    stable_rollout_key='user_unique_id',
-    attrs={
-        'userId': '9876',
-        'tel': '12345678998',
-    })
-bool_eval = bool(client.value('bool_toggle_key', user, default=False))
+user = fp.User().with_attr('ATTRIBUTE_NAME_IN_RULE', VALUE_OF_ATTRIBUTE)
+bool_eval = bool(client.value('YOUR_TOGGLE_KEY', user, default=False))
 if bool_eval:
     ...  # application code to show the feature
 else:
