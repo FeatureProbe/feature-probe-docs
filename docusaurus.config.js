@@ -45,6 +45,7 @@ const config = {
           routeBasePath: '/', 
           editUrl: 'https://github.com/FeatureProbe/feature-probe-docs/tree/main/',
           editLocalizedFiles: true,
+          showLastUpdateTime: true,
         },
         blog: {
           showReadingTime: true,
