@@ -8,7 +8,7 @@
 
 为保证整体服务的高可用，我们推荐部署拓扑结构如下：
 
-![image-20220906181332418](/Users/didi/Library/Application Support/typora-user-images/image-20220906181332418.png)
+![image-20220906181332418](../../../../../pictures/deploy.png)
 
 一套独立的 FeatureProbe 集群由三部分组成：
 

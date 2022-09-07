@@ -4,7 +4,7 @@
 
 ## Deployment mode
 
-FeatureProbe can support two deployment modes, and the corresponding mode can be selected according to the actual scene:
+FeatureProbe support two deployment modes, and the corresponding mode can be selected according to the actual scene:
 
 - Standalone deployment - for local testing or single-machine deployment trial
 
