@@ -36,19 +36,43 @@
     "description": "The generated-index page description for category Best Practices in sidebar defaultSidebar"
   },
   "sidebar.defaultSidebar.category.Server-Side SDKs": {
-    "message": "服务端SDK",
+    "message": "接入服务端SDK",
     "description": "The label for category Server-Side SDKs in sidebar defaultSidebar"
   },
   "sidebar.defaultSidebar.category.Server-Side SDKs.link.generated-index.description": {
-    "message": " ",
+    "message": "接入服务端SDK",
     "description": "The generated-index page description for category Server-Side SDKs in sidebar defaultSidebar"
   },
   "sidebar.defaultSidebar.category.Client-Side SDKs": {
-    "message": "客户端SDK",
+    "message": "接入客户端SDK",
     "description": "The label for category Client-Side SDKs in sidebar defaultSidebar"
   },
   "sidebar.defaultSidebar.category.Client-Side SDKs.link.generated-index.description": {
-    "message": " ",
+    "message": "接入客户端SDK",
     "description": "The generated-index page description for category Client-Side SDKs in sidebar defaultSidebar"
+  },
+  "sidebar.defaultSidebar.category.Tutorials": {
+    "message": "入门教程",
+    "description": "The label for category Tutorials in sidebar defaultSidebar"
+  },
+  "sidebar.defaultSidebar.category.Tutorials.link.generated-index.description": {
+    "message": "面向第一次使用FeatureProbe的用户，通过教程分步骤引导用户学习FeatureProbe的基本使用",
+    "description": "The generated-index page description for category Tutorials in sidebar defaultSidebar"
+  },
+  "sidebar.defaultSidebar.category.Reference Document": {
+    "message": "参考文档",
+    "description": "The label for category Reference Document in sidebar defaultSidebar"
+  },
+  "sidebar.defaultSidebar.category.Reference Document.link.generated-index.description": {
+    "message": "关于FeatureProbe更细节的一些设计文档",
+    "description": "The generated-index page description for category Reference Document in sidebar defaultSidebar"
+  },
+  "sidebar.defaultSidebar.category.Platform": {
+    "message": "平台操作",
+    "description": "The label for category Platform in sidebar defaultSidebar"
+  },
+  "sidebar.defaultSidebar.category.Platform.link.generated-index.description": {
+    "message": "介绍在FeatureProbe平台上能够操作的功能",
+    "description": "The generated-index page description for category Platform in sidebar defaultSidebar"
   }
 }

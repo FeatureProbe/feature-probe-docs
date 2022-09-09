@@ -1,4 +1,8 @@
-# Deployment
+---
+sidebar_position: 4
+---
+
+# Deploy Guide
 
 > This document describes how to deploy the FeatureProbe service.
 

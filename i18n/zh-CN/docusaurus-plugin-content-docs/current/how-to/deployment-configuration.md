@@ -1,3 +1,7 @@
+---
+sidebar_position: 5
+---
+
 # 部署配置
 
 >  本文档介绍在自行部署 FeatureProbe 时自定义相关配置。
