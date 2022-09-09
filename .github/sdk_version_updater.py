@@ -69,7 +69,7 @@ if __name__ == '__main__':
 
     print(sdk_versions)
     
-    update_java_docs('docs/sdk/Server-Side SDKs/java-sdk.md')
-    update_java_docs('i18n/zh-CN/docusaurus-plugin-content-docs/current/sdk/Server-Side SDKs/java-sdk.md')
-    update_android_docs('docs/sdk/Client-Side SDKs/android-sdk.md')
-    update_android_docs('i18n/zh-CN/docusaurus-plugin-content-docs/current/sdk/Client-Side SDKs/android-sdk.md')        
+    update_java_docs('docs/how-to/Server-Side SDKs/java-sdk.md')
+    update_java_docs('i18n/zh-CN/docusaurus-plugin-content-docs/current/how-to/Server-Side SDKs/java-sdk.md')
+    update_android_docs('docs/how-to/Client-Side SDKs/android-sdk.md')
+    update_android_docs('i18n/zh-CN/docusaurus-plugin-content-docs/current/how-to/Client-Side SDKs/android-sdk.md')
