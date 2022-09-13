@@ -4,7 +4,7 @@ sidebar_position: 4
 
 # 部署生产环境
 
-> 本文档介绍如何部署 FeatureProbe 服务。
+本文档介绍如何部署 FeatureProbe 服务。
 
 ## 部署模式
 
