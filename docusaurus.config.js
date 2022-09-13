@@ -55,11 +55,17 @@ const config = {
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
-        googleAnalytics: {
-          trackingID: 'G-XYQX3NRB1Q',
-          anonymizeIP: true,
-        },
       })
+    ],
+  ],
+
+  plugins: [
+    [
+      '@docusaurus/plugin-google-gtag',
+      {
+        trackingID: 'G-XYQX3NRB1Q',
+        anonymizeIP: true,
+      },
     ],
   ],
 
