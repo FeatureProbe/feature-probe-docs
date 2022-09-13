@@ -3,68 +3,53 @@ sidebar_position: 2
 ---
 
 # 适用场景
-FeatureProbe 最常见的应用场景是新功能的发布或新版本的发布。当我们发布一个新功能或更新服务时，我们可以先为一小部分用户启用这些功能，而不影响大多数用户，确保降低发布的风险。
+
+FeatureProbe 最常见的应用场景是管理新功能的发布。当我们发布一个新功能或上线一个新运营活动时，可以先为一小部分用户启用这些功能，而不影响大多数用户，确保降低发布的风险。
 如果这些用户在使用中没有问题，我们就可以向更多的用户开放新版本，重复这个过程，直到所有的用户都更新到最新版本。
 
-我们还有很多其他的场景也可以使用 FeatureProbe。
-### 在线促销活动
-许多公司定期开展促销活动。这些活动在大多数情况下使用类似的模板，运营团队只需要修改几个参数就可以创建一个新的促销活动。
-- 使用案例。运营人员想在"My First Project"项目下推出商品秒杀活动，需要根据不同城市设置不同的商品价格，以往都是需要通过开发在代码中写好，一旦价格需要变动，开发人员要在代码中修改线上商品价格，在经过审核部署发布等一些列操作，才能生效，使用 FeatureProbe 的功能开关，只需要运营人员修改一下“价格”，便可一秒发布生效。
-- 操作流程
+以下是一些常见的 FeatureProbe 的使用场景。
 
-   + 流程说明
-     * 运营人员在 FeatureProbe 上新增项目"My First Project"，并在项目的"online"环境下创建一个名叫"Promotional Campaign"的开关，开关配置如下图所示:
-     ![commodity spike activity screenshot](../../../../../pictures/commodity_spike_activity.png)
-     * 开发人员在代码中引用 FeatureProbe 的 sdk，配置"online"的密钥，并关联开关的 key（promotion_activity），设置 number 类型的 variations（用户价格分层）对应好定义的参数 city
-  
-    ```java
-   FPUser user = new FPUser();
-   user.with("city", city_name);
-   double discount = fpClient.numberValue("promotion_activity", user, 1.0);
-   discountSetTo(discount);
-    ```
- 
-     * 在一切准备就绪后，运营人员直接把"Promotional Campaign"开关"启用"，配置内容便即刻生效了
-     * 价格需要变动的情况下，运营人员只需要直接修改 variations 中的价格，并分发给对应的人群即可
+## 配置在线促销活动
 
-### 服务降级预案
-当在线服务遇到非常高的需求，影响到一些依赖性服务或出现问题时（例如，一个后端服务意外地无法访问），我们需要通过使用缓存数据而不是从这些问题服务中获取数据来保证基本服务不受干扰地继续工作。
+许多公司定期开展促销活动。这些活动在大多数情况下使用类似的模板，通过使用 FeatureProbe 实现模板化配置，运营团队只需要修改几个参数就可以创建一个新的促销活动。
 
-- 使用案例。电商服务需要调用一个库存备货服务来显示产品的库存信息。如果库存服务遇到一些问题而无法使用，运营团队可以利用 FeatureProbe 来进行以下操作在一秒钟内从缓存内容中获取库存数据，并进行时间成本较高的应用程序回退操作，或者在不中断在线服务的情况下切换到备份服务。
+- 使用案例
+
+运营人员想推出商品秒杀活动，需要根据不同城市设置不同的商品价格，以往都是需要通过开发在代码中写好，一旦价格需要变动，开发人员要在代码中修改线上商品价格，在经过审核部署发布等一些列操作，才能生效，使用 FeatureProbe 的功能开关，只需要运营人员修改一下“价格”，便可一秒发布生效。
 
 - 操作流程
+  * 运营人员在 FeatureProbe 上创建一个名叫"Promotional Campaign"的开关，配置不同价格规则和城市生效策略:
+  ![commodity spike activity screenshot](../../../../../pictures/commodity_spike_activity.png)
+  * 开发人员在代码中引用 FeatureProbe 的 sdk 访问这个活动开关，并拿到相应展示内容展示给用户。
+  * 在测试上线之后，运营人员直接把"Promotional Campaign"开关"启用"，配置内容便即刻生效了
+  * 价格需要变动的情况下，运营人员只需要直接修改 variations 中的价格，并分发给对应的人群即可
 
-   + 流程说明
-     * 开发人员在项目 My First Project"的"online"环境下创建一个名叫"Service Degrade"的开关，开关配置如下图所示:
+## 执行降级预案
+
+通常我们可以将提供给用户的服务划分为核心服务链路和非核心链路，当非核心链路上的服务出现异常时，我们可以通过关闭非核心服务来保障核心服务正常，也就是常说的服务降级。
+
+- 使用案例
+
+某电商APP在用户搜索商品时提供了一个高级排序推荐的功能。由于高级排序推荐消耗计算资源较高，在用户高峰访问时段经常访问超时。通过FeatureProbe
+配置开关，可以在高峰时段关闭高级推荐，退回到简单排序功能从而保障用户体验。
+
+- 操作流程
+     * 开发人员环境下创建一个名叫"Service Degrade"的开关，开关配置如下图所示:
      ![storage service fallback screenshot](../../../../../pictures/store_service_fallback.png)
      * 开发人员在代码中关联开关的 key（service_degrade），设置 boolean 类型的 variations（是否打开降级）
-  
-    ```java
-   FPUser user = new FPUser();
-    boolean fallback = fpClient.boolValue("service_degrade", user, false);
-    if (fallback) {
-    	// Do something.
-    } else {
-    	// Do normal process.
-    }
-    ```
- 
-     * 当依赖的库存服务发生故障后，为避免对用户造成影响，可以快速将库存服务进行降级，使用缓存非实时库存数据。
-### A/B 实验
-为一项具体的服务设计几个解决方案，全部尝试，找出最理想/最受欢迎的方案。
-- 使用案例：某平台的支付按钮的颜色想由红色改为了绿色，产品小王不确定哪个颜色效果更好，于是想使用 FeatureProbe 的功能开关，针对这两种颜色对巴黎的用户做个实验，看到底哪个颜色购买率更高
+     * 当依赖的库存服务发生故障后，可以将策略改为『关闭』，从而快速进行降级。
+     
+## A/B 实验
+
+我们经常会遇到多个产品方案听起来都有道理，不知道选哪个好的情况。这种情况下，可以先在小量人群上尝试多个方案，通过数据比较，找出最理想/最受欢迎的方案，再投放的全量人群，从而获得最好的投放效果。
+
+- 使用案例
+
+某APP的支付按钮的颜色想由红色改为了绿色，于是使用 FeatureProbe 的功能开关，针对这两种颜色对巴黎的用户做个实验，看到底哪个颜色点击率更高
+
 - 操作流程
-   + 流程说明
-     * 运营人员在项目"My First Project"的"online"环境下创建一个名叫"Button Color AB Test"的开关，开关配置如下图所示:
+     * 产品经理创建一个名叫"Button Color AB Test"的开关，开关配置如下图所示:
      ![AB test screenshot](../../../../../pictures/color_ab_test.png)
-     * 开发人员在代码中关联开关的 key（color_ab_test），设置 string 类型的 variations（颜色分类）对应好定义的参数 city
-  
-    ```java
-   FPUser user = new FPUser();
-    user.with("city", city_name);
-    String color = fpClient.stringValue("color_ab_test", user, "red");
-    setButtonColor(color);
-    ```
- 
-     * 在一切准备就绪后，运营人员直接把"Button Color AB Test"开关"启用"，配置内容便即刻生效了
-     * 产品小王通过查看实验数据得出，支付按钮为绿色购买率会更高，于是全量用户开放为绿色
+     * 开发人员在代码中关联开关的 key（color_ab_test），设置 string 类型的 variations（颜色分类）对应好定义的参数 city。
+     * 在一切准备就绪后，产品经理直接把"Button Color AB Test"开关"启用"，配置内容便即刻生效了
+     * 产品经理通过查看实验分组和埋点点击数据得出结论：支付按钮为绿色购买率会更高。于是全量用户开放为绿色。
