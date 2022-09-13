@@ -4,9 +4,7 @@ sidebar_position: 4
 
 # 集群部署
 
-> 本文档介绍如何以多集群方式部署 FeatureProbe 服务。
-
-
+本文档介绍如何以多集群方式部署 FeatureProbe 服务。
 
 ## 部署拓扑
 

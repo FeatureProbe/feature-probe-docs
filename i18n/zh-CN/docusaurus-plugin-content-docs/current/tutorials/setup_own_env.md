@@ -29,7 +29,10 @@ bash:> docker compose up
 3. 等待镜像拉取，视网络状况，可能需要5-10min
 4. 等待镜像启动，大约1min左右，启动成功后命令行可以看到日志滚动。也可在docker GUI工具中查看镜像启动状况，全部绿色即为启动成功：
 ![docker startup](../../../../../pictures/docker_startup.png)
-> FeatureProbe包含5个独立镜像，需要这5个镜像全部启动成功后才能正常运行。如某个未启动成功可以在docker GUI中单独重启未成功的镜像。
+
+:::info
+FeatureProbe包含5个独立镜像，需要这5个镜像全部启动成功后才能正常运行。如某个未启动成功可以在docker GUI中单独重启未成功的镜像。
+:::
 
 ## 验证安装结果
 
@@ -43,4 +46,6 @@ bash:> docker compose up
 登录后即可看到4个内置开关，并开始试用了。
 ![toggle list](../../../../../pictures/docker_toggle_list_cn.png)
 
-> 4个内置开关为了用户参考各种典型的开关配置，用户可根据自己需要选择保留或删除，不影响平台使用
+:::info
+4个内置开关为了用户参考各种典型的开关配置，用户可根据自己需要选择保留或删除，不影响平台使用
+:::

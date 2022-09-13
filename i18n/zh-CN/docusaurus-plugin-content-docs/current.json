@@ -8,7 +8,7 @@
     "description": "The label for category Introduction in sidebar defaultSidebar"
   },
   "sidebar.defaultSidebar.category.Introduction.link.generated-index.description": {
-    "message": "我是简介",
+    "message": "FeatureProbe核心概念介绍。",
     "description": "The generated-index page description for category Introduction in sidebar defaultSidebar"
   },
   "sidebar.defaultSidebar.category.How-to guides": {

@@ -19,8 +19,10 @@ sidebar_position: 1
 在浏览器中打开学习环境：[https://featureprobe.io/demo/](https://featureprobe.io/demo/), 填入你的邮箱地址，进入专属于你的学习环境。
 ![demo login](../../../../../pictures/demo_login_cn.png)
 
-> https://featureprobe.io/demo/ 是一个演示页面，我们将通过FeatureProbe平台来控制这个页面的展示。填入邮箱登录后，您可以通过演示页面的提示链接跳转到FeatureProbe平台，
-> 或者也可以直接访问 [https://featureprobe.io](https://featureprobe.io) 进入平台。
+:::info
+https://featureprobe.io/demo/ 是一个演示页面，我们将通过FeatureProbe平台来控制这个页面的展示。填入邮箱登录后，您可以通过演示页面的提示链接跳转到FeatureProbe平台，
+或者也可以直接访问 [https://featureprobe.io](https://featureprobe.io) 进入平台。
+:::
 
 ## 开关『Enable』
 
@@ -34,7 +36,9 @@ sidebar_position: 1
 2. 将 "Campaign Enable" 开关『启用』，点击『状态』后的启用按钮，之后点击『发布』按钮。
 ![campaign enable config](../../../../../pictures/demo_campaign_enable_publish_cn.png)
 
-> 开关新建之后，默认都是未『启用』的，需要通过『启用』来生效这个开关的配置。
+:::info 
+开关新建之后，默认都是未『启用』的，需要通过『启用』来生效这个开关的配置。
+:::
 
 3. 点击『确认』发布。
 ![confirm](../../../../../pictures/demo_enable_confirm_publish_cn.png)
@@ -49,7 +53,9 @@ sidebar_position: 1
 变为发布后：
 ![after_enable](../../../../../pictures/demo_enable_after_action_cn.png)
 
-> 页面刷新可能稍有延时，发布完成后，也可手动刷新演示页面查看结果。
+:::info
+页面刷新可能稍有延时，发布完成后，也可手动刷新演示页面查看结果。
+:::
 
 这里我们体验了如何 Enable 一个开关，并看到了 Enable 之后，演示页面的用户就能够看到之前看不到的活动图片了。
 
@@ -112,7 +118,9 @@ sidebar_position: 1
 ![add group](../../../../../pictures/demo_variant_add_group_cn.png)   
 ![group added](../../../../../pictures/demo_variant_group_3_added_cn.png)
 
-> 给分组起一个好的名称可以帮你更好的管理分组值，在返回分组的选择中直接选择分组名称。这样如果后续因为业务变化，返回值发生了变化只需要在分组设置中改变分组的值，而不需要修改规则中的返回分组名称。
+:::info
+给分组起一个好的名称可以帮你更好的管理分组值，在后续的配置中可以直接选择分组名称。如果后续因为业务变化，返回值发生了变化则只需要在分组设置中改变分组的值，而不需要修改规则中的返回分组名称。
+:::
 
 3. 将 `规则2` （用户00003所在的规则）中的返回值，修改为新建的分组『another price』
 ![use new group](../../../../../pictures/demo_variantion_return_another_cn.png)
