@@ -78,27 +78,37 @@ bash:> cd server-sdk-python
 <Tabs>
    <TabItem value="java" label="Java" default>
 
-![java](../../../../../pictures/tutorial_rollout_java_var_cn.png)
+~~~java
+    private static final String FEATURE_PROBE_SERVER_URL = "https://featureprobe.io/server";
+    private static final String FEATURE_PROBE_SERVER_SDK_KEY = // 填入 服务端SDK密钥 ;
+~~~
   </TabItem>
   <TabItem value="golang" label="Go">
 
-![golang](../../../../../pictures/tutorial_rollout_golang_link_cn.png)
+~~~go
+	config := featureprobe.FPConfig{
+	    // highlight-start
+		RemoteUrl: "https://featureprobe.io/server",
+		ServerSdkKey:    // 填入 服务端SDK密钥
+		// highlight-end
+		RefreshInterval: 5000, // ms
+		WaitFirstResp:   true,
+	}
+~~~
 </TabItem>
 <TabItem value="rust" label="Rust">
 
-~~~bash
-bash:> git clone https://gitee.com/FeatureProbe/server-sdk-rust.git
-bash:> cd server-sdk-rust
+~~~clike
+    let remote_url = "https://featureprobe.io/server";
+    let server_sdk_key = // 填入 服务端SDK密钥
 ~~~
-用编辑器打开`examples/demo.rs`文件。
 </TabItem>
 <TabItem value="python" label="Python">
 
-~~~bash
-bash:> git clone https://gitee.com/FeatureProbe/server-sdk-python.git
-bash:> cd server-sdk-python
+~~~python
+    FEATURE_PROBE_SERVER_URL = 'https://featureprobe.io/server'
+    FEATURE_PROBE_SERVER_SDK_KEY = # 填入 服务端SDK密钥
 ~~~
-用编辑器打开`demo.py`文件。
 </TabItem>
 </Tabs>
 
@@ -136,23 +146,86 @@ bash:> cd server-sdk-python
 </TabItem>
 <TabItem value="golang" label="Go">
 
-
+~~~go
+func main() {
+	config := featureprobe.FPConfig{
+		RemoteUrl: "https://featureprobe.io/server",
+		ServerSdkKey:    // 填入 服务端SDK密钥,
+		RefreshInterval: 5000, // ms
+		WaitFirstResp:   true,
+	}
+	fp, err := featureprobe.NewFeatureProbe(config)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+    // highlight-start
+	for i:=0; i<100; i++  {
+		user := featureprobe.NewUser()
+		detail := fp.BoolValue("tutorial_rollout", user, false)
+		fmt.Println("feature for user", i, "is:", detail)
+	}
+	// highlight-end
+	fp.Close()
+}
+~~~
 </TabItem>
 <TabItem value="rust" label="Rust">
 
-~~~bash
-bash:> git clone https://gitee.com/FeatureProbe/server-sdk-rust.git
-bash:> cd server-sdk-rust
+~~~clike
+#[tokio::main]
+async fn main() {
+    let remote_url = "https://featureprobe.io/server";
+    let server_sdk_key = // 填入 服务端SDK密钥;
+    let config = FPConfig {
+        remote_url: remote_url.to_owned(),
+        server_sdk_key: server_sdk_key.to_owned(),
+        refresh_interval: Duration::from_millis(2000),
+        #[cfg(feature = "use_tokio")]
+        http_client: None,
+        wait_first_resp: true,
+        ..Default::default()
+    };
+
+    let fp = match FeatureProbe::new(config) {
+        Ok(fp) => fp,
+        Err(e) => {
+            tracing::error!("{:?}", e);
+            return;
+        }
+    };
+  // highlight-start
+    for n in 1..100 {
+        let user = FPUser::new();
+        let enable = fp.bool_value("tutorial_rollout", &user, false);
+        println!("feature for user {:?} is: {:?}", n, enable);
+    }
+  // highlight-end
+    fp.close();
+}
 ~~~
-用编辑器打开`examples/demo.rs`文件。
 </TabItem>
 <TabItem value="python" label="Python">
 
-~~~bash
-bash:> git clone https://gitee.com/FeatureProbe/server-sdk-python.git
-bash:> cd server-sdk-python
+~~~python
+logging.basicConfig(level=logging.WARNING)
+
+if __name__ == '__main__':
+    FEATURE_PROBE_SERVER_URL = 'https://featureprobe.io/server'
+    FEATURE_PROBE_SERVER_SDK_KEY = # 填入 服务端SDK密钥;
+
+    config = fp.Config(remote_uri=FEATURE_PROBE_SERVER_URL,  # FeatureProbe server URL
+                       sync_mode='pooling',
+                       refresh_interval=3)
+
+    with fp.Client(FEATURE_PROBE_SERVER_SDK_KEY, config) as client:
+      # highlight-start
+        for i in range(100):
+            user = fp.User()
+            is_open = client.value('tutorial_rollout', user, default=False)
+            print('feature for user ' + str(i) + ' is: ' + str(is_open))
+      # highlight-end
 ~~~
-用编辑器打开`demo.py`文件。
 </TabItem>
 </Tabs>
 
@@ -163,29 +236,27 @@ bash:> cd server-sdk-python
 
 ~~~bash
 bash:> mvn package
-bash:> java -jar ./target/server-sdk-java-1.3.0.jar
+bash:> java -jar ./target/server-sdk-java-1.3.1.jar
 ~~~
-
 </TabItem>
 <TabItem value="golang" label="Go">
 
-
+~~~bash
+bash:> go run example/main.go
+~~~
 </TabItem>
 <TabItem value="rust" label="Rust">
 
 ~~~bash
-bash:> git clone https://gitee.com/FeatureProbe/server-sdk-rust.git
-bash:> cd server-sdk-rust
+bash:> cargo run --example demo
 ~~~
-用编辑器打开`examples/demo.rs`文件。
 </TabItem>
 <TabItem value="python" label="Python">
 
 ~~~bash
-bash:> git clone https://gitee.com/FeatureProbe/server-sdk-python.git
-bash:> cd server-sdk-python
+bash:> pip3 install -r requirements.txt
+bash:> python3 demo.py
 ~~~
-用编辑器打开`demo.py`文件。
 </TabItem>
 </Tabs>
 
