@@ -1,0 +1,225 @@
+---
+sidebar_position: 3
+---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# 按百分比灰度放量
+
+在本教程中，我们将带领你使用FeatureProbe的平台，控制一个后端程序，让后端程序对接收到的用户请求，按百分比展示新功能。
+
+## 在平台创建开关
+
+1. 登录我们提供的FeatureProbe[演示平台](https://featureprobe.io)，如果是第一次登录，请输入邮箱。后续可以继续使用你的邮箱访问到属于你的数据。
+2. 点击`+开关`新建一个开关
+![add](../../../../../pictures/tutorial_create_toggle_button_cn.png)
+3. 名字和标识都设置为`tutorial_rollout`，点击`创建`
+![create](../../../../../pictures/tutorial_rollout_create_cn.png)
+7. 从开关列表中点击`turorial_rollout`，打开设置详情页
+![list](../../../../../pictures/tutorial_list_click_cn.png)
+8. 将默认规则的返回值更改为`按百分比放量`
+![return](../../../../../pictures/tutorial_return_percentage_cn.png)
+9. 设置 10% 打开开关（返回true）， 90% 关闭开关（返回false）, 状态设置为 `生效`
+![10% true](../../../../../pictures/tutorial_rollout_enable_cn.png)
+10. 点击下方`发布`按钮，并`确认`变更
+![confirm](../../../../../pictures/tutorial_rollout_confirm_cn.png)
+
+此时平台上就操作就完成了，我们创建了一个管理灰度发布的开关，下面我们要在后端程序中使用它，看看实际效果。
+
+
+## 在后端代码中访问开关
+
+我们提供一个后端的代码示例，你可以从这里开始体验后端代码如何使用开关。
+
+1. 按你熟悉的语言，下载并打开相应的后端示例代码
+
+<Tabs>
+  <TabItem value="java" label="Java" default>
+
+~~~bash
+bash:> git clone https://gitee.com/FeatureProbe/server-sdk-java.git
+bash:> cd server-sdk-java
+~~~
+用编辑器打开`src/main/java/com/featureprobe/sdk/example/FeatureProbeDemo.java`文件。
+
+  </TabItem>
+  <TabItem value="golang" label="Go">
+
+~~~bash
+bash:> git clone https://gitee.com/FeatureProbe/server-sdk-go.git
+bash:> cd server-sdk-go
+~~~
+用编辑器打开`example/main.go`文件。
+  </TabItem>
+  <TabItem value="rust" label="Rust">
+
+~~~bash
+bash:> git clone https://gitee.com/FeatureProbe/server-sdk-rust.git
+bash:> cd server-sdk-rust
+~~~
+用编辑器打开`examples/demo.rs`文件。
+  </TabItem>
+  <TabItem value="python" label="Python">
+
+~~~bash
+bash:> git clone https://gitee.com/FeatureProbe/server-sdk-python.git
+bash:> cd server-sdk-python
+~~~
+用编辑器打开`demo.py`文件。
+  </TabItem>
+</Tabs>
+
+2. 打开FeatureProbe平台[项目列表页面](https://featureprobe.io/projects)， 可以在开关详情页点击`服务`来打开
+![project](../../../../../pictures/tutorial_click_project_cn.png)
+3. 复制`服务端SDK密钥`
+![sdk key](../../../../../pictures/tutorial_rollout_server_sdk_key_cn.png)
+4. 将`服务端SDK密钥`以及`FeatureProbe网址` ("https://featureprobe.io/server") 填入后端代码相应变量中
+
+<Tabs>
+   <TabItem value="java" label="Java" default>
+
+![java](../../../../../pictures/tutorial_rollout_java_var_cn.png)
+  </TabItem>
+  <TabItem value="golang" label="Go">
+
+![golang](../../../../../pictures/tutorial_rollout_golang_link_cn.png)
+</TabItem>
+<TabItem value="rust" label="Rust">
+
+~~~bash
+bash:> git clone https://gitee.com/FeatureProbe/server-sdk-rust.git
+bash:> cd server-sdk-rust
+~~~
+用编辑器打开`examples/demo.rs`文件。
+</TabItem>
+<TabItem value="python" label="Python">
+
+~~~bash
+bash:> git clone https://gitee.com/FeatureProbe/server-sdk-python.git
+bash:> cd server-sdk-python
+~~~
+用编辑器打开`demo.py`文件。
+</TabItem>
+</Tabs>
+
+5. 加入以下代码，模拟100个用户访问这个开关
+
+<Tabs>
+   <TabItem value="java" label="Java" default>
+
+~~~java
+    public static void main(String[] args) throws IOException {
+
+        Logger root = (Logger)LoggerFactory.getLogger(org.slf4j.Logger.ROOT_LOGGER_NAME);
+        root.setLevel(Level.WARN);
+
+        final FPConfig config = FPConfig.builder()
+            .remoteUri(FEATURE_PROBE_SERVER_URL)
+            .build();
+
+        // Init FeatureProbe, share this FeatureProbe instance in your project.
+        final FeatureProbe fpClient = new FeatureProbe(FEATURE_PROBE_SERVER_SDK_KEY, config);
+
+        //
+        final String YOUR_TOGGLE_KEY = "tutorial_rollout";
+        // highlight-start
+        for (Integer i = 0; i < 100; i++) {
+            FPUser user = new FPUser();
+            Boolean isOpen = fpClient.boolValue(YOUR_TOGGLE_KEY, user, false);
+            System.out.println("feature for user " + i + " is :" + isOpen);
+        }
+        // highlight-end
+        fpClient.close();
+    }
+~~~
+
+</TabItem>
+<TabItem value="golang" label="Go">
+
+
+</TabItem>
+<TabItem value="rust" label="Rust">
+
+~~~bash
+bash:> git clone https://gitee.com/FeatureProbe/server-sdk-rust.git
+bash:> cd server-sdk-rust
+~~~
+用编辑器打开`examples/demo.rs`文件。
+</TabItem>
+<TabItem value="python" label="Python">
+
+~~~bash
+bash:> git clone https://gitee.com/FeatureProbe/server-sdk-python.git
+bash:> cd server-sdk-python
+~~~
+用编辑器打开`demo.py`文件。
+</TabItem>
+</Tabs>
+
+6. 运行编辑后的服务端程序
+
+<Tabs>
+   <TabItem value="java" label="Java" default>
+
+~~~bash
+bash:> mvn package
+bash:> java -jar ./target/server-sdk-java-1.3.0.jar
+~~~
+
+</TabItem>
+<TabItem value="golang" label="Go">
+
+
+</TabItem>
+<TabItem value="rust" label="Rust">
+
+~~~bash
+bash:> git clone https://gitee.com/FeatureProbe/server-sdk-rust.git
+bash:> cd server-sdk-rust
+~~~
+用编辑器打开`examples/demo.rs`文件。
+</TabItem>
+<TabItem value="python" label="Python">
+
+~~~bash
+bash:> git clone https://gitee.com/FeatureProbe/server-sdk-python.git
+bash:> cd server-sdk-python
+~~~
+用编辑器打开`demo.py`文件。
+</TabItem>
+</Tabs>
+
+## 验证结果
+从命令行log可以看到，有大约10%的用户进入了开关，也就是拿到了返回值true。
+
+~~~bash
+feature for user 0 is :false
+# highlight-next-line
+feature for user 1 is :true
+feature for user 2 is :false
+feature for user 3 is :false
+feature for user 4 is :false
+feature for user 5 is :false
+feature for user 6 is :false
+feature for user 7 is :false
+feature for user 8 is :false
+feature for user 9 is :false
+feature for user 10 is :false
+# highlight-next-line
+feature for user 11 is :true
+feature for user 12 is :false
+feature for user 13 is :false
+feature for user 14 is :false
+feature for user 15 is :false
+feature for user 16 is :false
+feature for user 17 is :false
+feature for user 18 is :false
+feature for user 19 is :false
+feature for user 20 is :false
+~~~
+
+:::info
+每次运行程序，进入开关的用户可能是不同的，如果需要同样id用户总是拿到相同的开关结果，需要参考FPUser的stableRollout接口。
+:::
+
+可以回到平台的开关设置页面，调整灰度比例，然后重新运行服务端程序，看看log内进入开关的比例是否有变化。
