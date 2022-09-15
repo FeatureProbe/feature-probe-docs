@@ -98,7 +98,7 @@ bash:> cd server-sdk-python
 </TabItem>
 <TabItem value="rust" label="Rust">
 
-~~~clike
+~~~rust
     let remote_url = "https://featureprobe.io/server";
     let server_sdk_key = // 填入 服务端SDK密钥
 ~~~
@@ -172,7 +172,7 @@ func main() {
 </TabItem>
 <TabItem value="rust" label="Rust">
 
-~~~clike
+~~~rust
 #[tokio::main]
 async fn main() {
     let remote_url = "https://featureprobe.io/server";
