@@ -1,6 +1,6 @@
 ---
-slug: FeatureProbe Architecture
-title: FeatureProbe：功能管理对软件交付的影响
+slug: FeatureProbe rust
+title: 用 Rust 开发跨平台 SDK 探索和实践
 ---
 
 
@@ -187,19 +187,3 @@ pub extern "C" fn r#arithmetic_77d6_add(
 
 ###  七、总结
 本文主要介绍了如何使用 Rust 来开发跨平台 App，你可以在 [GitHub](https://github.com/FeatureProbe "GitHub") 或 [Gitee](https://gitee.com/featureprobe "Gitee") 获取到我们用 Rust 实现跨平台开发的所有代码。
-
-
-Footer
-© 2022 GitHub, Inc.
-Footer navigation
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
