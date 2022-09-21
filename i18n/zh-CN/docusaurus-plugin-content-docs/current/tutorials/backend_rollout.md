@@ -33,7 +33,7 @@ import TabItem from '@theme/TabItem';
 
 1. 按你熟悉的语言，下载并打开相应的后端示例代码
 
-<Tabs>
+<Tabs groupId="language">
   <TabItem value="java" label="Java" default>
 
 ~~~bash
@@ -75,7 +75,7 @@ bash:> cd server-sdk-python
 ![sdk key](../../../../../pictures/tutorial_rollout_server_sdk_key_cn.png)
 4. 将`服务端SDK密钥`以及`FeatureProbe网址` ("https://featureprobe.io/server") 填入后端代码相应变量中
 
-<Tabs>
+<Tabs groupId="language">
    <TabItem value="java" label="Java" default>
 
 ~~~java title="src/main/java/com/featureprobe/sdk/example/FeatureProbeDemo.java"
@@ -114,7 +114,7 @@ bash:> cd server-sdk-python
 
 5. 加入以下代码，模拟100个用户访问这个开关
 
-<Tabs>
+<Tabs groupId="language">
    <TabItem value="java" label="Java" default>
 
 ~~~java title="src/main/java/com/featureprobe/sdk/example/FeatureProbeDemo.java"
@@ -231,7 +231,7 @@ if __name__ == '__main__':
 
 6. 运行编辑后的服务端程序
 
-<Tabs>
+<Tabs groupId="language">
    <TabItem value="java" label="Java" default>
 
 ~~~bash
@@ -294,3 +294,4 @@ feature for user 20 is :false
 :::
 
 可以回到平台的开关设置页面，调整灰度比例，然后重新运行服务端程序，看看log内进入开关的比例是否有变化。
+

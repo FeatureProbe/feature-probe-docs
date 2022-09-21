@@ -148,6 +148,7 @@ const config = {
         additionalLanguages: ['java','rust','swift','objectivec','kotlin'],
       },
     }),
+  themes: ['@docusaurus/theme-live-codeblock'],
 };
 
 module.exports = config;

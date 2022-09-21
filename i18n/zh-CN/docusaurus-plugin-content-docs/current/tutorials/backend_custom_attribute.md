@@ -64,7 +64,7 @@ import TabItem from '@theme/TabItem';
 
 1. 按你熟悉的语言，下载并打开相应的后端示例代码
 
-<Tabs>
+<Tabs groupId="language">
   <TabItem value="java" label="Java" default>
 
 ~~~bash
@@ -106,17 +106,17 @@ bash:> cd server-sdk-python
    ![sdk key](../../../../../pictures/tutorial_rollout_server_sdk_key_cn.png)
 4. 将`服务端SDK密钥`以及`FeatureProbe网址` ("https://featureprobe.io/server") 填入后端代码相应变量中
 
-<Tabs>
+<Tabs groupId="language">
    <TabItem value="java" label="Java" default>
 
-~~~java
+~~~java  title="src/main/java/com/featureprobe/sdk/example/FeatureProbeDemo.java"
     private static final String FEATURE_PROBE_SERVER_URL = "https://featureprobe.io/server";
     private static final String FEATURE_PROBE_SERVER_SDK_KEY = // 填入 服务端SDK密钥 ;
 ~~~
   </TabItem>
   <TabItem value="golang" label="Go">
 
-~~~go
+~~~go title="example/main.go"
 	config := featureprobe.FPConfig{
 	    // highlight-start
 		RemoteUrl: "https://featureprobe.io/server",
@@ -129,14 +129,14 @@ bash:> cd server-sdk-python
 </TabItem>
 <TabItem value="rust" label="Rust">
 
-~~~rust
+~~~rust title="examples/demo.rs"
     let remote_url = "https://featureprobe.io/server";
     let server_sdk_key = // 填入 服务端SDK密钥
 ~~~
 </TabItem>
 <TabItem value="python" label="Python">
 
-~~~python
+~~~python title="demo.py"
     FEATURE_PROBE_SERVER_URL = 'https://featureprobe.io/server'
     FEATURE_PROBE_SERVER_SDK_KEY = # 填入 服务端SDK密钥
 ~~~
@@ -150,10 +150,10 @@ bash:> cd server-sdk-python
     4. 北京的黄金用户
     5. 天津的钻石用户
 
-<Tabs>
+<Tabs groupId="language">
    <TabItem value="java" label="Java" default>
 
-~~~java
+~~~java  title="src/main/java/com/featureprobe/sdk/example/FeatureProbeDemo.java"
     public static void main(String[] args) throws IOException {
 
         Logger root = (Logger)LoggerFactory.getLogger(org.slf4j.Logger.ROOT_LOGGER_NAME);
@@ -188,7 +188,7 @@ bash:> cd server-sdk-python
 </TabItem>
 <TabItem value="golang" label="Go">
 
-~~~go
+~~~go title="example/main.go"
 func main() {
 	config := featureprobe.FPConfig{
 		RemoteUrl: "https://featureprobe.io/server",
@@ -221,7 +221,7 @@ func main() {
 </TabItem>
 <TabItem value="rust" label="Rust">
 
-~~~rust
+~~~rust title="examples/demo.rs"
 #[tokio::main]
 async fn main() {
     let remote_url = "https://featureprobe.io/server";
@@ -262,7 +262,7 @@ async fn main() {
 </TabItem>
 <TabItem value="python" label="Python">
 
-~~~python
+~~~python title="demo.py"
 logging.basicConfig(level=logging.WARNING)
 
 if __name__ == '__main__':
@@ -297,7 +297,7 @@ SDK无法在内部自己推断出用户的属性。
 
 6. 运行编辑后的服务端程序
 
-<Tabs>
+<Tabs groupId="language">
    <TabItem value="java" label="Java" default>
 
 ~~~bash
