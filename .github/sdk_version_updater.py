@@ -71,5 +71,9 @@ if __name__ == '__main__':
     
     update_java_docs('docs/how-to/Server-Side SDKs/java-sdk.md')
     update_java_docs('i18n/zh-CN/docusaurus-plugin-content-docs/current/how-to/Server-Side SDKs/java-sdk.md')
+    update_java_docs('docs/tutorials/backend_rollout.md')
+    update_java_docs('docs/tutorials/backend_custom_attribute.md')
+    update_java_docs('i18n/zh-CN/docusaurus-plugin-content-docs/current/tutorials/backend_rollout.md')
+    update_java_docs('i18n/zh-CN/docusaurus-plugin-content-docs/current/tutorials/backend_custom_attribute.md')
     update_android_docs('docs/how-to/Client-Side SDKs/android-sdk.md')
     update_android_docs('i18n/zh-CN/docusaurus-plugin-content-docs/current/how-to/Client-Side SDKs/android-sdk.md')
