@@ -302,7 +302,7 @@ SDK无法在内部自己推断出用户的属性。
 
 ~~~bash
 bash:> mvn package
-bash:> java -jar ./target/server-sdk-java-1.3.1.jar
+bash:> java -jar ./target/server-sdk-java-1.3.0.jar
 ~~~
 </TabItem>
 <TabItem value="golang" label="Go">
