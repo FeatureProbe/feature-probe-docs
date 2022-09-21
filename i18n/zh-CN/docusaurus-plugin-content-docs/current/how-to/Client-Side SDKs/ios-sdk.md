@@ -70,7 +70,7 @@ add `pod 'FeatureProbe', :git => 'git@github.com:FeatureProbe/client-sdk-ios.git
 
 #### 步骤 2. 创建一个 FeatureProbe instance
 
-```objective-c
+```objectivec
 #import "FeatureProbe-Swift.h"
 
 NSString *urlStr = @"https://featureprobe.io/server";
@@ -86,7 +86,7 @@ FeatureProbe *fp = [[FeatureProbe alloc] initWithConfig:config user:user];
 
 #### 步骤 3. 使用 FeatureProbe 开关
 
-```objective-c
+```objectivec
 bool showFeature = [fp boolValueWithKey: @"toggle_key" defaultValue: false];
 if (showFeature) {
     # application code to show the feature
@@ -97,7 +97,7 @@ if (showFeature) {
 
 #### 步骤 4. 单元测试 (可选)
 
-```objective-c
+```objectivec
 #import "FeatureProbe-Swift.h"
 
 NSString *s = @"{ \"ab_test\": \"green\"}";
