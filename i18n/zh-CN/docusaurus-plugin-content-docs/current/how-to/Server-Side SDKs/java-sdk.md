@@ -29,14 +29,14 @@ sidebar_position: 1
 <dependency>
     <groupId>com.featureprobe</groupId>
     <artifactId>server-sdk-java</artifactId>
-    <version>1.3.0</version>
+    <version>1.3.2</version>
 </dependency>
 ```
 
 #### Gradle Groovy DSL
 
 ```text
-implementation 'com.featureprobe:server-sdk-java:1.3.0'
+implementation 'com.featureprobe:server-sdk-java:1.3.2'
 ```
 
 ### 步骤 2. 创建一个 FeatureProbe instance
