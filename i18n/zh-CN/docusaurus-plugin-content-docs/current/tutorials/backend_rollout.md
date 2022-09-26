@@ -24,12 +24,19 @@ import TabItem from '@theme/TabItem';
 10. 点击下方`发布`按钮，并`确认`变更
 ![confirm](../../../../../pictures/tutorial_rollout_confirm_cn.png)
 
-此时平台上就操作就完成了，我们创建了一个管理灰度发布的开关，下面我们要在后端程序中使用它，看看实际效果。
+此时平台上就操作就完成了，我们创建了一个管理灰度发布的开关，下面我们要在程序中使用它，看看实际效果。
+
+:::tip
+开关创建后，可以在后端程序中访问，也可以在前端程序中访问，以下我们分别介绍如何在 **后端代码** 和 [**前端代码**](#控制前端程序) 中使用这个开关，两者相互独立，您可以根据需要选择阅读您感兴趣的部分。
+:::
 
 
-## 在后端代码中访问开关
+
+## 控制后端程序
 
 我们提供一个后端的代码示例，你可以从这里开始体验后端代码如何使用开关。
+
+### 编写代码
 
 1. 按你熟悉的语言，下载并打开相应的后端示例代码
 
@@ -260,8 +267,10 @@ bash:> python3 demo.py
 </TabItem>
 </Tabs>
 
-## 验证结果
+### 验证结果
 从命令行log可以看到，有大约10%的用户进入了开关，也就是拿到了返回值true。
+<details>
+  <summary>log示例</summary>
 
 ~~~bash
 feature for user 0 is :false
@@ -289,9 +298,101 @@ feature for user 19 is :false
 feature for user 20 is :false
 ~~~
 
-:::info
+</details>
+
+:::tip
 每次运行程序，进入开关的用户可能是不同的，如果需要同样id用户总是拿到相同的开关结果，需要参考FPUser的stableRollout接口。
 :::
 
 可以回到平台的开关设置页面，调整灰度比例，然后重新运行服务端程序，看看log内进入开关的比例是否有变化。
 
+## 控制前端程序
+
+我们提供一个前端的js代码示例，你可以从这里开始体验前端代码如何使用开关。
+
+### 编写代码
+
+1. 下载示例代码
+
+~~~bash
+bash:> git clone https://gitee.com/FeatureProbe/client-sdk-js.git
+bash:> cd client-sdk-js
+~~~
+
+2. 打开[平台](https://featureprobe.io/projects)获取client sdk key
+:::info
+点击『服务』Tab，可以进入『服务』列表，获取各类SDK key，以及修改服务和环境信息。
+:::
+![client sdk key](../../../../../pictures/tutorial_client_sdk_key_cn.png)
+
+3. 打开 `example/index.html` 填入 `客户端SDK密钥` 以及 `FeatureProbe网址`  ("https://featureprobe.io/server")
+
+~~~js title="example/index.html"
+      const fpClient = new featureProbe.FeatureProbe({
+  //      highlight-start
+        remoteUrl: "https://featureprobe.io/server",
+        clientSdkKey: // Paste client sdk key here,
+  //      highlight-end
+        user,
+        refreshInterval: 5000,
+      });
+~~~
+
+4. 模拟当前用户访问开关 `tutorial_rollout` ，直接获取开关状态
+
+~~~js title="example/index.html"
+  <script>
+  //      highlight-next-line
+    const user = new featureProbe.FPUser();
+    const fpClient = new featureProbe.FeatureProbe({
+      remoteUrl: "https://featureprobe.io/server",
+      clientSdkKey:  // Paste client sdk key here,
+      user,
+      refreshInterval: 5000,
+    });
+  
+    fpClient.start();
+    fpClient.on("ready", function() {
+  //      highlight-start
+      const boolValue = fpClient.boolValue("tutorial_rollout", false);
+      document.getElementById("boolean-result").innerText = boolValue;
+  //      highlight-end
+    });
+  </script>
+~~~
+
+### 验证结果
+
+浏览器打开 `index.html` , 手动刷新页面（模拟用户多次访问），可以看到页面按配置的比例可以获得 `true` 或 `false` 的返回值。
+
+<details>
+  <summary>页面展示示例</summary>
+<Tabs>
+   <TabItem value="true" label="True" default>
+
+~~~
+FeatureProbe JS SDK demo
+This is a simple front-end-only application using FeatureProbe JS SDK.
+
+boolean type
+FeatureProbe evaluation boolean type toggle result is : true
+~~~
+</TabItem>
+ <TabItem value="false" label="False" >
+
+~~~
+FeatureProbe JS SDK demo
+This is a simple front-end-only application using FeatureProbe JS SDK.
+
+boolean type
+FeatureProbe evaluation boolean type toggle result is : false
+~~~
+</TabItem>
+</Tabs>
+</details>
+
+可以回到平台的开关设置页面，调整灰度比例，然后重新刷新页面，看看拿到的 `true`/`false` 比例是否有变化。
+
+:::tip
+如果希望对同一个用户，不管他如何刷新，总是被灰度到。需要参考FPUser的stableRollout接口，传入用户的唯一ID。
+:::
