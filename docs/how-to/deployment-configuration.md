@@ -10,9 +10,9 @@ API 模块和 Server 模块在启动时参数说明。
 
 | **Environment variable**                | **Default value** | Required | **Description**                                              |
 | --------------------------------------- | ----------------- | -------- | ------------------------------------------------------------ |
-| spring.datasource.jdbc-url              | -                 | 是       | JDBC 连接地址。如` jdbc:mysql://database:13306/feature_probe` |
 | server.port                             | 8080              | 否       | 服务端口                                                     |
 | TZ                                      | Asia/Shanghai     | 否       | 时区                                                         |
+| spring.datasource.jdbc-url              | -                 | 是       | JDBC 连接地址。如` jdbc:mysql://database:13306/feature_probe` |
 | spring.profiles.active                  | online            | 否       | 当前生效的 profile                                           |
 | logging.level.root                      | INFO              | 否       | 应用日志级别； `INFO`/`ERROR`/`WARN`/`DEBUG                  |
 | spring.jpa.show-sql                     | false             | 否       | 是否显示执行时的 SQL 语句                                    |
@@ -44,10 +44,10 @@ keytool -genkey -alias my-featureprobe-jwt -keyalg RSA -keysize 1024 -keystore f
 
 | **Environment variable** | **Default value**                         | Required | **Description**                                        |
 | ------------------------ | ----------------------------------------- | -------- | ------------------------------------------------------ |
+| FP_SERVER_PORT           | 4007                                      | 否       | 服务端口                                               |
 | FP_TOGGLES_URL           | http://127.0.0.1:8080/api/server/toggles  | 是       | 连接的 FeatureProbe API 服务地址；用于拉取开关         |
 | FP_KEYS_URL              | http://127.0.0.1:8080/api/server/sdk_keys | 是       | 连接的 FeatureProbe API 服务地址；用于拉取 sdk key     |
 | FP_EVENTS_URL            | http://127.0.0.1:8080/api/server/events   | 是       | 连接的 FeatureProbe API 服务地址；用于上报开关访问事件 |
-| FP_SERVER_PORT           | 4007                                      | 否       | 服务端口                                               |
 | FP_REFRESH_SECONDS       | 3                                         | 否       | 轮训拉取开关间隔时间                                   |
 | RUST_LOG                 | info                                      | 否       | 应用日志级别;  `info`/`error`                          |
 

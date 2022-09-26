@@ -74,7 +74,7 @@ FeatureProbe 支持两种部署模式，可根据实际场景选择对应模式�
      --network featureProbeNet --name backendAPI -d featureprobe/api
    ```
 
-   *详情见 [FeatureProbe API 参数说明文档](deployment-configuration#FeatureProbe API)*
+   *详情见 [FeatureProbe API 参数说明文档](deployment-configuration#FeatureProbe-API)*
 
 4. 运行 FeatureProbe Server 实例:
 
@@ -86,7 +86,7 @@ FeatureProbe 支持两种部署模式，可根据实际场景选择对应模式�
      --network featureProbeNet --name serverAPI -d featureprobe/server
    ```
 
-   *详情见 [FeatureProbe Server 参数说明文档](deployment-configuration#FeatureProbe Server)*
+   *详情见 [FeatureProbe Server 参数说明文档](deployment-configuration#FeatureProbe-Server)*
 
 5. 运行 FeatureProbe UI 实例:
 
