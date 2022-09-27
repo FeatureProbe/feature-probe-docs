@@ -63,7 +63,7 @@ FeatureProbe 支持两种部署模式，可根据实际场景选择对应模式�
    docker run -p 13306:13306 \
      -e MYSQL_TCP_PORT=13306 \
      -e MYSQL_ROOT_PASSWORD=root \
-   	-e MYSQL_DATABASE=feature_probe \
+     -e MYSQL_DATABASE=feature_probe \
      --network featureProbeNet --name database -d mariadb
    ```
 
@@ -77,7 +77,7 @@ FeatureProbe 支持两种部署模式，可根据实际场景选择对应模式�
       --network featureProbeNet --name featureProbeAPI -d featureprobe/api
    ```
 
-   *详情见 [FeatureProbe API 参数说明文档](deployment-configuration#FeatureProbe-API)*
+   *详情见 [FeatureProbe API 参数说明文档](deployment-configuration#featureprobe-api)*
 
 4. 运行 FeatureProbe Server 实例:
 
@@ -90,7 +90,7 @@ FeatureProbe 支持两种部署模式，可根据实际场景选择对应模式�
      --network featureProbeNet --name featureProbeServer -d featureprobe/server
    ```
 
-   *详情见 [FeatureProbe Server 参数说明文档](deployment-configuration#FeatureProbe-Server)*
+   *详情见 [FeatureProbe Server 参数说明文档](deployment-configuration#featureprobe-server)*
 
 5. 运行 FeatureProbe UI 实例:
 
