@@ -57,10 +57,11 @@ import TabItem from '@theme/TabItem';
 
 在平台的操作到这里就结束了，开关已经创建成功，并且可以访问了。下面我们介绍怎么在程序中通过SDK拿到这些配置值。
 
-## 在后端代码中访问开关
-
+## 控制后端程序
 
 我们提供一个后端的代码示例，你可以从这里开始体验后端代码如何使用开关。
+
+### 编写代码
 
 1. 按你熟悉的语言，下载并打开相应的后端示例代码
 
@@ -326,7 +327,7 @@ bash:> python3 demo.py
 </TabItem>
 </Tabs>
 
-## 验证结果
+### 验证结果
 从命令行log可以看到，对于以下五个测试用户
 
 > 1. 上海的钻石用户
@@ -352,3 +353,74 @@ bash:> python3 demo.py
 ~~~
 
 可以更改代码，尝试更多用户属性组合，看看log中显示的结果是否符合条件。
+
+## 控制前端程序
+
+我们提供一个前端的js代码示例，你可以从这里开始体验前端代码如何使用开关。
+
+### 编写代码
+
+1. 下载示例代码
+
+~~~bash
+bash:> git clone https://gitee.com/FeatureProbe/client-sdk-js.git
+bash:> cd client-sdk-js
+~~~
+
+2. 打开[平台](https://featureprobe.io/projects)获取client sdk key
+
+:::info
+点击『服务』Tab，可以进入『服务』列表，获取各类SDK key，以及修改服务和环境信息。
+:::
+![client sdk key](../../../../../pictures/tutorial_client_sdk_key_cn.png)
+
+3. 打开 `example/index.html` 填入 `客户端SDK密钥` 以及 `FeatureProbe网址`  ("https://featureprobe.io/server")
+
+~~~js title="example/index.html"
+      const fpClient = new featureProbe.FeatureProbe({
+  //      highlight-start
+        remoteUrl: "https://featureprobe.io/server",
+        clientSdkKey: // Paste client sdk key here,
+  //      highlight-end
+        user,
+        refreshInterval: 5000,
+      });
+~~~
+
+4. 模拟『上海』的『钻石』用户访问开关 `tutorial_variation` ，直接获取开关状态
+
+~~~js title="example/index.html"
+  <script>
+  //      highlight-next-line
+    const user = new featureProbe.FPUser().with("city", "上海").with("rank", "钻石");
+    const fpClient = new featureProbe.FeatureProbe({
+      remoteUrl: "https://featureprobe.io/server",
+      clientSdkKey:  // Paste client sdk key here,
+      user,
+      refreshInterval: 5000,
+    });
+  
+    fpClient.start();
+    fpClient.on("ready", function() {
+  //      highlight-start
+    const stringValue = fpClient.stringValue("tutorial_variation", "欢迎");
+    document.getElementById("string-result").innerText = stringValue;
+  //      highlight-end
+    });
+  </script>
+~~~
+
+### 验证结果
+
+浏览器打开 `index.html` , 可以看到对与当前这个『上海』的『钻石』用户，显示了『欢迎上海的尊贵客户』。
+
+~~~
+string type
+FeatureProbe evaluation string type toggle result is : 欢迎上海的尊贵客户
+~~~
+
+可以回到 `index.html` 文件，然后更新 `with` 参数，看看返回值有什么差别。
+
+~~~ js title="example/index.html"
+const user = new featureProbe.FPUser().with("city", "北京").with("rank", "钻石");
+~~~

@@ -1,20 +1,9 @@
 ---
-sidebar_position: 4
+sidebar_position: 2
 ---
 
-# 部署生产环境
-
-本文档介绍如何部署 FeatureProbe 服务。
-
-## 对比两种部署模式
-
-FeatureProbe 服务架构如下图：
-![deploy](../../../../../pictures/featureprobe_deploy.png)
-
-FeatureProbe 支持两种部署模式，可根据实际场景选择对应模式：
-
-- All-in-One 部署：一般用于本地测试或试用，将所有子服务部署在一个部署单元中（容器、虚拟机、物理机），部署步骤简单。
-- 子服务独立部署：适用于真实线上环境部署，子服务部署在单独部署单元中，部署过程稍复杂，灵活性更高，可以子服务单独扩容。
+# Docker image 部署
+使用各模块提供的docker 镜象在 Linux/Unix 独立部署各子服务
 
 ## 环境准备
 
@@ -23,31 +12,18 @@ FeatureProbe 支持两种部署模式，可根据实际场景选择对应模式�
 * 建议：生产环境3个节点及以上
 * 建议：2核 CPU/4G内存及以上
 
-## All-in-One 部署
-
-使用 docker-compose快速在 Linux/Unix/Mac 上运行。
-
-**操作步骤：**
-
-1. 安装 git 和 docker
-2. 国内默认链接从docker网站下载会比较慢，请先[配置国内docker镜像](https://gitee.com/featureprobe/FeatureProbe/blob/main/DOCKER_HUB.md)
-3. 然后从github clone当前代码目录，按照以下命令启动服务：
-   ```shell
-   git clone https://gitee.com/featureprobe/FeatureProbe.git
-   cd FeatureProbe
-   docker compose up
-   ```
-4. docker启动成功后，打开浏览器，访问：`localhost:4009`，并用以下默认帐号登录试用：
-   - username: `admin`
-   - password: `Pass1234`
 
 ## 子服务独立部署
 
 使用各模块提供的 [docker 镜象](https://hub.docker.com/repository/docker/featureprobe)在 Linux/Unix 独立部署。
-需要部署有三个服务镜像，分别是 FeatureProbe UI、FeatureProbe Server 和 FeatureProbe API。
-数据库可以使用默认的mysql镜像，也可以配置为链接已有的mysql数据库实例。
+需要部署有三个服务镜像，
+* FeatureProbe UI
+* FeatureProbe Server
+* FeatureProbe API。
 
-**操作步骤：**
+数据库可以使用docker hub上默认的mysql镜像，也可以配置为链接已有的mysql数据库实例。
+
+### 操作步骤
 
 1. 创建一个专用网络连接：
    ```bash
@@ -55,9 +31,9 @@ FeatureProbe 支持两种部署模式，可根据实际场景选择对应模式�
    ```
 
 2. 运行 MySQL 数据库实例:
-  :::tip
-  可以跳过此步骤，使用您已经部署好的其他MySQL环境。需要参考 [*数据库配置*](https://mariadb.com/kb/en/mariadb-docker-environment-variables/) 修改数据库连接信息，连接到您已部署好的MySQL实例。
-  :::
+:::tip
+  如果使用您已经部署好的其他MySQL环境，可以跳过此步骤。在下一步API服务的启动参数中填入您自己的MySQL环境配置信息。
+:::
 
    ```bash
    docker run -p 13306:13306 \
@@ -66,8 +42,14 @@ FeatureProbe 支持两种部署模式，可根据实际场景选择对应模式�
      -e MYSQL_DATABASE=feature_probe \
      --network featureProbeNet --name database -d mariadb
    ```
+:::info
+   更详细数据库启动参数配置可以参考 [数据库配置](https://mariadb.com/kb/en/mariadb-docker-environment-variables/)
+:::
 
 3. 运行 FeatureProbe API 实例:
+   
+    将下面 {DatabaseIP:PORT}/{DATABASE_NAME} 替换为您创建的数据库实例的信息。
+
    ```bash
    docker run -p 4008:4008 \
       -e server.port=4008 \
@@ -76,10 +58,11 @@ FeatureProbe 支持两种部署模式，可根据实际场景选择对应模式�
       -e spring.datasource.password=root \
       --network featureProbeNet --name featureProbeAPI -d featureprobe/api
    ```
+:::info
+   API服务更详细的启动参数说明见 [FeatureProbe API 参数说明文档](../../reference/deployment-configuration#featureprobe-api)
+:::
 
-   *详情见 [FeatureProbe API 参数说明文档](deployment-configuration#featureprobe-api)*
-
-4. 运行 FeatureProbe Server 实例:
+5. 运行 FeatureProbe Server 实例:
 
    ```bash
    docker run -p 4007:4007 \
@@ -89,10 +72,11 @@ FeatureProbe 支持两种部署模式，可根据实际场景选择对应模式�
      -e FP_KEYS_URL=http://{FeatureProbeAPI:PORT}/api/server/sdk_keys \
      --network featureProbeNet --name featureProbeServer -d featureprobe/server
    ```
+:::info
+   Server服务更详细启动参数说明详见 [FeatureProbe Server 参数说明文档](../../reference/deployment-configuration#featureprobe-server)
+:::
 
-   *详情见 [FeatureProbe Server 参数说明文档](deployment-configuration#featureprobe-server)*
-
-5. 运行 FeatureProbe UI 实例:
+6. 运行 FeatureProbe UI 实例:
 
    ```bash
    docker run -p 4009:4009 \
@@ -129,7 +113,8 @@ FeatureProbe 支持两种部署模式，可根据实际场景选择对应模式�
    }
    ```
 
-6. 上述服务启动后打开浏览器，访问：`http://{FeatureProbeUI_IP:PORT}`并用以下默认帐号登录试用：
+## 安装验证
+上述服务启动后打开浏览器，访问：`http://{FeatureProbeUI_IP:PORT}` 并用以下默认帐号登录试用：
 
    - username: `admin`
    - password: `Pass1234`

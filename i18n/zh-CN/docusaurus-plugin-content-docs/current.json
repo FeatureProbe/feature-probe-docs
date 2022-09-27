@@ -55,6 +55,10 @@
     "message": "入门教程",
     "description": "The label for category Tutorials in sidebar defaultSidebar"
   },
+  "sidebar.defaultSidebar.category.Deploy": {
+    "message": "部署服务",
+    "description": "The label for category Deploy in sidebar defaultSidebar"
+  },
   "sidebar.defaultSidebar.category.Tutorials.link.generated-index.description": {
     "message": "面向第一次使用FeatureProbe的用户，通过教程分步骤引导用户学习FeatureProbe的基本使用",
     "description": "The generated-index page description for category Tutorials in sidebar defaultSidebar"
