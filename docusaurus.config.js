@@ -42,7 +42,7 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          routeBasePath: '/', 
+          routeBasePath: '/',
           editUrl: 'https://github.com/FeatureProbe/feature-probe-docs/tree/main/',
           editLocalizedFiles: true,
           showLastUpdateTime: true,
@@ -87,8 +87,8 @@ const config = {
             label: 'Docs',
           },
           {
-            to: '/blog', 
-            label: 'Blog', 
+            to: '/blog',
+            label: 'Blog',
             position: 'left'
           },
           {
@@ -145,7 +145,7 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
-        additionalLanguages: ['java','rust','swift','objectivec','kotlin'],
+        additionalLanguages: ['java','rust','swift','objectivec','kotlin', 'nginx'],
       },
     }),
   themes: ['@docusaurus/theme-live-codeblock'],
