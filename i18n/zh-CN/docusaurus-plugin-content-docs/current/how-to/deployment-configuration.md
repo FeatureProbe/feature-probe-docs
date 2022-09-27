@@ -10,7 +10,9 @@ API 模块和 Server 模块在启动时参数说明。
 
 | **Environment variable**                | **Default value** | Required | **Description**                                              |
 | --------------------------------------- | ----------------- | -------- | ------------------------------------------------------------ |
-| spring.datasource.jdbc-url              | -                 | 是       | JDBC 连接地址。如` jdbc:mysql://database:13306/feature_probe` |
+| spring.datasource.jdbc-url              | -                 | 是       | JDBC 连接地址。示例：` jdbc:mysql://{database_ip:port}/{database_name}` |
+| spring.datasource.username              | root              | 否       | 连接数据库用户名                                             |
+| spring.datasource.password              | root              | 否       | 连接数据库密码                                               |
 | server.port                             | 8080              | 否       | 服务端口                                                     |
 | TZ                                      | Asia/Shanghai     | 否       | 时区                                                         |
 | spring.profiles.active                  | online            | 否       | 当前生效的 profile                                           |

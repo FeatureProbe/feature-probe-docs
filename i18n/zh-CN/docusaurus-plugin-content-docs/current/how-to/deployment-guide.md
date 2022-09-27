@@ -56,22 +56,25 @@ FeatureProbe 支持两种部署模式，可根据实际场景选择对应模式�
 
 2. 运行 MySQL 数据库实例:
   :::tip
-  可以跳过此步骤，使用您已经部署好的其他MySQL环境。需要参考 [*数据库配置*](#数据库配置) 修改数据库连接信息，连接到您已部署好的MySQL实例。
+  可以跳过此步骤，使用您已经部署好的其他MySQL环境。需要参考 [*数据库配置*](https://mariadb.com/kb/en/mariadb-docker-environment-variables/) 修改数据库连接信息，连接到您已部署好的MySQL实例。
   :::
 
    ```bash
-   docker run -e  MYSQL_ROOT_PASSWORD=root -e \
-     MYSQL_DATABASE=feature_probe \
-     MYSQL_TCP_PORT=3306 \
+   docker run -p 13306:13306 \
+     -e MYSQL_TCP_PORT=13306 \
+     -e MYSQL_ROOT_PASSWORD=root \
+   	-e MYSQL_DATABASE=feature_probe \
      --network featureProbeNet --name database -d mariadb
    ```
 
 3. 运行 FeatureProbe API 实例:
    ```bash
-   docker run -e server.port=4008 -e \
-     spring.datasource.jdbc-url=jdbc:mysql://database:13306/feature_probe \
-     spring.datasource.jdbc-url=3306 \
-     --network featureProbeNet --name backendAPI -d featureprobe/api
+   docker run -p 4008:4008 \
+      -e server.port=4008 \
+      -e spring.datasource.jdbc-url=jdbc:mysql://{DatabaseIP:PORT}/{DATABASE_NAME} \
+      -e spring.datasource.username=root \
+      -e spring.datasource.password=root \
+      --network featureProbeNet --name featureProbeAPI -d featureprobe/api
    ```
 
    *详情见 [FeatureProbe API 参数说明文档](deployment-configuration#FeatureProbe-API)*
@@ -79,11 +82,12 @@ FeatureProbe 支持两种部署模式，可根据实际场景选择对应模式�
 4. 运行 FeatureProbe Server 实例:
 
    ```bash
-   docker run -e FP_SERVER_PORT=4007 -e \
-     FP_TOGGLES_URL=http://backendAPI:4008/api/server/toggles \
-     FP_EVENTS_URL=http://backendAPI:4008/api/server/events \
-     FP_KEYS_URL=http://backendAPI:4008/api/server/sdk_keys \
-     --network featureProbeNet --name serverAPI -d featureprobe/server
+   docker run -p 4007:4007 \
+     -e FP_SERVER_PORT=4007 \
+     -e FP_TOGGLES_URL=http://{FeatureProbeAPI:PORT}/api/server/toggles \
+     -e FP_EVENTS_URL=http://{FeatureProbeAPI:PORT}/api/server/events \
+     -e FP_KEYS_URL=http://{FeatureProbeAPI:PORT}/api/server/sdk_keys \
+     --network featureProbeNet --name featureProbeServer -d featureprobe/server
    ```
 
    *详情见 [FeatureProbe Server 参数说明文档](deployment-configuration#FeatureProbe-Server)*
@@ -91,10 +95,41 @@ FeatureProbe 支持两种部署模式，可根据实际场景选择对应模式�
 5. 运行 FeatureProbe UI 实例:
 
    ```bash
-   docker run -e FP_SERVER_PORT=4007 -e \
-     --network featureProbeNet --name ui -d featureprobe/ui
+   docker run -p 4009:4009 \
+   -v /my_custom/default.conf:/etc/nginx/conf.d/default.conf \
+   --network featureProbeNet --name featureProbeUI -d featureprobe/ui 
    ```
 
-6. 上述服务启动后打开浏览器，访问：`{FeatureprobeUI_IP}:4009`并用以下默认帐号登录试用：
+   为保证 API 和 UI 端口一致(避免请求跨域)，需要自定义 nginx 配置转发 API 请求，`/my_custom/default.conf` 配置如下示例：
+
+   ```nginx
+   upstream featureProbeAPI {
+       server 127.0.0.1:4008; # FeatureProbeAPI IP和端口
+   }
+   
+   server {
+     listen 4009;  # UI 端口
+   
+     location / {
+       index  index.html index.htm;
+       root /usr/share/nginx/html;
+       try_files $uri /index.html;
+     }
+   
+      location /api { # 访问 /api 时统一转发到 featureProbeAPI 服务
+       proxy_set_header X-Real-IP $remote_addr;
+       proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+       proxy_set_header X-NginX-Proxy true;
+       proxy_pass http://featureProbeAPI/api;
+       proxy_ssl_session_reuse off;
+       proxy_set_header Host $http_host;
+       proxy_cache_bypass $http_upgrade;
+       proxy_redirect off;
+     }
+   }
+   ```
+
+6. 上述服务启动后打开浏览器，访问：`http://{FeatureProbeUI_IP:PORT}`并用以下默认帐号登录试用：
+
    - username: `admin`
    - password: `Pass1234`
