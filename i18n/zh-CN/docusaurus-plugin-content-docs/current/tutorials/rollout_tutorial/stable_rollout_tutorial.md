@@ -198,6 +198,7 @@ feature for user 18 is :false
 feature for user 19 is :false
 feature for user 20 is :false
 ~~~
+
 </details>
 
 2. 平台上调大放量比例到50%，可以看到50%用户拿到了true，且之前拿到true的用户（例如id：13，15，16）仍然拿到了true。
@@ -230,4 +231,5 @@ feature for user 17 is: true
 feature for user 18 is: false
 feature for user 19 is: false
 ~~~
+
 </details>

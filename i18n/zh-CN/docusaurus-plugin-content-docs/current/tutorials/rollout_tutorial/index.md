@@ -15,7 +15,7 @@ import TabItem from '@theme/TabItem';
 ![add](../../../../../../pictures/tutorial_create_toggle_button_cn.png)
 3. 名字和标识都设置为`tutorial_rollout`，点击`创建`
 ![create](../../../../../../pictures/tutorial_rollout_create_cn.png)
-7. 从开关列表中点击`turorial_rollout`，打开设置详情页
+7. 从开关列表中点击`tutorial_rollout`，打开设置详情页
 ![list](../../../../../../pictures/tutorial_list_click_cn.png)
 8. 将默认规则的返回值更改为`按百分比放量`
 ![return](../../../../../../pictures/tutorial_return_percentage_cn.png)
@@ -301,7 +301,7 @@ feature for user 20 is :false
 </details>
 
 :::tip
-每次运行程序，进入开关的用户可能是不同的，如果需要同样id用户总是拿到相同的开关结果，需要参考FPUser的stableRollout接口。
+每次运行程序，进入开关的用户可能是不同的，如果需要同样id用户总是拿到相同的开关结果，需要[使用FPUser的stableRollout接口](stable_rollout_tutorial.md)。
 :::
 
 可以回到平台的开关设置页面，调整灰度比例，然后重新运行服务端程序，看看log内进入开关的比例是否有变化。
@@ -394,5 +394,5 @@ FeatureProbe evaluation boolean type toggle result is : false
 可以回到平台的开关设置页面，调整灰度比例，然后重新刷新页面，看看拿到的 `true`/`false` 比例是否有变化。
 
 :::tip
-如果希望对同一个用户，不管他如何刷新，总是被灰度到。需要参考FPUser的stableRollout接口，传入用户的唯一ID。
+如果希望对同一个用户，不管他如何刷新，总是被灰度到。需要[使用FPUser的stableRollout接口](stable_rollout_tutorial.md)，传入用户的唯一ID。
 :::

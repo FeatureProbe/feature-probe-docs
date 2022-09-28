@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+slug: /
 ---
 
 # 什么是功能管理

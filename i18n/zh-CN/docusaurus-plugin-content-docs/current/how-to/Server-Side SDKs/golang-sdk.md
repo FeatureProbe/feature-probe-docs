@@ -93,6 +93,6 @@ assert.Equal(t, fp.BoolValue("bool_toggle", user, false), true)
 集成测试用例作为每个 SDK 存储库的子模块添加。所以在运行测试之前，请务必先拉取子模块以获取最新的集成测试。
 
 ```shell
-git submodule update --init
+git submodule update --init --recursive
 go test
 ```
