@@ -61,7 +61,7 @@
   },
   "sidebar.defaultSidebar.category.Rollout": {
     "message": "按百分比灰度放量",
-    "description": "The label for category Rollout_tutorial in sidebar defaultSidebar"
+    "description": "The label for category Rollout in sidebar defaultSidebar"
   },
   "sidebar.defaultSidebar.category.Tutorials.link.generated-index.description": {
     "message": "面向第一次使用FeatureProbe的用户，通过教程分步骤引导用户学习FeatureProbe的基本使用",
