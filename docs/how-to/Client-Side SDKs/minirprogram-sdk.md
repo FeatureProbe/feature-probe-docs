@@ -65,7 +65,6 @@ featureProbeClient.start();
 
 ### Step 3. Get varation value 
 
-
 You can get variation value from globalData object, SDK will update `globalData.toggles` object automatically
 
 ```js
@@ -105,7 +104,6 @@ This SDK takes the following options:
 
 ## Testing
 
-
-```js
+```shell
 npm run test
 ```
