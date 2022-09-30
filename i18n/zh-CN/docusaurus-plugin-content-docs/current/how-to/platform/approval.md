@@ -7,7 +7,7 @@ sidebar_position: 6
 ## 审批设置
 项目下的「环境」可以分别设置审批人、分别开启审批。
 
-![toggle targeting screenshot](../../../../../../pictures/toggle_targeting_zh.png)
+![toggle targeting screenshot](../../../../../../pictures/tapproval_settings.png)
 
 1. 环境：此处展示的是项目下的所有环境。
 2. 审批人：支持为每个项目设置相同或不同的审批人。审批人会收到该环境下的所有开关的发布审批。
@@ -24,7 +24,9 @@ sidebar_position: 6
 3. 点击“确认”：此时审批正式发起，此次审批已经流转到审批人处。
 
 ## 审批中心
-发布后，审批人就可以在【审批中心】看到啦~可以点击进入开关内进行审批
+发布后，审批人就可以在【审批中心】看到啦~可以点击进入开关内进行审批,申请人也可以在申请列表看到。
+![history screenshot](../../../../../../pictures/approval_list.png)
+![history screenshot](../../../../../../pictures/application_list.png)
 + 审批状态：（待审批、已通过、已拒绝、已跳过、已撤回）
   - 待审批：发布审批后，是“待审批”状态
   - 已通过：“待审批”的开关，审批人审批【通过】后，是“已通过”状态
@@ -36,6 +38,7 @@ sidebar_position: 6
 
 ## 开关列表及开关配置
 审批通过后，申请人需要点击【发布】，才能完成此次发布。
+![history screenshot](../../../../../../pictures/toggle_approval.png)
 + 开关状态：（待审批、待发布、已拒绝、已发布）
   - 待审批：发布审批后，是“待审批”状态
   - 待发布：审批人审批【通过】后，是“待发布”状态。此时申请人可以点击【发布】或【放弃变更】
