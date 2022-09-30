@@ -41,11 +41,11 @@ sidebar_position: 6
 ![history screenshot](../../../../../../pictures/toggle_approval.png)
 
 ### 开关配置页面
-待审批-申请人：
++ 【待审批】-【申请人】：
 ![history screenshot](../../../../../../pictures/pending_review_q.png)
-待审批-审批人：
++ 【待审批】-【审批人】：
 ![history screenshot](../../../../../../pictures/pending_review_p.png)
-待发布-申请人：
++ 【待发布】-【申请人】：
 ![history screenshot](../../../../../../pictures/pending_publish.png)
 + 开关状态：（待审批、待发布、已拒绝、已发布）
   - 待审批：发布审批后，是“待审批”状态
