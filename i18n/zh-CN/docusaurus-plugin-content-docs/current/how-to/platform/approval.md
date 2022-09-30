@@ -7,7 +7,7 @@ sidebar_position: 6
 ## 审批设置
 项目下的「环境」可以分别设置审批人、分别开启审批。
 
-![toggle targeting screenshot](../../../../../../pictures/tapproval_settings.png)
+![toggle targeting screenshot](../../../../../../pictures/approval_settings.png)
 
 1. 环境：此处展示的是项目下的所有环境。
 2. 审批人：支持为每个项目设置相同或不同的审批人。审批人会收到该环境下的所有开关的发布审批。
