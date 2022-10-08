@@ -28,4 +28,3 @@ sidebar_position: 1
 4. docker启动成功后，打开浏览器，访问：`localhost:4009`，并用以下默认帐号登录试用：
    - username: `admin`
    - password: `Pass1234`
-   

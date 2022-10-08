@@ -3,7 +3,7 @@ sidebar_position: 2
 ---
 
 # Docker image 部署
-使用各模块提供的docker 镜象在 Linux/Unix 独立部署各子服务
+使用各模块提供的docker 镜象在 Linux/Unix/Mac 独立部署各子服务
 
 ## 环境准备
 
@@ -15,80 +15,77 @@ sidebar_position: 2
 
 ## 子服务独立部署
 
-使用各模块提供的 [docker 镜象](https://hub.docker.com/repository/docker/featureprobe)在 Linux/Unix 独立部署。
-需要部署有三个服务镜像，
-* FeatureProbe UI
-* FeatureProbe Server
-* FeatureProbe API。
+使用各模块提供的 [docker 镜象](https://hub.docker.com/repository/docker/featureprobe)在 Linux/Unix/Mac 独立部署。
+需要部署有三个服务镜像，如下部署示例：
 
-数据库可以使用docker hub上默认的mysql镜像，也可以配置为链接已有的mysql数据库实例。
+| 示例机器   | 部署模块            | 端口       |
+| ---------- | ------------------- | ---------- |
+| 10.100.1.1 | FeatureProbe API    | 4009、4008 |
+| 10.100.1.1 | FeatureProbe UI     | 4009       |
+| 10.100.1.2 | FeatureProbe Server | 4007       |
+| 10.100.1.3 | 数据库（MySQL）     | 13306      |
 
 ### 操作步骤
 
-1. 创建一个专用网络连接：
-   ```bash
-   docker network create featureProbeNet
-   ```
+*为简化部署步骤，下述容器互联使用共享宿主机网络，关于不同网络模式使用可参考 [Docker Networking overview](https://docs.docker.com/network/)。*
 
-2. 运行 MySQL 数据库实例:
-:::tip
-  如果使用您已经部署好的其他MySQL环境，可以跳过此步骤。在下一步API服务的启动参数中填入您自己的MySQL环境配置信息。
-:::
+1. 运行 MySQL 数据库实例:
+   :::tip
+   如果使用您已经部署好的其他MySQL环境，可以跳过此步骤。在下一步API服务的启动参数中填入您自己的MySQL环境配置信息。
+   :::
 
    ```bash
    docker run -p 13306:13306 \
-     -e MYSQL_TCP_PORT=13306 \
-     -e MYSQL_ROOT_PASSWORD=root \
-     -e MYSQL_DATABASE=feature_probe \
-     --network featureProbeNet --name database -d mariadb
+       -e MYSQL_TCP_PORT=13306 \
+       -e MYSQL_ROOT_PASSWORD=root \
+       -e MYSQL_DATABASE=feature_probe \
+       --net=host --name database -d mariadb
    ```
-:::info
+    :::info
    更详细数据库启动参数配置可以参考 [数据库配置](https://mariadb.com/kb/en/mariadb-docker-environment-variables/)
-:::
+    :::
 
-3. 运行 FeatureProbe API 实例:
-   
-    将下面 {DatabaseIP:PORT}/{DATABASE_NAME} 替换为您创建的数据库实例的信息。
+2. 运行 FeatureProbe API 实例:
 
    ```bash
    docker run -p 4008:4008 \
       -e server.port=4008 \
-      -e spring.datasource.jdbc-url=jdbc:mysql://{DatabaseIP:PORT}/{DATABASE_NAME} \
+      -e spring.datasource.jdbc-url=jdbc:mysql://10.100.1.4:13306/feature_probe \  # 数据库 IP/端口和库名
       -e spring.datasource.username=root \
       -e spring.datasource.password=root \
-      --network featureProbeNet --name featureProbeAPI -d featureprobe/api
+      --net=host --name featureProbeAPI -d featureprobe/api
    ```
-:::info
+   :::info
    API服务更详细的启动参数说明见 [FeatureProbe API 参数说明文档](../../reference/deployment-configuration#featureprobe-api)
-:::
-
-5. 运行 FeatureProbe Server 实例:
+   :::
+   
+3. 运行 FeatureProbe Server 实例:
 
    ```bash
    docker run -p 4007:4007 \
      -e FP_SERVER_PORT=4007 \
-     -e FP_TOGGLES_URL=http://{FeatureProbeAPI:PORT}/api/server/toggles \
-     -e FP_EVENTS_URL=http://{FeatureProbeAPI:PORT}/api/server/events \
-     -e FP_KEYS_URL=http://{FeatureProbeAPI:PORT}/api/server/sdk_keys \
-     --network featureProbeNet --name featureProbeServer -d featureprobe/server
+     -e FP_TOGGLES_URL=http://10.100.1.1:4008/api/server/toggles \  # FeatureProbe API IP 和端口号
+     -e FP_EVENTS_URL=http://10.100.1.1:4008/api/server/events \
+     -e FP_KEYS_URL=http://10.100.1.1:4008/api/server/sdk_keys \
+     --net=host --name featureProbeServer -d featureprobe/server
    ```
-:::info
+   :::info
    Server服务更详细启动参数说明详见 [FeatureProbe Server 参数说明文档](../../reference/deployment-configuration#featureprobe-server)
-:::
+   :::
 
-6. 运行 FeatureProbe UI 实例:
+4. 运行 FeatureProbe UI 实例:
 
    ```bash
    docker run -p 4009:4009 \
    -v /my_custom/default.conf:/etc/nginx/conf.d/default.conf \
-   --network featureProbeNet --name featureProbeUI -d featureprobe/ui 
+   --net=host --name featureProbeUI -d featureprobe/ui 
    ```
 
    为保证 API 和 UI 端口一致(避免请求跨域)，需要自定义 nginx 配置转发 API 请求，`/my_custom/default.conf` 配置如下示例：
 
    ```nginx
    upstream featureProbeAPI {
-       server 127.0.0.1:4008; # FeatureProbeAPI IP和端口
+       server 10.100.1.1:4008; # FeatureProbeAPI IP和端口
    }
    
    server {
@@ -114,7 +111,7 @@ sidebar_position: 2
    ```
 
 ## 安装验证
-上述服务启动后打开浏览器，访问：`http://{FeatureProbeUI_IP:PORT}` 并用以下默认帐号登录试用：
+上述服务启动后打开浏览器，访问：`http://10.100.1.2:4009` (UI服务 IP 和端口)并用以下默认帐号登录试用：
 
    - username: `admin`
    - password: `Pass1234`
