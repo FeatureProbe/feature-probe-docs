@@ -41,9 +41,11 @@ sidebar_position: 2
        -e MYSQL_DATABASE=feature_probe \
        --net=host --name database -d mariadb
    ```
-    :::info
+
+   :::tip
    更详细数据库启动参数配置可以参考 [数据库配置](https://mariadb.com/kb/en/mariadb-docker-environment-variables/)
-    :::
+   :::
+
 
 2. 运行 FeatureProbe API 实例:
 
@@ -110,7 +112,7 @@ sidebar_position: 2
    }
    ```
 
-## 安装验证
+## 部署验证
 上述服务启动后打开浏览器，访问：`http://10.100.1.2:4009` (UI服务 IP 和端口)并用以下默认帐号登录试用：
 
    - username: `admin`

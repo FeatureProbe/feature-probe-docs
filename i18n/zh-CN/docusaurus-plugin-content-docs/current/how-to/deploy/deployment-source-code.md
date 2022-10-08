@@ -14,7 +14,7 @@ sidebar_position: 3
 
 1. 环境准备
 
-   - JDK1.8+
+   - JDK 1.8+
    - Maven 2.0+
 
     
@@ -34,8 +34,9 @@ sidebar_position: 3
 1. 环境准备
 
    - JDK 1.8+
+   - MySQL 5.7+
 
-2. 以 `4008` 端口运行服务
+2. 将 `feature-probe-api-1.1.0.jar` 放置部署服务器中，并以 `4008` 端口启动：
 
    ```bash
    java -jar feature-probe-api-1.1.0.jar -Dserver.port=4008 \
@@ -45,13 +46,13 @@ sidebar_position: 3
    ```
 
    :::info
-   API服务更详细的启动参数说明见 [FeatureProbe API 参数说明文档](../../reference/deployment-configuration#featureprobe-api)
+   API 服务更详细的启动参数说明见 [FeatureProbe API 参数说明文档](../../reference/deployment-configuration#featureprobe-api)
    :::
 
 3. 检查服务是否运行成功
 
    ```bash
-   curl "http://{FEATURE PROBE API IP}:4008/api/actuator/health"
+   curl "http://{featureProbeAPI_IP}:{PORT}/api/actuator/health"
    ```
 
    显示如下信息则表示启动成功：
@@ -71,19 +72,23 @@ sidebar_position: 3
 
 1. 环境准备
 
-   * Node.Js 16 +
-   * NPM 8.1.2+
+   * Node.js 16 +
+   * npm
 
 
-2. 获取源码并编译出部署包：
+2. 获取源码并编译出可部署的静态文件：
 
+   :::info
+   国内建议切换为 npm 中国镜像站：[npmmirror 中国镜像站](https://npmmirror.com/)
+   :::
+   
    ```bash
    git clone https://github.com/FeatureProbe/feature-probe-ui.git
    cd feature-probe-ui
    npm install
    npm run build
    ```
-
+   
    完成编译后会在 `build` 目录下生成可部署的静态文件。如下所示：
    
    ```bash
@@ -127,7 +132,7 @@ sidebar_position: 3
    ```
 
 
-3. 执行 reload nginx 配置，使上述配置生效：
+3. 执行 `reload nginx` 配置，使上述配置生效：
 
    ```nginx -s reload
    nginx -s reload
@@ -149,20 +154,24 @@ sidebar_position: 3
 
 1. 环境准备
 
-   * Rustc
-   * Cargo 
+   * Rust *([如何安装？](https://www.rust-lang.org/tools/install))*
+   * Cargo *([如何安装？](https://doc.rust-lang.org/cargo/getting-started/installation.html))*
 
 
 2. 获取源码并编译出部署包：
 
+   :::info
+   国内建议切换为 cargo 中国镜像：[配置 Cargo 国内镜像源](https://mirrors.tuna.tsinghua.edu.cn/help/crates.io-index.git/)
+   :::
+   
    ```bash
    git clone https://github.com/FeatureProbe/feature-probe-server.git
    cd feature-probe-server
    cargo build --release --verbose
    ```
-
+   
    完成编译后会在 `build` 目录下生成可执行的二制文件：
-
+   
    ```bash
    ➜ $ ls build 
    feature_probe_server
@@ -189,13 +198,15 @@ sidebar_position: 3
    ```
 
   :::info
-  Server服务更详细启动参数说明详见 [FeatureProbe Server 参数说明文档](../../reference/deployment-configuration#featureprobe-server)
+  Server 服务更详细启动参数说明详见 [FeatureProbe Server 参数说明文档](../../reference/deployment-configuration#featureprobe-server)
   :::
 
-3. 检查服务是否运行成功
+3. 执行启动脚本运行服务：`sh ./start-feature-probe-server.sh`
+
+4. 检查服务是否运行成功
 
    ```bash
-   curl "http://{FEATURE PROBE SERVER IP}:4007/"
+   curl "http://{featureProbeServer_IP}:{PORT}/"
    ```
 
    显示如下信息则表示启动成功：
@@ -203,3 +214,4 @@ sidebar_position: 3
    ```json
    <h1>Feature Probe Server</h1>
    ```
+
