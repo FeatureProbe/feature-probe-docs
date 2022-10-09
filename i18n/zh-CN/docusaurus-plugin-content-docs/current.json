@@ -82,5 +82,9 @@
   "sidebar.defaultSidebar.category.Platform.link.generated-index.description": {
     "message": "介绍在FeatureProbe平台上能够操作的功能",
     "description": "The generated-index page description for category Platform in sidebar defaultSidebar"
+  },
+  "sidebar.defaultSidebar.category.Local Development": {
+    "message": "本地开发",
+    "description": "The label for category Local Development in sidebar defaultSidebar"
   }
 }
