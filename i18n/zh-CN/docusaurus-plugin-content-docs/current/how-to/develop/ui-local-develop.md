@@ -20,7 +20,7 @@ yarn install
 :::tip
 强烈建议使用`yarn`作为包管理器。如果你正在使用`npm install`进行安装并遇到以下报错，请使用`npm install——legacy-peer-deps`命令代替。
 :::
- 
+
 ![toggles screenshot](../../../../../../pictures/local_develop_install_error.png)
 
 ```shell
@@ -49,4 +49,4 @@ yarn start
 
 ### 私有化部署
 
-如果你想单独私有化部署UI项目，参考这片文档: [UI Service](../deploy/deployment-source-code#ui-%E6%9C%8D%E5%8A%A1)
+如果你想单独私有化部署UI项目，参考这片文档: [UI Service](../deploy/deployment-source-code#编译部署 UI 服务
