@@ -42,8 +42,8 @@ import TabItem from '@theme/TabItem';
 
   - RemoteUrl
     - 官方测试环境： https://featureprobe.io/server
-    - Docker-compose 环境： http://{YOU_SERVER_IP}:4007
-    - Docker image 部署或编译部署： http://{FEATURE_PROBE_SERVER_IP}:{PORT}
+    - Docker-compose 环境： http://{运行 docker compose 机器IP地址}:4007
+    - Docker image 部署或编译部署： http://{FEATURE_PROBE_SERVER_IP}:{FP_SERVER_PORT}
   - ServerSdkKey: *<[如何获取 ServerSdkKey](/tutorials/backend_custom_attribute#编写代码)>*
 
 - 检查 FeatureProbe Server 服务是否正常：
@@ -53,7 +53,7 @@ import TabItem from '@theme/TabItem';
   - Docker 环境或编译部署环境:
 
     ```bash
-    curl "http://{FEATURE_PROBE_SERVER_IP}:{PORT}"
+    curl "http://{FEATURE_PROBE_SERVER_IP}:{FP_SERVER_PORT}"
     
     <h1>Feature Probe Server</h1> # <- 显示该信息则表示服务正常
     ```

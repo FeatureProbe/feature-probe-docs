@@ -6,7 +6,13 @@ sidebar_position: 3
 
 本文档介绍如何通过源码编译方式部署各模块。
 
+需要部署有三个服务镜像，如下部署示例：
 
+| 示例机器   | 部署模块            | 端口       |
+| ---------- | ------------------- | ---------- |
+| 10.100.1.1 | FeatureProbe API    | 4009、4008 |
+| 10.100.1.1 | FeatureProbe UI     | 4009       |
+| 10.100.1.2 | FeatureProbe Server | 4007       |
 
 ## API 服务
 
@@ -52,7 +58,7 @@ sidebar_position: 3
 3. 检查服务是否运行成功
 
    ```bash
-   curl "http://{featureProbeAPI_IP}:{PORT}/api/actuator/health"
+   curl "http://10.100.1.1:4008/api/actuator/health"
    ```
 
    显示如下信息则表示启动成功：
@@ -106,7 +112,7 @@ sidebar_position: 3
 
    ```bash
    upstream featureProbeAPI {
-       server {featureProbeAPI_IP}:{PORT}; # FeatureProbeAPI IP和端口
+       server 10.100.1.1:4008; # FeatureProbeAPI IP和端口
    }
    
    server {
@@ -140,7 +146,7 @@ sidebar_position: 3
 
 4. 将编译生成的 `build` 下的所有文件和文件夹复制到 `/usr/share/nginx/html/` 目录下。
 
-5. 在浏览器中访问 `http://{featureProbeUI_IP:PORT}` 并使用如下账号密码登录来验证是否部署成功：
+5. 在浏览器中访问 `http://10.100.1.1:4009` 并使用如下账号密码登录来验证是否部署成功：
 
       - username: `admin`
 
@@ -206,7 +212,7 @@ sidebar_position: 3
 4. 检查服务是否运行成功
 
    ```bash
-   curl "http://{featureProbeServer_IP}:{PORT}/"
+   curl "http://10.100.1.2:4007/"
    ```
 
    显示如下信息则表示启动成功：
