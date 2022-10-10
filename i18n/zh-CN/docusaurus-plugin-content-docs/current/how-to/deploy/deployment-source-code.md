@@ -6,13 +6,29 @@ sidebar_position: 3
 
 本文档介绍如何通过源码编译方式部署各模块。
 
-需要部署有三个服务镜像，如下部署示例：
+需要编译部署的模块主要有三个服务：
 
 | 示例机器   | 部署模块            | 端口       |
 | ---------- | ------------------- | ---------- |
 | 10.100.1.1 | FeatureProbe API    | 4009、4008 |
 | 10.100.1.1 | FeatureProbe UI     | 4009       |
 | 10.100.1.2 | FeatureProbe Server | 4007       |
+
+## 创建数据库
+
+1. 环境准备
+
+   - MySQL 5.7+
+
+2. 创建 `feature_probe ` 数据库：
+
+   ```sql
+   CREATE DATABASE feature_probe; 
+   ```
+
+   *注： 无须手工创建表结构。初次启动 API 服务时会自动创建所有表和初始化数据。*
+
+
 
 ## API 服务
 
@@ -46,7 +62,7 @@ sidebar_position: 3
 
    ```bash
    java -jar feature-probe-api-1.1.0.jar -Dserver.port=4008 \
-      -Dspring.datasource.jdbc-url=jdbc:mysql://{DATABASE_IP}:{PORT}/{DATABASE_NAME} \  # 数据库 IP/端口和库名
+      -Dspring.datasource.jdbc-url=jdbc:mysql://{MYSQL_DATABASE_IP}:{MYSQL_PORT}/feature_probe \  # 数据库 IP/端口和库名
       -Dspring.datasource.username={MYSQL_USERNAME} \
       -Dspring.datasource.password={MYSQL_PASSWORD} 
    ```
