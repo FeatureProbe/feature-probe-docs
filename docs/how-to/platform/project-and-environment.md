@@ -47,6 +47,7 @@ The system will have an initial project (My First Project) with 2 environments (
 ### Offline and recovery environment
 
 ! [edit environment screenshot](../../../pictures/archived_env_en.png)
+
 Archive environment:
 1. Click "Archive environment" to offline environment at any time. After Archived, the platform will not display the toggle configuration information corresponding to this environment (the toggle list page cannot be switched to this environment)
 2. When there is only one environment under the project, the environment cannot be Archived (if you want to Archive the last environment, you can directly delete the project)
