@@ -34,3 +34,12 @@ Toggle "template information" (when the toggle is created successfully, it will 
 The "template information" of the toggle (after successful editing, it will not affect the toggle configuration information in the existing environment, but only synchronize the initialization information to the new environment in the future)
 
 Translated with www.DeepL.com/Translator (free version)
+
+### Archive and restore toggle
+
+! [edit environment screenshot](../../../../../../pictures/archived_toggle_en.png)
+Archive toggle:
+1. Click "Archive" to offline toggle at any time. After Archived, this toggle will be displayed in the [Archived toggle List]
+2. Click "View Archived toggles" to see all Archived toggles of the project. Click "Back" to return to the toggle being used online
+Restore toggle:
+1. Click "Restore" to restore the toggle online. After restoration, the toggle will be displayed in the [toggle List]
