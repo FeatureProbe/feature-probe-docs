@@ -7,7 +7,7 @@ sidebar_position: 3
 ## 开关配置
 开关的“配置信息”（各环境间不共享，独立拥有,修改配置信息，不会同步到开关的"模板信息"），请切换到目标环境后，再进行配置（配置信息的初始信息，会自动同步开关的“模板信息”）
 
-![toggle targeting screenshot](../../../../../../pictures/toggle_targeting_zh.png)
+![toggle targeting screenshot](/toggle_targeting_zh.png)
 
 1. Status：开关的状态（禁用后生效Disabled return value，启用后开关配置中的Rules及Default Rule生效）
 2. Variations：默认同步开关的模板信息（可更改）
@@ -32,7 +32,7 @@ sidebar_position: 3
 ## 连接SDK
 便于用户简单、高效的接入我们的SDK、明确知悉接入状态
 
-![sdk screenshot](../../../../../../pictures/sdk_zh.png)
+![sdk screenshot](/sdk_zh.png)
 
 1. 步骤1：选择目标语言的SDK，点击【保存并继续】
 2. 步骤2：根据SDK生成代码行，可以快速复制到代码中，点击【继续】
@@ -40,7 +40,7 @@ sidebar_position: 3
 
 ## 查看历史版本
 
-![history screenshot](../../../../../../pictures/history_zh.png)
+![history screenshot](/history_zh.png)
 
 支持查看功能配置变更的完整历程
 

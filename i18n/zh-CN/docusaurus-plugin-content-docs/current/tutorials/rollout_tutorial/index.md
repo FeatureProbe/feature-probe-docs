@@ -12,17 +12,17 @@ import TabItem from '@theme/TabItem';
 
 1. 登录我们提供的FeatureProbe[演示平台](https://featureprobe.io)，如果是第一次登录，请输入邮箱。后续可以继续使用你的邮箱访问到属于你的数据。
 2. 点击`+开关`新建一个开关
-![add](../../../../../../pictures/tutorial_create_toggle_button_cn.png)
+![add](/tutorial_create_toggle_button_cn.png)
 3. 名字和标识都设置为`tutorial_rollout`，点击`创建`
-![create](../../../../../../pictures/tutorial_rollout_create_cn.png)
+![create](/tutorial_rollout_create_cn.png)
 7. 从开关列表中点击`tutorial_rollout`，打开设置详情页
-![list](../../../../../../pictures/tutorial_list_click_cn.png)
+![list](/tutorial_list_click_cn.png)
 8. 将默认规则的返回值更改为`按百分比放量`
-![return](../../../../../../pictures/tutorial_return_percentage_cn.png)
+![return](/tutorial_return_percentage_cn.png)
 9. 设置 10% 打开开关（返回true）， 90% 关闭开关（返回false）, 状态设置为 `生效`
-![10% true](../../../../../../pictures/tutorial_rollout_enable_cn.png)
+![10% true](/tutorial_rollout_enable_cn.png)
 10. 点击下方`发布`按钮，并`确认`变更
-![confirm](../../../../../../pictures/tutorial_rollout_confirm_cn.png)
+![confirm](/tutorial_rollout_confirm_cn.png)
 
 此时平台上就操作就完成了，我们创建了一个管理灰度发布的开关，下面我们要在程序中使用它，看看实际效果。
 
@@ -77,9 +77,9 @@ bash:> cd server-sdk-python
 </Tabs>
 
 2. 打开FeatureProbe平台[项目列表页面](https://featureprobe.io/projects)， 可以在开关详情页点击`服务`来打开
-![project](../../../../../../pictures/tutorial_click_project_cn.png)
+![project](/tutorial_click_project_cn.png)
 3. 复制`服务端SDK密钥`
-![sdk key](../../../../../../pictures/tutorial_rollout_server_sdk_key_cn.png)
+![sdk key](/tutorial_rollout_server_sdk_key_cn.png)
 4. 将`服务端SDK密钥`以及`FeatureProbe网址` ("https://featureprobe.io/server") 填入后端代码相应变量中
 
 <Tabs groupId="language">
@@ -323,7 +323,7 @@ bash:> cd client-sdk-js
 :::info
 点击『服务』Tab，可以进入『服务』列表，获取各类SDK key，以及修改服务和环境信息。
 :::
-![client sdk key](../../../../../../pictures/tutorial_client_sdk_key_cn.png)
+![client sdk key](/tutorial_client_sdk_key_cn.png)
 
 3. 打开 `example/index.html` 填入 `客户端SDK密钥` 以及 `FeatureProbe网址`  ("https://featureprobe.io/server")
 

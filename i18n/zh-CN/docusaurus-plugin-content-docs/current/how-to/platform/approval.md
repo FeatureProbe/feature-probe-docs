@@ -7,7 +7,7 @@ sidebar_position: 6
 ## 审批设置
 项目下的「环境」可以分别设置审批人、分别开启审批。
 
-![toggle targeting screenshot](../../../../../../pictures/approval_settings.png)
+![toggle targeting screenshot](/approval_settings.png)
 
 1. 环境：此处展示的是项目下的所有环境。
 2. 审批人：支持为每个项目设置相同或不同的审批人。审批人会收到该环境下的所有开关的发布审批。
@@ -17,7 +17,7 @@ sidebar_position: 6
 ## 触发审批
 审批设置完成后，开启审批的环境中，如果进行开关的发布，则会触发审批。
 
-![sdk screenshot](../../../../../../pictures/publish.png)
+![sdk screenshot](/publish.png)
 
 1. 修改开关配置信息，并点击“发起审批”，会看到此次发布的审批人。
 2. 变更说明：此时变更说明为必填，作为审批的标题发送给审批人。
@@ -25,8 +25,8 @@ sidebar_position: 6
 
 ## 审批中心
 发布后，审批人就可以在【审批中心】看到啦~可以点击进入开关内进行审批,申请人也可以在申请列表看到。
-![history screenshot](../../../../../../pictures/approval_list.png)
-![history screenshot](../../../../../../pictures/application_list.png)
+![history screenshot](/approval_list.png)
+![history screenshot](/application_list.png)
 + 审批状态：（待审批、已通过、已拒绝、已跳过、已撤回）
   - 待审批：发布审批后，是“待审批”状态
   - 已通过：“待审批”的开关，审批人审批【通过】后，是“已通过”状态
@@ -38,15 +38,15 @@ sidebar_position: 6
 ## 开关列表及开关配置
 审批通过后，申请人需要点击【发布】，才能完成此次发布。
 ### 开关列表
-![history screenshot](../../../../../../pictures/toggle_approval.png)
+![history screenshot](/toggle_approval.png)
 
 ### 开关配置页面
 【待审批】-【申请人】：
-![history screenshot](../../../../../../pictures/pending_review_q.png)
+![history screenshot](/pending_review_q.png)
 【待审批】-【审批人】：
-![history screenshot](../../../../../../pictures/pending_review_p.png)
+![history screenshot](/pending_review_p.png)
 【待发布】-【申请人】：
-![history screenshot](../../../../../../pictures/pending_publish.png)
+![history screenshot](/pending_publish.png)
 + 开关状态：（待审批、待发布、已拒绝、已发布）
   - 待审批：发布审批后，是“待审批”状态
   - 待发布：审批人审批【通过】后，是“待发布”状态。此时申请人可以点击【发布】或【放弃变更】

@@ -21,7 +21,7 @@ These activities use similar templates in most cases, and the operation team jus
    
      * The online sales operation team adds a new project named "My First Project" and adds a feature toggle 
    named "commodity\_spike\_activity" for the "online" environment. Shown in below picture:
-   ![commodity spike activity screenshot](../../pictures/commodity_spike_activity.png)
+   ![commodity spike activity screenshot](/commodity_spike_activity.png)
     * The developer imports the FeatureProbe SDK in the code base (Java code as an example), and uses the "commodity\_spike\_activity" toggle 
    by setting the sdk Key which is assigned by FeatureProbe to "My First Project" "online" environment. 
    The variations type is number, and the user parameter is "city". 
@@ -51,7 +51,7 @@ the essential services work without disruption by using the cached data rather t
 - Operation Procedure
    * The R&D team adds a new project named "My First Project" and adds a feature toggle 
    named "store\_service\_fallback" for the "online" environment. Shown in below picture:
-   ![storage service fallback screenshot](../../pictures/store_service_fallback.png)
+   ![storage service fallback screenshot](/store_service_fallback.png)
    * The developer imports the FeatureProbe SDK in the code base (Java code as an example), and uses the "store\_service\_fallback" toggle 
    by setting the sdk Key which is assigned by FeatureProbe to "My First Project" "online" environment. 
    The variations type is boolean, and its result enables or disables the degradation.  
@@ -79,7 +79,7 @@ Design several solutions for a specific service, try them all and find out the m
 - Operation Procedure
    * The operation team adds a new project named "My First Project" and adds a feature toggle 
    named "color\_ab\_test" for the "online" environment. Shown in below picture:
-   ![AB test screenshot](../../pictures/color_ab_test.png)
+   ![AB test screenshot](/color_ab_test.png)
    * The developer imports the FeatureProbe SDK in the code base (Java code as an example), and uses the "color\_ab\_test" toggle 
    by setting the sdkKey which is assigned by FeatureProbe to "My First Project" "online" environment. 
    The variations type is string, and the user parameter is "city". 

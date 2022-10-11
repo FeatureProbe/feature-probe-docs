@@ -25,7 +25,7 @@ import TabItem from '@theme/TabItem';
 * 选择开关未生效时的默认返回的分组
 * 点击`创建`
 
-![create toggle](../../../../../pictures/tutorial_variation_create_cn.png)
+![create toggle](/tutorial_variation_create_cn.png)
 
 3. 点击进入新创建的`tutorial_variation`开关的详情页面
 
@@ -33,27 +33,27 @@ import TabItem from '@theme/TabItem';
 * 规则中增加两个条件，city是上海，以及rank是钻石
 * 返回值选择为variation1（即值为：欢迎上海的尊贵客户）
 
-![rule one](../../../../../pictures/tutorial_variation_rule1_cn.png)
+![rule one](/tutorial_variation_rule1_cn.png)
 * 再次点击`+ 增加规则`
 * 规则中增加条件，city是北京，返回值选择为variation2
 
-![rule two](../../../../../pictures/tutorial_variation_rule2_cn.png)
+![rule two](/tutorial_variation_rule2_cn.png)
 
 * 默认规则的返回值选择为variation3
 
-![default](../../../../../pictures/tutorial_variation_default_rule_cn.png)
+![default](/tutorial_variation_default_rule_cn.png)
 
 * 开关状态改为`生效`，点击下方`发布`
  
-![publish](../../../../../pictures/tutorial_variation_publish_cn.png)
+![publish](/tutorial_variation_publish_cn.png)
 
 * 点击`确认`，发布开关。
 
-![confirm](../../../../../pictures/tutorial_variation_confirm_cn.png)
+![confirm](/tutorial_variation_confirm_cn.png)
 
 4. 此时应当看到`发布成功`的提示
 
-![publish success](../../../../../pictures/tutorial_variation_publish_success_cn.png)
+![publish success](/tutorial_variation_publish_success_cn.png)
 
 在平台的操作到这里就结束了，开关已经创建成功，并且可以访问了。下面我们介绍怎么在程序中通过SDK拿到这些配置值。
 
@@ -102,9 +102,9 @@ bash:> cd server-sdk-python
 </Tabs>
 
 2. 打开FeatureProbe平台[项目列表页面](https://featureprobe.io/projects)， 可以在开关详情页点击`服务`来打开
-   ![project](../../../../../pictures/tutorial_click_project_cn.png)
+   ![project](/tutorial_click_project_cn.png)
 3. 复制`服务端SDK密钥`
-   ![sdk key](../../../../../pictures/tutorial_rollout_server_sdk_key_cn.png)
+   ![sdk key](/tutorial_rollout_server_sdk_key_cn.png)
 4. 将`服务端SDK密钥`以及`FeatureProbe网址` ("https://featureprobe.io/server") 填入后端代码相应变量中
 
 <Tabs groupId="language">
@@ -372,7 +372,7 @@ bash:> cd client-sdk-js
 :::info
 点击『服务』Tab，可以进入『服务』列表，获取各类SDK key，以及修改服务和环境信息。
 :::
-![client sdk key](../../../../../pictures/tutorial_client_sdk_key_cn.png)
+![client sdk key](/tutorial_client_sdk_key_cn.png)
 
 3. 打开 `example/index.html` 填入 `客户端SDK密钥` 以及 `FeatureProbe网址`  ("https://featureprobe.io/server")
 

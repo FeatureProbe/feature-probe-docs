@@ -6,7 +6,7 @@
 
 FeatureProbe 服务架构如下图：
 
-![deploy](../../../../../../pictures/featureprobe_deploy.png)
+![deploy](/featureprobe_deploy.png)
 
 可根据实际场景选择以下部署方式
 

@@ -7,7 +7,7 @@ sidebar_position: 3
 ## Toggle targeting
 The "configuration information" of the toggle (not shared between each environment, independently owned, modification of the configuration information will not be synchronized to the "template information" of the toggle), please toggle to the target environment, and then configure (the initial information of the configuration information will be automatically synchronized to the "template information" of the toggle) ")
 
-![toggle targeting screenshot](../../../pictures/toggle_targeting_en.png)
+![toggle targeting screenshot](/toggle_targeting_en.png)
 
 1. Status: the status of the toggle (Disabled return value when disabled, Rules and Default Rule in the toggle configuration when enabled)
 2. Variations: template information of the default synchronization toggle (can be changed)
@@ -31,7 +31,7 @@ The "configuration information" of the toggle (not shared between each environme
 ## Connect to SDK
 Facilitate users to access our SDK easily and efficiently, and clearly know the access status
 
-![sdk screenshot](../../../pictures/sdk_en.png)
+![sdk screenshot](/sdk_en.png)
 
 1. Step 1: Select the SDK for the target language, click [Save and Continue].
 2. Step 2: Generate lines of code according to the SDK, you can quickly copy them to the code, click [Continue].
@@ -39,6 +39,6 @@ Facilitate users to access our SDK easily and efficiently, and clearly know the 
 
 ## View history version
 
-![history screenshot](../../../pictures/history_en.png)
+![history screenshot](/history_en.png)
 
 Support for viewing the complete history of feature configuration changes

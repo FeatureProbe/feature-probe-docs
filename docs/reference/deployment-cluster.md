@@ -13,7 +13,7 @@ sidebar_position: 4
 
 为保证整体服务的高可用，我们推荐部署拓扑结构如下：
 
-![image-20220906181332418](../../pictures/deploy.png)
+![image-20220906181332418](/deploy.png)
 
 一套独立的 FeatureProbe 集群由三部分组成：
 
