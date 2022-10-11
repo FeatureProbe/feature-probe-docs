@@ -54,7 +54,7 @@ Archive environment:
 Restore oenvironment:
 1. Click "Restore environment" to restore the environment to online. After restoration, restore all toggles and toggle configurations in the environment (if some toggles are Archived, the Archived toggles and configurations will not be restored)
 
-###Delete Item
+### Delete Item
 
 1. Click "Delete Item" to delete the item (Note: the item can only be deleted after all switches are offline);
 2. After the item is deleted, it will disappear from the item list (unrecoverable);
