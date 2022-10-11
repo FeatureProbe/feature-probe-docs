@@ -47,11 +47,11 @@ The system will have an initial project (My First Project) with 2 environments (
 ### Offline and recovery environment
 
 ! [edit environment screenshot](../../../../../../pictures/archived_env_en.png)
-Offline environment:
+Archive environment:
 1. Click "Archive environment" to offline environment at any time. After Archived, the platform will not display the toggle configuration information corresponding to this environment (the toggle list page cannot be switched to this environment)
 2. When there is only one environment under the project, the environment cannot be Archived (if you want to Archive the last environment, you can directly delete the project)
 3. Click "View Archived environments" to see the Archived environments of the project (click the Archived environment card to not enter the toggle list page), and click "View active environments" to return to the online environment of the project
-Recovery of environment:
+Restore oenvironment:
 1. Click "Restore environment" to restore the environment to online. After restoration, restore all toggles and toggle configurations in the environment (if some toggles are Archived, the Archived toggles and configurations will not be restored)
 
 ###Delete Item
