@@ -35,7 +35,7 @@ The "template information" of the toggle (after successful editing, it will not 
 
 Translated with www.DeepL.com/Translator (free version)
 
-### Archive and restore toggle
+## Archive and restore toggle
 
 ! [edit environment screenshot](../../../pictures/archived_toggle_en.png)
 Archive toggle:
