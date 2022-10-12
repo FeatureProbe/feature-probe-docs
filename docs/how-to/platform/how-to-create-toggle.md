@@ -40,7 +40,7 @@ Translated with www.DeepL.com/Translator (free version)
 ! [edit environment screenshot](../../../pictures/archived_toggle_en.png)
 
 Archive toggle:
-1. Click "Archive" to offline toggle at any time. After Archived, this toggle will be displayed in the [Archived toggle List]
+1. Click "Archive" to offline toggle at any time. After Archived, it cannot be edited or published，and this toggle will be displayed in the [Archived toggle List]
 2. Click "View Archived toggles" to see all Archived toggles of the project. Click "Back" to return to the toggle being used online
 
 Restore toggle:
