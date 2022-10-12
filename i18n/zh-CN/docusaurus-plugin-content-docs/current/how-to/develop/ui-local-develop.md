@@ -21,7 +21,7 @@ yarn install
 强烈建议使用`yarn`作为包管理器。如果你正在使用`npm install`进行安装并遇到以下报错，请使用`npm install——legacy-peer-deps`命令代替。
 :::
 
-![toggles screenshot](../../../../../../pictures/local_develop_install_error.png)
+![toggles screenshot](/local_develop_install_error.png)
 
 ```shell
 npm install --legacy-peer-deps

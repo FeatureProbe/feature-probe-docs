@@ -7,7 +7,7 @@ sidebar_position: 2
 The FeatureProbe platform provides a powerful feature toggle management module. Feature toggles are used for feature placement by selecting target traffic and gradually releasing data through continuous observation until full volume is deployed.
 ## Toggle Dashboard
 
-![toggles screenshot](../../../pictures/toggles_en.png)
+![toggles screenshot](/toggles_en.png)
 
 1. default display of My First Project's online environment toggle list information
 2. the left navigation bar provides a quick entry to toggle environments (click the drop-down icon to the right of the environment)
@@ -16,7 +16,7 @@ The FeatureProbe platform provides a powerful feature toggle management module. 
 ## Adding toggle templates
 Toggle "template information" (when the toggle is created successfully, it will be synchronized with the initialization information of the existing environment)
 
-![create toggle screenshot](../../../pictures/create_toggle_en.png)
+![create toggle screenshot](/create_toggle_en.png)
 
 1. fill in the toggle name
 2. fill in the key of the toggle (a unique identifier for the toggle, unique under the same project, not editable once created)
@@ -37,7 +37,7 @@ Translated with www.DeepL.com/Translator (free version)
 
 ## Archive and restore toggle
 
-! [edit environment screenshot](../../../pictures/archived_toggle_en.png)
+![edit environment screenshot](/archived_toggle_en.png)
 
 Archive toggle:
 1. Click "Archive" to offline toggle at any time. After Archived, it cannot be edited or published，and this toggle will be displayed in the [Archived toggle List]

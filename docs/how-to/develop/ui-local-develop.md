@@ -21,7 +21,7 @@ yarn install
 It is highly recommended that use `yarn` as the package manager.If you are using `npm install` to install and encountering this error as below, use `npm install --legacy-peer-deps` instead
 :::
  
-![toggles screenshot](../../../pictures/local_develop_install_error.png)
+![toggles screenshot](/local_develop_install_error.png)
 
 ```shell
 npm install --legacy-peer-deps

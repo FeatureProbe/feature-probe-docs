@@ -14,6 +14,7 @@ const config = {
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
   deploymentBranch: 'gh-pages',
+  staticDirectories: ['pictures', 'static'],
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.

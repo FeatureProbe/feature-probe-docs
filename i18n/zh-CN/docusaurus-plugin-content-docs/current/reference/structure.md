@@ -6,7 +6,7 @@ sidebar_position: 1
 
 下图是  FeatureProbe 的整体架构模块的概览：
 
-![featureprobe architecture](../../../../../pictures/structure.png)
+![featureprobe architecture](/structure.png)
 
 主要由如下模块组成：
 
@@ -27,7 +27,7 @@ FeatureProbe 架构的设计主要考虑了高性能、可弹性伸缩、用户�
 
 [FeatureProbe Server ](https://github.com/FeatureProbe/feature-probe-server)采用 Rust 语言实现，天然具备高性能和高可靠性。如下图所示，通过快速水平扩容能让你轻松应对大规模流量访问。同时，我们已经在计划采用长连接（Multiplexing）+发布订阅模式进一步提高 Server 的性能，做到使开关规则在变更后能在毫秒级下发和生效。
 
-![featureprobe server](../../../../../pictures/feature-probe-server.png)
+![featureprobe server](/feature-probe-server.png)
 
 ### 用户隐私
 

@@ -9,7 +9,7 @@ sidebar_position: 1
 系统会有一个初始化项目（My First Project），初始项目下有2个环境（test、online）每个环境都有自己的SDK密钥，用于将FeatureProbe SDK连接到特定环境。
 ### 添加项目
 
-![create project screenshot](../../../../../../pictures/create_project_zh.png)
+![create project screenshot](/create_project_zh.png)
 
 1. 点击顶导“Projects”，进入项目列表页
 2. 点击添加项目按钮
@@ -21,7 +21,7 @@ sidebar_position: 1
 
 ### 编辑项目
 
-![create environment screenshot](../../../../../../pictures/create_environment_zh.png)
+![create environment screenshot](/create_environment_zh.png)
 
 1. 点击编辑项目icon
 2. 编辑项目信息
@@ -38,7 +38,7 @@ sidebar_position: 1
 
 ### 编辑环境
 
-![edit environment screenshot](../../../../../../pictures/edit_environment_zh.png)
+![edit environment screenshot](/edit_environment_zh.png)
 
 1. 点击编辑环境
 2. 编辑环境信息
@@ -46,7 +46,7 @@ sidebar_position: 1
 
 ### 下线及恢复环境
 
-![edit environment screenshot](../../../../../../pictures/archived_env.png)
+![edit environment screenshot](/archived_env.png)
 
 环境的下线：
 1. 点击“下线环境”可随时下线环境，下线后，不可编辑，且平台不在展示该环境对应的开关配置信息（开关列表页面不能切换到该环境）

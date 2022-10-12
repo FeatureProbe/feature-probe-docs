@@ -9,7 +9,7 @@ Projects allow one FeatureProbe account to manage multiple different business go
 The system will have an initial project (My First Project) with 2 environments (test, online) each with its own SDK key to connect the FeatureProbe SDK to the specific environment.
 ### Add project
 
-![create project screenshot](../../../pictures/create_project_en.png)
+![create project screenshot](/create_project_en.png)
 
 1. Click "Projects" in the top menu to enter the project list page
 2. Click the Add Project button
@@ -21,7 +21,7 @@ The system will have an initial project (My First Project) with 2 environments (
 
 ### Edit project
 
-![create environment screenshot](../../../pictures/create_environment_en.png)
+![create environment screenshot](/create_environment_en.png)
 
 1. Click Edit Project Icon
 2. Edit the project information
@@ -38,7 +38,7 @@ The system will have an initial project (My First Project) with 2 environments (
 
 ### Edit environment
 
-![edit environment screenshot](../../../pictures/edit_environment_en.png)
+![edit environment screenshot](/edit_environment_en.png)
 
 1. Click Edit Environment
 2. Edit the environment information
@@ -46,7 +46,7 @@ The system will have an initial project (My First Project) with 2 environments (
 
 ### Offline and recovery environment
 
-! [edit environment screenshot](../../../pictures/archived_env_en.png)
+! [edit environment screenshot](/archived_env_en.png)
 
 Archive environment:
 1. Click "Archive environment" to offline environment at any time. After Archived,it cannot be edited，and the platform will not display the toggle configuration information corresponding to this environment (the toggle list page cannot be switched to this environment)

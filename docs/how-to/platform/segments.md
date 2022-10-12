@@ -7,7 +7,7 @@ sidebar_position: 5
 ## Add Segment
 Commonly used groups of people can be set up as separate user groups, making it easy to select them repeatedly in the toggle
 
-![segment screenshot](../../../pictures/segment_en.png)
+![segment screenshot](/segment_en.png)
 
 1. fill in the group name
 2. fill in the crowd group key (the crowd group's unique identifier, unique under the same project, once created can not be edited)

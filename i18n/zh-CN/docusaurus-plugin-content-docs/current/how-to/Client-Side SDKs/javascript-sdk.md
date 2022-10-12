@@ -24,7 +24,7 @@ cd client-sdk-js
         * `remoteUrl` = "https://featureprobe.io/server"
         * `clientSdkKey`  请从如下界面中拷贝：
 
-      ![client_sdk_key snapshot](../../../../../../pictures/client_sdk_key_snapshot_cn.png)
+      ![client_sdk_key snapshot](/client_sdk_key_snapshot_cn.png)
     * 对于本地docker环境:
         * `remoteUrl` = "http://YOUR_DOCKER_IP:4009/server"
         * `clientSdkKey` = "client-25614c7e03e9cb49c0e96357b797b1e47e7f2dff"

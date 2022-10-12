@@ -17,7 +17,7 @@ sidebar_position: 1
 ## 登录学习帐号
 
 在浏览器中打开学习环境：[https://featureprobe.io/demo/](https://featureprobe.io/demo/), 填入你的邮箱地址，进入专属于你的学习环境。
-![demo login](../../../../../pictures/demo_login_cn.png)
+![demo login](/demo_login_cn.png)
 
 :::info
 https://featureprobe.io/demo/ 是一个演示页面，我们将通过FeatureProbe平台来控制这个页面的展示。填入邮箱登录后，您可以通过演示页面的提示链接跳转到FeatureProbe平台，
@@ -31,27 +31,27 @@ https://featureprobe.io/demo/ 是一个演示页面，我们将通过FeatureProb
 ### 操作『Enable』
 
 1. 从[演示页面](https://featureprobe.io/demo/)任务一点击链接，进入FeatureProbe平台，此时将进入开关 Campaign Enable 的配置页面：
-![enable campaign](../../../../../pictures/demo_enable_cn.png)
+![enable campaign](/demo_enable_cn.png)
 
 2. 将 "Campaign Enable" 开关『启用』，点击『状态』后的启用按钮，之后点击『发布』按钮。
-![campaign enable config](../../../../../pictures/demo_campaign_enable_publish_cn.png)
+![campaign enable config](/demo_campaign_enable_publish_cn.png)
 
 :::info 
 开关新建之后，默认都是未『启用』的，需要通过『启用』来生效这个开关的配置。
 :::
 
 3. 点击『确认』发布。
-![confirm](../../../../../pictures/demo_enable_confirm_publish_cn.png)
+![confirm](/demo_enable_confirm_publish_cn.png)
 
 ### 验证结果
 
 回到演示页面的链接：[https://featureprobe.io/demo/](https://featureprobe.io/demo/), 可以开到页面展示由
 
 发布前：
-![before_enable](../../../../../pictures/demo_enable_before_action_cn.png)
+![before_enable](/demo_enable_before_action_cn.png)
 
 变为发布后：
-![after_enable](../../../../../pictures/demo_enable_after_action_cn.png)
+![after_enable](/demo_enable_after_action_cn.png)
 
 :::info
 页面刷新可能稍有延时，发布完成后，也可手动刷新演示页面查看结果。
@@ -66,22 +66,22 @@ https://featureprobe.io/demo/ 是一个演示页面，我们将通过FeatureProb
 ### 操作『Rule』
 
 1. 从[演示页面](https://featureprobe.io/demo/)任务二点击进入开关[编辑页面](https://featureprobe.io/My_Project/online/campaign_allow_list/targeting)
-![allow_list](../../../../../pictures/demo_allow_list_link_cn.png)
+![allow_list](/demo_allow_list_link_cn.png)
 
 2. 在 `规则1` 的 userId 白名单中增加一个用户： 00003 （就是当前你自己的ID），点击回车
-![add user](../../../../../pictures/allow_list_add_00003.png)
+![add user](/allow_list_add_00003.png)
 
 3. 点击下方『发布』，并『确认』
-![allow list publish](../../../../../pictures/allow_list_publish_cn.png)
-![allow list confirm](../../../../../pictures/allow_list_confirm_cn.png)
+![allow list publish](/allow_list_publish_cn.png)
+![allow list confirm](/allow_list_confirm_cn.png)
 
 ### 验证结果
 
 回到演示页面的链接：[https://featureprobe.io/demo/](https://featureprobe.io/demo/), 现在你作为userId 00003的用户可以看到页面展示由
-![not show](../../../../../pictures/demo_allow_list_not_show_cn.png)
+![not show](/demo_allow_list_not_show_cn.png)
 
 变为：
-![show](../../../../../pictures/demo_allow_list_show_cn.png)
+![show](/demo_allow_list_show_cn.png)
 
 ## 修改放量百分比
 
@@ -90,20 +90,20 @@ https://featureprobe.io/demo/ 是一个演示页面，我们将通过FeatureProb
 ### 操作『Rule』
 
 1. 从[演示页面](https://featureprobe.io/demo/)点击进入任务三开关[编辑页面](https://featureprobe.io/My_Project/online/campaign_percentage_rollout/targeting)
-![percentage link](../../../../../pictures/demo_percentage_link_cn.png)
+![percentage link](/demo_percentage_link_cn.png)
 
 2. 在`默认规则`中，将Show（展示）的百分比提升到90%，将Hide（隐藏）的百分比调整为10%
-![percentage config](../../../../../pictures/demo_percentage_publish_cn.png)
+![percentage config](/demo_percentage_publish_cn.png)
 
 3. 点击下方『发布』，并『确认』
 
 ### 验证结果
 
 回到演示页面的链接：[https://featureprobe.io/demo/](https://featureprobe.io/demo/), 现在你作为userId 00003的用户可以看到页面展示由
-![percentage before](../../../../../pictures/demo_percentage_not_show_cn.png)
+![percentage before](/demo_percentage_not_show_cn.png)
 
 变为：
-![percentage show](../../../../../pictures/demo_percentage_after_cn.png)
+![percentage show](/demo_percentage_after_cn.png)
 
 ## 增加一个返回值分组
 
@@ -112,25 +112,25 @@ https://featureprobe.io/demo/ 是一个演示页面，我们将通过FeatureProb
 ### 操作『Rule』
 
 1. 从[演示页面](https://featureprobe.io/demo/)点击进入任务四开关[编辑页面](https://featureprobe.io/My_Project/online/promotion_campaign/targeting)
-![variation link](../../../../../pictures/demo_variant_link_cn.png)   
+![variation link](/demo_variant_link_cn.png)   
 
 2. 在`分组`中，点击『添加分组』，将新加的分组命名为『another price』并将值设置为 30
-![add group](../../../../../pictures/demo_variant_add_group_cn.png)   
-![group added](../../../../../pictures/demo_variant_group_3_added_cn.png)
+![add group](/demo_variant_add_group_cn.png)   
+![group added](/demo_variant_group_3_added_cn.png)
 
 :::info
 给分组起一个好的名称可以帮你更好的管理分组值，在后续的配置中可以直接选择分组名称。如果后续因为业务变化，返回值发生了变化则只需要在分组设置中改变分组的值，而不需要修改规则中的返回分组名称。
 :::
 
 3. 将 `规则2` （用户00003所在的规则）中的返回值，修改为新建的分组『another price』
-![use new group](../../../../../pictures/demo_variantion_return_another_cn.png)
+![use new group](/demo_variantion_return_another_cn.png)
 
 4. 点击下方『发布』，并『确认』
 
 ### 验证结果
 
 回到演示页面的链接：[https://featureprobe.io/demo/](https://featureprobe.io/demo/), 现在你作为userId 00003的用户可以看到页面展示由
-![original](../../../../../pictures/demo_variant_orig_cn.png)
+![original](/demo_variant_orig_cn.png)
 
 变为：
-![show another price](../../../../../pictures/demo_variation_show_30_cn.png)
+![show another price](/demo_variation_show_30_cn.png)
