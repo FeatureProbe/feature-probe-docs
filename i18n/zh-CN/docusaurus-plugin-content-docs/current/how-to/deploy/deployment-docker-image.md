@@ -18,12 +18,12 @@ sidebar_position: 2
 使用各模块提供的 [docker 镜象](https://hub.docker.com/repository/docker/featureprobe)在 Linux/Unix/Mac 独立部署。
 需要部署有三个服务镜像，如下部署示例：
 
-| 示例机器   | 部署模块            | 端口       |
-| ---------- | ------------------- | ---------- |
-| 10.100.1.1 | FeatureProbe API    | 4009、4008 |
-| 10.100.1.1 | FeatureProbe UI     | 4009       |
-| 10.100.1.2 | FeatureProbe Server | 4007       |
-| 10.100.1.3 | 数据库（MySQL）     | 13306      |
+| 示例机器   | 部署模块            | 端口          |
+| ---------- | ------------------- | ------------- |
+| 10.100.1.1 | FeatureProbe API    | 4008          |
+| 10.100.1.1 | FeatureProbe UI     | 4009（Nginx） |
+| 10.100.1.2 | FeatureProbe Server | 4007          |
+| 10.100.1.3 | 数据库（MySQL）     | 13306         |
 
 ### 操作步骤
 
