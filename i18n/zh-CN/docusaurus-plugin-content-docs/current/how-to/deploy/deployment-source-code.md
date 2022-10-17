@@ -95,7 +95,7 @@ sidebar_position: 3
 1. 环境准备
 
    * Node.js 16 +
-   * npm
+   * yarn
 
 
 2. 获取源码并编译出可部署的静态文件：
@@ -107,8 +107,8 @@ sidebar_position: 3
    ```bash
    git clone https://github.com/FeatureProbe/feature-probe-ui.git
    cd feature-probe-ui
-   npm install
-   npm run build
+   yarn install --frozen-lockfile
+   yarn build
    ```
    
    完成编译后会在 `build` 目录下生成可部署的静态文件。如下所示：
