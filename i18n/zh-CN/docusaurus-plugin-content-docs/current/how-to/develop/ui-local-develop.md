@@ -49,4 +49,4 @@ yarn start
 
 ### 私有化部署
 
-如果你想单独私有化部署UI项目，参考这片文档: [UI Service](../deploy/deployment-source-code#编译部署 UI 服务)
+如果你想单独私有化部署UI项目，参考这片文档: [UI Service](../deploy/deployment-source-code#编译部署-UI-服务)
