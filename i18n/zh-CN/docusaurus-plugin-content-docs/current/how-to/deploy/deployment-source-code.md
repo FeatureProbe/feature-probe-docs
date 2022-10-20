@@ -63,6 +63,10 @@ mvn clean package
 
 2. 将 `feature-probe-api-1.1.0.jar` 放置部署服务器中，填入数据库链接配置，并以 `4008` 端口启动：
 
+   :::caution
+   以下脚本中数据库相关信息需要替换成您实际使用的数据库信息。
+   :::
+
    ```bash
     java -jar feature-probe-api-1.1.0.jar --server.port=4008 \
          -Dspring.datasource.jdbc-url=jdbc:mysql://{MYSQL_DATABASE_IP}:{MYSQL_PORT}/feature_probe \  # 数据库 IP/端口和库名
@@ -95,16 +99,48 @@ mvn clean package
 
 1. 环境准备
 
-   * Rust 
+   * Rust
      * [官网安装](https://www.rust-lang.org/tools/install)
-     * [国内镜像](https://rsproxy.cn/)
+     ~~~bash
+     $ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+     ~~~
 
-
-2. 获取源码并编译出部署包：
-
-   :::info
-   国内建议切换为 cargo 中国镜像：[配置 Cargo 国内镜像源](https://rsproxy.cn/)
+     * 或者，从[国内镜像](https://rsproxy.cn/)安装
+     
+       1. 修改~/.zshrc 或 ~/.bashrc:
+       ~~~bash
+       export RUSTUP_DIST_SERVER="https://rsproxy.cn"
+       export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
+       ~~~
+       2. 安装
+       ~~~bash
+       $ curl --proto '=https' --tlsv1.2 -sSf https://rsproxy.cn/rustup-init.sh | sh
+       ~~~
+   
+   :::caution
+   注意安装之后最后一行提示，按提示命令重新加载环境变量，安装才会生效。
    :::
+
+   * 配置[依赖下载镜像](https://rsproxy.cn/), 创建文件： `~/.cargo/config`
+     ~~~yaml
+     [source.crates-io]
+     # To use sparse index, change 'rsproxy' to 'rsproxy-sparse'
+     replace-with = 'rsproxy'
+   
+     [source.rsproxy]
+     registry = "https://rsproxy.cn/crates.io-index"
+     [source.rsproxy-sparse]
+     registry = "sparse+https://rsproxy.cn/index/"
+     
+     [registries.rsproxy]
+     index = "https://rsproxy.cn/crates.io-index"
+     
+     [net]
+     git-fetch-with-cli = true
+     ~~~
+   
+   
+2. 获取源码并编译出部署包：
 
    ```bash
    git clone https://gitee.com/FeatureProbe/feature-probe-server.git
@@ -127,7 +163,11 @@ mvn clean package
    - 无
 
 2. 将生成的 `feature_probe_server` 文件放在服务器上，并创建启动脚本 `start-feature-probe-server.sh`：
-
+   
+   :::caution
+   实际使用中，需要将下面脚本中的ip和端口修改为你API服务实际部署环境的的ip和端口。
+   :::
+   
    ```bash
    #/bin/bash
    
@@ -139,10 +179,10 @@ mvn clean package
    
    ./feature_probe_server 
    ```
-
-:::info
-Server 服务更详细启动参数说明详见 [FeatureProbe Server 参数说明文档](../../reference/deployment-configuration#featureprobe-server)
-:::
+   
+   :::info
+   Server 服务更详细启动参数说明详见 [FeatureProbe Server 参数说明文档](../../reference/deployment-configuration#featureprobe-server)
+   :::
 
 3. 执行启动脚本运行服务：`sh ./start-feature-probe-server.sh`
 
@@ -202,6 +242,10 @@ Server 服务更详细启动参数说明详见 [FeatureProbe Server 参数说明
 
 1. 创建 Nginx 配置：`/etc/nginx/conf.d/feature_probe.conf`
 
+   :::caution
+   实际使用中，需要将下面脚本中的ip和端口修改为服务实际部署环境的的ip和端口。
+   :::
+
    ~~~bash
    upstream featureProbeAPI {
        server 10.100.1.1:4008; # FeatureProbeAPI IP和端口
@@ -254,9 +298,16 @@ Server 服务更详细启动参数说明详见 [FeatureProbe Server 参数说明
 ## 验证安装
 
 ### 平台使用
+
+:::caution
+实际使用中，需要将下面的ip和端口修改为你ngnix服务实际部署环境的的ip和端口。
+:::
+
 在浏览器中访问 `http://10.100.1.1:4009` 并使用如下账号密码登录来验证是否部署成功：
 - username: `admin`
 - password: `Pass1234`
 
 ### Server Side SDK 访问
 SDK连接使用的服务器地址为ngnix机器地址，以上例子中为： `http://10.100.1.1:4009/server`
+
+具体步骤可以参考[百分比灰度接入](../../tutorials/rollout_tutorial/index.md)
