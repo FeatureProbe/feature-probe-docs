@@ -144,6 +144,10 @@ mvn clean package
 
    ```bash
    git clone https://gitee.com/FeatureProbe/feature-probe-server.git
+   ```
+   
+   在源码目录中编译：
+   ```bash
    cd feature-probe-server
    cargo build --release --verbose
    ```
