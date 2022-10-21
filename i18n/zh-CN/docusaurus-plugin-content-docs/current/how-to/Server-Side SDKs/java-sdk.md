@@ -7,7 +7,7 @@ sidebar_position: 1
 本文介绍如何在一个 Java 项目中使用FeatureProbe SDK。
 
 :::tip
-对于首次使用FeatureProbe的用户，我们强烈建议你在阅读过[灰度放量教程](https://docs.featureprobe.io/zh-CN/tutorials/backend_rollout)之后，再回到这篇文章继续阅读。
+对于首次使用FeatureProbe的用户，我们强烈建议你在阅读过[灰度放量教程](https://docs.featureprobe.io/zh-CN/tutorials/rollout_tutorial/)之后，再回到这篇文章继续阅读。
 :::
 
 ## 接入业务代码
