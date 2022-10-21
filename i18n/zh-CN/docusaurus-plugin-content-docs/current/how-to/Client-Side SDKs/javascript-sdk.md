@@ -70,6 +70,7 @@ const fp = new FeatureProbe({
   clientSdkKey: /* FeatureProbe Server SDK Key */,
   user,
 });
+
 fp.start();
 ```
 
@@ -84,6 +85,7 @@ const fp = new featureProbe.FeatureProbe({
     clientSdkKey: /* FeatureProbe Server SDK Key */,
     user,
 });
+
 fp.start();
 ```
 
@@ -146,6 +148,21 @@ test("feature probe unit testing", (done) => {
 | clientSdkKey      | yes            | n/a     | SDK Key用来验证权限   |
 | user              | yes            | n/a     | User 对象可以通过With方法设置属性，用来根据属性判断开关规则 |
 | refreshInterval   | no            | 1000    | 设置 SDK 的开关和事件刷新时间   |
+| timeoutInterval   | no            | 1000    | 设置 SDK 初始化等待超时时间，超时后SDK将发布`error`事件   |
+
+
+## SDK的API文档：
+
+查看API文档：[SDK API](https://featureprobe.github.io/client-sdk-js/)
+
+
+## SDK发布的事件：
+
+- **ready** - SDK成功从`Server端`获取开关后发布`ready`事件 
+- **cache_ready** - SDK成功从本地缓存`LocalStorage`中获取缓存开关后发布`cache_ready`事件，`cache_ready`发布时不会关心SDK是否成功`ready`
+- **error** - SDK无法从`Server端`成功获取开关，且超过超时时间，将发布`error`事件
+- **update** - 除了首次从`Server端`获取开关外，SDK后续通过定期轮询的方式从`Server端`成功获取开关后发布`update`事件
+
 
 ## 集成测试
 

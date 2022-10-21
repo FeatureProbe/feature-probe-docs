@@ -69,9 +69,9 @@ mvn clean package
 
    ```bash
     java -jar feature-probe-api-1.1.0.jar --server.port=4008 \
-         -Dspring.datasource.jdbc-url=jdbc:mysql://{MYSQL_DATABASE_IP}:{MYSQL_PORT}/feature_probe \  # 数据库 IP/端口和库名
-         -Dspring.datasource.username={MYSQL_USERNAME} \
-         -Dspring.datasource.password={MYSQL_PASSWORD} 
+         --spring.datasource.jdbc-url=jdbc:mysql://{MYSQL_DATABASE_IP}:{MYSQL_PORT}/feature_probe \  # 数据库 IP/端口和库名
+         --spring.datasource.username={MYSQL_USERNAME} \
+         --spring.datasource.password={MYSQL_PASSWORD} 
    ```
    
    :::info
@@ -126,7 +126,7 @@ mvn clean package
      [source.crates-io]
      # To use sparse index, change 'rsproxy' to 'rsproxy-sparse'
      replace-with = 'rsproxy'
-   
+     
      [source.rsproxy]
      registry = "https://rsproxy.cn/crates.io-index"
      [source.rsproxy-sparse]
@@ -138,7 +138,6 @@ mvn clean package
      [net]
      git-fetch-with-cli = true
      ~~~
-   
    
 2. 获取源码并编译出部署包：
 
@@ -167,7 +166,7 @@ mvn clean package
    - 无
 
 2. 将生成的 `feature_probe_server` 文件放在服务器上，并创建启动脚本 `start-feature-probe-server.sh`：
-   
+  
    :::caution
    实际使用中，需要将下面脚本中的ip和端口修改为你API服务实际部署环境的的ip和端口。
    :::
@@ -214,6 +213,7 @@ mvn clean package
    * python3
      * [安装](https://realpython.com/installing-python/#)
      
+
    :::info
    国内建议切换为 npm 中国镜像站：`npm config set registry https://npmmirror.com/mirrors/`
    :::
