@@ -312,6 +312,7 @@ mvn clean package
 - password: `Pass1234`
 
 ### Server Side SDK 访问
-SDK连接使用的服务器地址为ngnix机器地址，以上例子中为： `http://10.100.1.1:4009/server`
+
+SDK连接使用的服务端 `remote_uri` 地址为上述配置的的 ngnix 机器地址和服务端口，加上路径 `/server` ，例如：以上例子中为 `http://10.100.1.1:4009/server`
 
 具体步骤可以参考[百分比灰度接入](../../tutorials/rollout_tutorial/index.md)
