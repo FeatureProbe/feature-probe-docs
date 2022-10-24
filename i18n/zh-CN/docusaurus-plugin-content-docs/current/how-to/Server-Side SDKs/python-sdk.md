@@ -50,6 +50,9 @@ import featureprobe as fp
 
 config = fp.Config(remote_uri=/* FeatureProbe Server URI */, sync_mode='pooling', refresh_interval=3)
 client = fp.Client(/* FeatureProbe Server SDK Key */, config)
+
+if not client.initialized():
+		print("SDK failed to initialize!")
 ```
 
 :::note

@@ -41,10 +41,14 @@ go get github.com/featureprobe/server-sdk-go
 config := featureprobe.FPConfig{
     RemoteUrl:       /* FeatureProbe Server URI */,
     ServerSdkKey:    /* FeatureProbe Server SDK Key */,
-    RefreshInterval: 1000,
+    RefreshInterval: 2 * time.Second,
 }
 
-fpClient, err := featureprobe.NewFeatureProbe(config)
+fpClient := featureprobe.NewFeatureProbe(config)
+
+if !fpClient.Initialized() {
+  fmt.Println("SDK failed to initialize!")
+}
 ```
 
 ### 步骤 3. 使用 FeatureProbe 开关获取设置的值

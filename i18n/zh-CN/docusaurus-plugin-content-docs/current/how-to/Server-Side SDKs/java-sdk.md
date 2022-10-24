@@ -51,6 +51,10 @@ public class Demo {
 
     private static final FeatureProbe fpClient = new FeatureProbe(
         /* FeatureProbe Server SDK Key */, config);
+  
+  	if（!fpClient.initialized()) {
+				System.out.println("SDK failed to initialize!")
+		}
 }
 ```
 
