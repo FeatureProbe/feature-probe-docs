@@ -28,9 +28,9 @@ FeatureProbe SDK 分为 Client-side SDK 和 Server-side SDK 两种
 * 业务系统后端服务通常会处理大量用户的请求，需要代表不同用户请求FeatureProbe SDK，拿到每个用户的开关结果。
 * 服务器的性能较高，可以承担部分计算任务
 
-*[了解更多区别可以查看 SDK 实现原理](./sdk-specification)*
-
-
+:::tip
+了解更多关于 Client-side SDK 和 Server-side SDK 区别，可以查看[SDK 实现原理](./sdk-specification)文档。
+:::
 
 ## SDK Key
 

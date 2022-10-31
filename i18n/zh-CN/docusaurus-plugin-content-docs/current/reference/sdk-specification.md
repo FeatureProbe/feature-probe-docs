@@ -7,7 +7,7 @@ sidebar_position: 2
 本文档主要介绍 FeatureProbe SDK 的实现原理。
 
 :::tip
-FeatureProbe SDK 分为 Client-side SDK 和 Server-side SDK 两种，具体区别和概念可以查看[SDK 基本概念](./sdk-introduction)文档。
+FeatureProbe SDK 分为 Client-side SDK 和 Server-side SDK 两种，相关概念可以查看[SDK 基本概念](./sdk-introduction)文档。
 :::
 
 
