@@ -243,7 +243,7 @@ if __name__ == '__main__':
 
 ~~~bash
 bash:> mvn package
-bash:> java -jar ./target/server-sdk-java-1.3.2.jar
+bash:> java -jar ./target/server-sdk-java-1.4.0.jar
 ~~~
 </TabItem>
 <TabItem value="golang" label="Go">
