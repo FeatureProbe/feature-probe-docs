@@ -22,7 +22,7 @@ FeatureProbe SDK 分为 Client-side SDK 和 Server-side SDK 两种，具体区�
 
 #### 1、初始化
 
-通过 SDK 初始化 FeatureProbe Client 实例。以 Java 代码为例 `FeatureProbe` 实例创建后，即表示完成初始化。
+初始化 FeatureProbe Client 实例。以 Java 代码为例 `FeatureProbe` 实例创建后，即表示完成初始化。
 
 ```java
 FPConfig config = FPConfig.builder().remoteUri(/* FeatureProbe Server URI */)
@@ -33,7 +33,7 @@ FeatureProbe fpClient = new FeatureProbe(/* FeatureProbe Server SDK Key */, conf
 
 初始化的工作原理是 SDK 通过 HTTP 方式从服务端（FeatureProbe Server）中拉取指定 `serverSdkKey` 下的所有开关/人群组[规则](https://github.com/FeatureProbe/server-sdk-specification/blob/065c758e62b057e8f0664f9d2561fa1d35200306/spec/toggle_simple_spec.json)，然后存储在 SDK 内部。
 
-对于强依赖开关访问结果的业务，SDK 需要保证初始化时从 Server 拉取开关规则数据尽可能成功，所以我们在初始化增加了 `StartWait`  等待机制，当初始化失败时（如网络超时），会进行初始化重试，直到初始化成功或超过 `StartWait` 时间。同时 SDK 提供了 `fpClient.initialized()` 函数来获取初始化结果。
+对于强依赖开关访问结果的业务，SDK 需要保证初始化时从 Server 拉取开关规则数据尽可能成功，所以我们在初始化增加了 `StartWait`  等待机制，当初始化失败时（如网络超时），会进行初始化重试，直到初始化成功或超过 `StartWait` 时间。同时 SDK 提供了 `fpClient.initialized()` 函数来获取首次初始化结果。
 
 #### 2、获取开关结果
 
