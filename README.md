@@ -24,7 +24,7 @@ This command starts a local development server and opens up a browser window. Mo
 ### Local Development for Chinese Version
 
 ```
-$ npm run start -- --locale zh-CN
+npm run start -- --locale zh-CN
 ```
 
 This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
