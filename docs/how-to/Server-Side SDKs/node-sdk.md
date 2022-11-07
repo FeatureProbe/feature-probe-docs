@@ -53,18 +53,12 @@ First, install the FeatureProbe SDK as a dependency in your application.
 npm install featureprobe-server-sdk-node --save
 ```
 
-#### CDN
-
-```html
-<script type="text/javascript" src="https://unpkg.com/featureprobe-server-sdk-node@latest/dist/featureprobe-server-sdk-node.min.js"></script>
-```
-
 ### Step 2. Create a FeatureProbe instance
 
 After you install the SDK, import it, then create a single, shared instance of the FeatureProbe SDK.
 
 ```javascript
-const fp = new featureProbe.FeatureProbe({
+const fp = new FeatureProbe({
     remoteUrl: 'https://featureprobe.io/server',  // or https://127.0.0.1:4007
     serverSdkKey: /* FEATURE_PROBE_SERVER_SDK_KEY mentioned above */,
     refreshInterval: 5000,
@@ -79,7 +73,7 @@ await fp.start(1000);  // wait for up to 1 second for the first refresh
 You can use sdk to check which variation a particular user will receive for a given feature flag.
 
 ```javascript
-const user = new featureProbe.User(/* uniqueUserId for percentage rollout */);
+const user = new User(/* uniqueUserId for percentage rollout */);
 user.with('ATTRIBUTE_NAME_IN_RULE', VALUE_OF_ATTRIBUTE);  // call with() for each attribute, or extendAttrs(attributeMap) for attributes
 
 const boolValue = fp.booleanValue('YOUR_TOGGLE_KEY', user, false);

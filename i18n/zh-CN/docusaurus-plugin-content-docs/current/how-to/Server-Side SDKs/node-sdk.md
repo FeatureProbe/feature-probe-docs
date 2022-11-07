@@ -29,18 +29,12 @@ sidebar_position: 1
 npm install featureprobe-server-sdk-node --save
 ```
 
-#### CDN
-
-```html
-<script type="text/javascript" src="https://unpkg.com/featureprobe-server-sdk-node@latest/dist/featureprobe-server-sdk-node.min.js"></script>
-```
-
 ### 步骤 2. 创建一个 FeatureProbe instance
 
 安装并导入 SDK 后，创建 FeatureProbe sdk 的单个共享实例。
 
 ```javascript
-const fp = new featureProbe.FeatureProbe({
+const fp = new FeatureProbe({
     remoteUrl: 'https://featureprobe.io/server',  // or https://127.0.0.1:4007
     serverSdkKey: /* FEATURE_PROBE_SERVER_SDK_KEY mentioned above */,
     refreshInterval: 5000,
@@ -55,7 +49,7 @@ await fp.start(1000);  // wait for up to 1 second for the first refresh
 您可以使用 sdk 拿到对应开关名设置的值。
 
 ```javascript
-const user = new featureProbe.User(/* uniqueUserId for percentage rollout */);
+const user = new User(/* uniqueUserId for percentage rollout */);
 user.with('ATTRIBUTE_NAME_IN_RULE', VALUE_OF_ATTRIBUTE);  // call with() for each attribute, or extendAttrs(attributeMap) for attributes
 
 const boolValue = fp.booleanValue('YOUR_TOGGLE_KEY', user, false);
