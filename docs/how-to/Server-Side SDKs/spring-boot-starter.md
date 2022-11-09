@@ -8,7 +8,7 @@ Feature Probe is an open source feature management service.
 This article describes how to use the FeatureProbe SDK in a Spring Boot project.
 
 :::tip
-For users who use FeatureProbe for the first time, we strongly recommend that you return to this article after reading [Grayscale Volume Tutorial].(../../tutorials/rollout_tutorial/)
+For users who use FeatureProbe for the first time, we strongly recommend that you return to this article after reading [Grayscale Volume Tutorial](../../tutorials/rollout_tutorial/)
 :::
 
 ## Access FeatureProbe
