@@ -1,8 +1,8 @@
 ---
-sidebar_position: 6
+sidebar_position: 2
 ---
 
-# FeatureProbe Spring Boot Starter
+# Spring Boot Starter
 
 Feature Probe is an open source feature management service. 
 This article describes how to use the FeatureProbe SDK in a Spring Boot project.

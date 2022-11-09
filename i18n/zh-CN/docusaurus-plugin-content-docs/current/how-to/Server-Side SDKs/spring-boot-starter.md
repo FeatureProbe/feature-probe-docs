@@ -1,8 +1,8 @@
 ---
-sidebar_position: 6
+sidebar_position: 2
 ---
 
-# FeatureProbe Spring Boot Starter
+# Spring Boot Starter
 
 本文介绍如何在一个 Spring Boot 项目中使用FeatureProbe SDK。
 
