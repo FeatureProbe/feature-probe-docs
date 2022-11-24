@@ -1,7 +1,7 @@
-
-slug | title
--- | --
-FeatureProbe Rust | 用 Rust 开发跨平台 SDK 探索和实践
+---
+slug: FeatureProbe Keystone
+title: 功能管理（Feature management）中的 Keystone 模式
+---
 
 ## 一、什么是 Keystone ？
 
