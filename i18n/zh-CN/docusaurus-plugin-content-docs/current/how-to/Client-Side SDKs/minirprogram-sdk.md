@@ -8,7 +8,7 @@ sidebar_position: 4
 此SDK仅适用于微信小程序，其他小程序包括：支付宝、百度、钉钉、今日头条正在准备中。
 :::
 
-## Try Out Demo Code
+## 快速尝试 Demo Code
 
 我们提供了一个可运行的演示代码，让您了解如何使用 FeatureProbe SDK。
 
@@ -62,7 +62,6 @@ featureProbeClient.init({
 featureProbeClient.start();
 ```
 
-
 ### Step 3. 获取开关的返回值
 
 
@@ -102,12 +101,12 @@ featureProbeClient.on("ready", function() {
 | refreshInterval   | no            | 1000    | 设置 SDK 的开关和事件刷新时间   |
 | timeoutInterval   | no            | 1000    | 设置 SDK 初始化等待的超时时间，超时后SDK将发布`error`事件   |
 
-## SDK的API文档：
+## SDK的API文档
 
 查看API文档：[SDK API](https://featureprobe.github.io/client-sdk-miniprogram/)
 
 
-## SDK发布的事件：
+## SDK发布的事件
 
 - **ready** - SDK成功从`Server端`获取开关后发布`ready`事件 
 - **cache_ready** - SDK成功从本地缓存`LocalStorage`中获取缓存开关后发布`cache_ready`事件，`cache_ready`发布时不会关心SDK是否成功`ready`

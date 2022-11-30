@@ -1,20 +1,20 @@
 ---
-sidebar_position: 4
+sidebar_position: 5
 ---
 
 # React SDK
 
 :::tip
-React SDK是在 JS SDK的基础上进行的封装，主要为了提升在React项目中的使用体验，因此，JS SDK中的绝大部分方法在React SDK中也同样适用。
+To provide a better integration for use in React applications, React SDK builds on JavaScript SDK. Much of the JavaScript SDK functionality is also available for the React SDK to use. Please reference [JavaScript SDK](./javascript-sdk.md).
 :::
 
 ## Try Out Demo Code
 
-我们提供了一个可运行的演示代码，让您了解如何使用 FeatureProbe SDK。
+We provide a runnable demo code for you to understand how FeatureProbe SDK is used.
 
-1. 使用 docker composer 启动 FeatureProbe 服务。 [How to](https://github.com/FeatureProbe/FeatureProbe#1-starting-featureprobe-service-with-docker-compose)
+1. Start FeatureProbe Service with docker composer. [How to](https://github.com/FeatureProbe/FeatureProbe#1-starting-featureprobe-service-with-docker-compose)
 
-2. 下载这个 repo 并运行演示程序：
+2. Download this repo and run the demo program:
 
 
 ```bash
@@ -22,17 +22,17 @@ git clone https://github.com/FeatureProbe/client-sdk-react.git
 cd client-sdk-react
 ```
 
-3.找到Demo代码 [example](https://github.com/FeatureProbe/client-sdk-react/tree/main/example),
-做一些改变并再次运行程序。
+3. Find the Demo code in [example](https://github.com/FeatureProbe/client-sdk-react/tree/main/example),
+do some change and run the program again.
 
-第一个demo：
+The first Demo:
 ```bash
 cd example/provider
 npm install
 npm run start
 ```
 
-第二个demo：
+The second Demo:
 
 ```bash
 cd example/async-provider
@@ -40,11 +40,11 @@ npm install
 npm run start
 ```
 
-## 分步指南
+## Step-by-Step Guide
 
-本指南将说明中如何在 `React` 应用程序中使用 `FeatureProbe` 功能开关。
+In this guide we explain how to use feature toggles in a `React` application using `FeatureProbe`.
 
-### Step 1. 使用create-react-app新建一个React项目。
+### Step 1. Use create-react-app to create a new React application:
 
 
 ```js
@@ -52,17 +52,16 @@ npx create-react-app react-demo && cd react-demo
 ```
 
 
-### Step 2. 安装SDK。
+### Step 2. Install the SDK:
 
 ```js
 npm install featureprobe-client-sdk-react --save
 ```
 
+### Step 3. In App.js, import FPProvider:
 
-### Step 3. 在App.js中引入FPProvider
 
-
-```js
+```jsx
 import { FPProvider } from 'featureprobe-client-sdk-react';
 import Home from './home';
 
@@ -88,19 +87,17 @@ export default App;
 ```
 
 
-### Step 4. 在App.js同级目录下创建home.js，并在home.js中引入withFPConsumer
+### Step 4. Create a new file home.js in the same directory as App.js, import withFPConsumer in home.js:
 
-```js
+```jsx
 import { withFPConsumer } from 'featureprobe-client-sdk-client';
 
 const Home = ({ toggles, client }) => {
   const value = client?.boolValue(/* toggleKey */, false);
   return (
     <div>
-      <div>You can use toggle value like this:</div>
-      <div>${value}</div>
-      <div>You can also get toggle detail from toggles object like this:</div>
-      <div>${toggles?.[/* toggleKey */]}</div>
+      <div>You can use toggle value like this: ${value}</div>
+      <div>You can also get toggle detail from toggles object like this: ${toggles?.[/* toggleKey */]}</div>
     </div>
   )
 };
@@ -111,9 +108,9 @@ export default withFPConsumer(Home);
 ## API
 
 ### FPProvider
-使用`FPProvider`进行SDK初始化。`FPProvider`方法接收`config`对象作为参数，`config`对象中需配置SDK初始化时必填的参数。
+Initializing SDK with `FPProvider`. `FPProvider` accepts a config object, which provides configuration options for the React SDK. Read [Available options](./javascript-sdk#available-options) for more information.
 
-```js
+```jsx
 import { FPProvider } from 'featureprobe-client-sdk-react';
 import Home from './home';
 
@@ -138,9 +135,9 @@ function App() {
 export default App;
 ```
 
-你也可以将自己已经初始化好的SDK实例传递给FPProvider：
+Alternatively, you can pass your own client in to the `FPProvider`:
 
-```js
+```jsx
 import { FPProvider, FeatureProbe } from 'featureprobe-client-sdk-react';
 import Home from './home';
 
@@ -167,11 +164,12 @@ function App() {
 export default App;
 ```
 
-#### AsyncFPProvider
+### AsyncFPProvider
 
-`AsyncFPProvider`是另一种SDK初始化方法，初始化过程中会等待开关结果的返回，保证渲染组件时能够拿到开关结果。
+`AsyncFPProvider` is an another initialization method. This method will wait until SDK emit `ready` event, this can ensure toggles and the client are ready at the start of your React app lifecycle
 
-```js
+
+```jsx
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
@@ -194,14 +192,13 @@ import { AsyncFPProvider, FPUser } from 'featureprobe-client-sdk-react';
     </FPProvider>
   );
 })();
-
 ```
 
 ### withFPConsumer
-SDK初始化成功后，使用`withFPConsumer`方法来获取开关结果，以及`FeatureProbe`SDK实例。
+After you has initialized the React SDK, use `withFPConsumer` to access toggles values and the `FeatureProbe` client. 
 
 
-```js
+```jsx
 import { withFPConsumer } from 'featureprobe-client-sdk-react';
 
 function HocComponent(props) {
@@ -219,13 +216,13 @@ function HocComponent(props) {
 export default withFPConsumer(HocComponent);
 ```
 
-### Hooks
-React SDK提供了2个自定义hooks来替代`withFPConsumer`方法：`useFPClient`和`useToggles`。
+The React SDK offers two custom hooks which you can use as an alternative to `withFPConsumer`: `useFPClient` and `useFPToggles`.
 
 ### useFPClient
-自定义hooks`useFPClient`用于返回`FeatureProbe`实例。
+`useFPClient` is a custom hook which returns the `FeatureProbe` client.
 
-```js
+
+```jsx
 import { useFPClient } from 'featureprobe-client-sdk-react';
 
 function HookComponent() {
@@ -240,17 +237,16 @@ function HookComponent() {
 }
 
 export default HookComponent;
-
 ```
 
-### useToggles
-自定义hooks`useToggles`用于返回所有开关结果。
+### useFPToggles
+`useFPToggles` is a custom hook which returns all feature toggles.
 
-```js
-import { useToggles } from 'featureprobe-client-sdk-react';
+```jsx
+import { useFPToggles } from 'featureprobe-client-sdk-react';
 
 function HookComponent() {
-  const toggles = useToggles();
+  const toggles = useFPToggles();
   return (
     <div>
       <div>{JSON.stringify(toggles)}</div>
@@ -259,17 +255,14 @@ function HookComponent() {
 }
 
 export default HookComponent;
-
 ```
 
-## SDK的API文档：
+## SDK Open API
 
-查看API文档：[SDK API](https://featureprobe.github.io/client-sdk-react/)
+API Docs: [SDK API](https://featureprobe.github.io/client-sdk-react/)
 
 
-## 集成测试
-
-我们对所有 SDK 提供了统一的集成测试。通过以下命令运行测试。
+## Testing
 
 ```shell
 npm run test
