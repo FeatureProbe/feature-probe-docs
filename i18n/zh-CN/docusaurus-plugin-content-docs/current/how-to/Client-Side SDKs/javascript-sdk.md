@@ -138,7 +138,7 @@ test("feature probe unit testing", (done) => {
 });
 ```
 
-## SDK初始化的参数：
+## SDK初始化的参数
 
 | 选项            | 是否必填       | 默认值 | 描述                                                                                                                                      |
 |-------------------|----------------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -151,12 +151,12 @@ test("feature probe unit testing", (done) => {
 | timeoutInterval   | no            | 1000    | 设置 SDK 初始化等待超时时间，超时后SDK将发布`error`事件   |
 
 
-## SDK的API文档：
+## SDK的API文档
 
 查看API文档：[SDK API](https://featureprobe.github.io/client-sdk-js/)
 
 
-## SDK发布的事件：
+## SDK发布的事件
 
 - **ready** - SDK成功从`Server端`获取开关后发布`ready`事件 
 - **cache_ready** - SDK成功从本地缓存`LocalStorage`中获取缓存开关后发布`cache_ready`事件，`cache_ready`发布时不会关心SDK是否成功`ready`

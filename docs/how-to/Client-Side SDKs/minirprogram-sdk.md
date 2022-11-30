@@ -104,11 +104,11 @@ This SDK takes the following options:
 | timeoutInterval   | no            | 1000    | Timeout for SDK initialization, SDK will emit an `error` event when timeout is reaching  |
 
 
-## SDK Open API：
+## SDK Open API
 
 API Docs: [SDK API](https://featureprobe.github.io/client-sdk-js/)
 
-## SDK Events：
+## SDK Events
 
 - **ready** - Emit `ready` event after successfully fetching toggles from `Server`
 - **cache_ready** - Emit `cache_ready` event after successfully fetching toggles from `LocalStorage`
