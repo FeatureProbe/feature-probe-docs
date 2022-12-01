@@ -106,7 +106,7 @@ public String sign(String secretKey, String requestBody) {
         Mac mac = Mac.getInstance("HmacSHA1");
         mac.init(signinKey);
         byte[] rawHmac = mac.doFinal(requestBody.getBytes("UTF8"));
-        return new BASE64Encoder().encode(rawHmac);
+        return Base64.getEncoder().encodeToString(rawHmac);
         } catch (Exception e) {
         throw new RuntimeException(e);
         }
