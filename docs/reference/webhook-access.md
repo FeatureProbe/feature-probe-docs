@@ -56,33 +56,33 @@ X-FeatureProbe-Sign: xxxxxxxxxxxxxxx
 
 具体事件的格式会不同. FeatureProbe平台Webhook所有事件如下：
 
-| 资源      | 事件  | request body示例 ｜                                   
-|---------|-----|----------------------------------------------------|
-| 项目      | 创建  | [Request Body 示例](#项目创建)                               |
-|         | 更新  | [Request Body 示例](#项目更新)                  |
-|         | 删除  | [Request Body 示例](#项目删除)                  | 
-|         | 更新审批设置 | [Request Body 示例](#项目更新审批设置) |
-| 环境      | 创建  | [Request Body 示例](#环境创建)              |
-|         | 更新 | [Request Body 示例](#环境更新)              |
-|         | 下线 | [Request Body 示例](#环境更新)             |
-|         | 恢复 | [Request Body 示例](#环境恢复)             |
-| 人群      | 创建 | [Request Body 示例](#人群创建)                  |
-|         | 更新 | [Request Body 示例](#人群更新)                  |
-|         | 发布 | [Request Body 示例](#人群发布)                 |
-|         | 删除 | [Request Body 示例](#人群删除)                  |
-| 开关      | 创建 | [Request Body 示例](#开关创建)                  |
-|         | 更新 | [Request Body 示例](#开关更新)                  |
-|         | 发布 | [Request Body 示例](#开关发布)                  |
-|         | 下线 | [Request Body 示例](#开关下线)                 |
-|         | 恢复 | [Request Body 示例](#开关恢复)                 |
-|         | 发起审批 | [Request Body 示例](#开关发起审批)                |
-|         | 审批单状态变更 | [Request Body 示例](#开关更新审批单)         |
-| 成员      | 创建 | [Request Body 示例](#成员创建)                  |
-|         | 更新 | [Request Body 示例](#成员更新)                  |
-|         | 删除 | [Request Body 示例](#成员删除)                  |
-| Webhook | 创建 | [Request Body 示例](#webhook创建)                 |
-|         | 更新 | [Request Body 示例](#webhook更新)                 |
-|         | 删除 | [Request Body 示例](#webhook删除)                 |
+| 资源      | 事件  | 参数示例                          |
+|---------|-----|-------------------------------|
+| 项目      | 创建  | [Request Body 示例](#项目创建)      |
+|         | 更新  | [Request Body 示例](#项目更新)      |
+|         | 删除  | [Request Body 示例](#项目删除)      | 
+|         | 更新审批设置 | [Request Body 示例](#项目更新审批设置)  |
+| 环境      | 创建  | [Request Body 示例](#环境创建)      |
+|         | 更新 | [Request Body 示例](#环境更新)      |
+|         | 下线 | [Request Body 示例](#环境更新)      |
+|         | 恢复 | [Request Body 示例](#环境恢复)      |
+| 人群      | 创建 | [Request Body 示例](#人群创建)      |
+|         | 更新 | [Request Body 示例](#人群更新)      |
+|         | 发布 | [Request Body 示例](#人群发布)      |
+|         | 删除 | [Request Body 示例](#人群删除)      |
+| 开关      | 创建 | [Request Body 示例](#开关创建)      |
+|         | 更新 | [Request Body 示例](#开关更新)      |
+|         | 发布 | [Request Body 示例](#开关发布)      |
+|         | 下线 | [Request Body 示例](#开关下线)      |
+|         | 恢复 | [Request Body 示例](#开关恢复)      |
+|         | 发起审批 | [Request Body 示例](#开关发起审批)    |
+|         | 审批单状态变更 | [Request Body 示例](#开关更新审批单)   |
+| 成员      | 创建 | [Request Body 示例](#成员创建)      |
+|         | 更新 | [Request Body 示例](#成员更新)      |
+|         | 删除 | [Request Body 示例](#成员删除)      |
+| Webhook | 创建 | [Request Body 示例](#webhook创建) |
+|         | 更新 | [Request Body 示例](#webhook更新) |
+|         | 删除 | [Request Body 示例](#webhook删除) |
 
 
 ### 验证Webhook请求 （可选）
@@ -107,7 +107,7 @@ public String sign(String secretKey, String requestBody) {
         } catch (Exception e) {
         throw new RuntimeException(e);
         }
-        }
+}
 ```
 
 ##### PHP
