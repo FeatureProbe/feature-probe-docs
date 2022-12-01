@@ -56,33 +56,33 @@ X-FeatureProbe-Sign: xxxxxxxxxxxxxxx
 
 具体事件的格式会不同. FeatureProbe平台Webhook所有事件如下：
 
-| 资源      | 事件  | request body示例 ｜                                     
-|---------|-----|------------------------------------------------------|
-| 项目      | 创建  | [Request Body 示例](#project_create)                   |
-|         | 更新  | [Request Body 示例](#project_update)                   |
-|         | 删除  | [Request Body 示例](#project_delete)                   | 
-|         | 更新审批设置 | [Request Body 示例](#project_update_approval_settings) |
-| 环境      | 创建  | [Request Body 示例](#environment_create)               |
-|         | 更新 | [Request Body 示例](#environment_update)               |
-|         | 下线 | [Request Body 示例](#environment_offline)              |
-|         | 恢复 | [Request Body 示例](#environment_restore)              |
-| 人群      | 创建 | [Request Body 示例](#segment_create)                   |
-|         | 更新 | [Request Body 示例](#segment_update)                   |
-|         | 发布 | [Request Body 示例](#segment_publish)                  |
-|         | 删除 | [Request Body 示例](#segment_delete)                   |
-| 开关      | 创建 | [Request Body 示例](#toggle_create)                    |
-|         | 更新 | [Request Body 示例](#toggle_update)                    |
-|         | 发布 | [Request Body 示例](#toggle_publish)                   |
-|         | 下线 | [Request Body 示例](#toggle_offline)                   |
-|         | 恢复 | [Request Body 示例](#toggle_restore)                   |
-|         | 发起审批 | [Request Body 示例](#toggle_approval)                  |
-|         | 审批单状态变更 | [Request Body 示例](#toggle_update_approval)           |
-| 成员      | 创建 | [Request Body 示例](#member_create)                    |
-|         | 更新 | [Request Body 示例](#member_update)                    |
-|         | 删除 | [Request Body 示例](#member_delete)                    |
-| Webhook | 创建 | [Request Body 示例](#webhook_create)                   |
-|         | 更新 | [Request Body 示例](#webhook_update)                   |
-|         | 删除 | [Request Body 示例](#webhook_delete)                   |
+| 资源      | 事件  | request body示例 ｜                                   
+|---------|-----|----------------------------------------------------|
+| 项目      | 创建  | [Request Body 示例](#项目创建)                               |
+|         | 更新  | [Request Body 示例](#项目更新)                  |
+|         | 删除  | [Request Body 示例](#项目删除)                  | 
+|         | 更新审批设置 | [Request Body 示例](#项目更新审批设置) |
+| 环境      | 创建  | [Request Body 示例](#环境创建)              |
+|         | 更新 | [Request Body 示例](#环境更新)              |
+|         | 下线 | [Request Body 示例](#环境更新)             |
+|         | 恢复 | [Request Body 示例](#环境恢复)             |
+| 人群      | 创建 | [Request Body 示例](#人群创建)                  |
+|         | 更新 | [Request Body 示例](#人群更新)                  |
+|         | 发布 | [Request Body 示例](#人群发布)                 |
+|         | 删除 | [Request Body 示例](#人群删除)                  |
+| 开关      | 创建 | [Request Body 示例](#开关创建)                  |
+|         | 更新 | [Request Body 示例](#开关更新)                  |
+|         | 发布 | [Request Body 示例](#开关发布)                  |
+|         | 下线 | [Request Body 示例](#开关下线)                 |
+|         | 恢复 | [Request Body 示例](#开关恢复)                 |
+|         | 发起审批 | [Request Body 示例](#开关发起审批)                |
+|         | 审批单状态变更 | [Request Body 示例](#开关更新审批单)         |
+| 成员      | 创建 | [Request Body 示例](#成员创建)                  |
+|         | 更新 | [Request Body 示例](#成员更新)                  |
+|         | 删除 | [Request Body 示例](#成员删除)                  |
+| Webhook | 创建 | [Request Body 示例](#webhook创建)                 |
+|         | 更新 | [Request Body 示例](#webhook更新)                 |
+|         | 删除 | [Request Body 示例](#webhook删除)                 |
 
 
 ### 验证Webhook请求 （可选）
@@ -98,16 +98,16 @@ FeaturePobe服务端在推送数据的时候，会使用Secret Key对请求体�
 ##### Java
 ```java
 public String sign(String secretKey, String requestBody) {
-    try {
+        try {
         SecretKeySpec signinKey = new SecretKeySpec(secretKey.getBytes(), "HmacSHA1");
         Mac mac = Mac.getInstance("HmacSHA1");
         mac.init(signinKey);
         byte[] rawHmac = mac.doFinal(requestBody.getBytes("UTF8"));
         return new BASE64Encoder().encode(rawHmac);
-    } catch (Exception e) {
+        } catch (Exception e) {
         throw new RuntimeException(e);
-    }
-}
+        }
+        }
 ```
 
 ##### PHP
@@ -136,8 +136,7 @@ FeaturePorbe Webhook 判定 Response code 在 [200 ～ 300）之间为成功，�
 
 ### 项目（Project）
 
-<span id="project_create">项目创建</span>
-
+#### 项目创建
 ```json
 {
  "action": "CREATE",
@@ -159,8 +158,7 @@ FeaturePorbe Webhook 判定 Response code 在 [200 ～ 300）之间为成功，�
 }
 ```
 
-<span id="project_update">项目更新</span>
-
+#### 项目更新
 ```json
 {
  "action": "UPDATE",
@@ -183,8 +181,7 @@ FeaturePorbe Webhook 判定 Response code 在 [200 ～ 300）之间为成功，�
 }
 ```
 
-<span id="project_delete">项目删除</span>
-
+#### 项目删除
 ```json
 {
  "action": "DELETE",
@@ -207,8 +204,7 @@ FeaturePorbe Webhook 判定 Response code 在 [200 ～ 300）之间为成功，�
 }
 ```
 
-<span id="project_update_approval_settings">项目更新审批设置</span>
-
+#### 项目更新审批设置
 ```json
 {
  "action": "UPDATE_APPROVAL_SETTINGS",
@@ -234,8 +230,7 @@ FeaturePorbe Webhook 判定 Response code 在 [200 ～ 300）之间为成功，�
 
 ### 环境（Environment）
 
-<span id="environment_create">环境创建</span>
-
+#### 环境创建
 ```json
 {
  "action": "CREATE",
@@ -253,8 +248,7 @@ FeaturePorbe Webhook 判定 Response code 在 [200 ～ 300）之间为成功，�
 }
 ```
 
-<span id="environment_update">环境更新</span>
-
+#### 环境更新
 ```json
 {
  "action": "UPDATE",
@@ -273,8 +267,7 @@ FeaturePorbe Webhook 判定 Response code 在 [200 ～ 300）之间为成功，�
 }
 ```
 
-<span id="environment_offline">环境下线</span>
-
+#### 环境下线
 ```json
 {
  "action": "OFFLINE",
@@ -293,8 +286,7 @@ FeaturePorbe Webhook 判定 Response code 在 [200 ～ 300）之间为成功，�
 }
 ```
 
-<span id="environment_restore">环境恢复</span>
-
+#### 环境恢复
 ```json
 {
  "action": "RESTORE",
@@ -313,10 +305,9 @@ FeaturePorbe Webhook 判定 Response code 在 [200 ～ 300）之间为成功，�
 }
 ```
 
-### 人群
+### 人群(Segment)
 
-<span id="segment_create">人群创建</span>
-
+#### 人群创建
 ```json
 {
  "action": "CREATE",
@@ -336,8 +327,7 @@ FeaturePorbe Webhook 判定 Response code 在 [200 ～ 300）之间为成功，�
 }
 ```
 
-<span id="segment_update">人群更新</span>
-
+#### 人群更新
 ```json
 {
  "action": "UPDATE",
@@ -357,8 +347,7 @@ FeaturePorbe Webhook 判定 Response code 在 [200 ～ 300）之间为成功，�
 }
 ```
 
-<span id="segment_publish">人群发布</span>
-
+#### 人群发布
 ```json
 {
  "action": "PUBLISH",
@@ -386,8 +375,7 @@ FeaturePorbe Webhook 判定 Response code 在 [200 ～ 300）之间为成功，�
 }
 ```
 
-<span id="segment_delete">人群删除</span>
-
+#### 人群删除
 ```json
 {
  "action": "DELETE",
@@ -415,10 +403,9 @@ FeaturePorbe Webhook 判定 Response code 在 [200 ～ 300）之间为成功，�
 }
 ```
 
-### 开关
+### 开关(Toggle)
 
-<span id="toggle_create">开关创建</span>
-
+#### 开关创建
 ```json
 {
  "action": "CREATE",
@@ -451,8 +438,7 @@ FeaturePorbe Webhook 判定 Response code 在 [200 ～ 300）之间为成功，�
 }
 ```
 
-<span id="toggle_update">开关更新</span>
-
+#### 开关更新
 ```json
 {
  "action": "UPDATE",
@@ -485,8 +471,7 @@ FeaturePorbe Webhook 判定 Response code 在 [200 ～ 300）之间为成功，�
 }
 ```
 
-<span id="toggle_publish">开关发布</span>
-
+#### 开关发布
 ```json
 {
  "action": "PUBLISH",
@@ -527,8 +512,7 @@ FeaturePorbe Webhook 判定 Response code 在 [200 ～ 300）之间为成功，�
 }
 ```
 
-<span id="toggle_offline">开关下线</span>
-
+#### 开关下线
 ```json
 {
  "action": "OFFLINE",
@@ -561,8 +545,7 @@ FeaturePorbe Webhook 判定 Response code 在 [200 ～ 300）之间为成功，�
 }
 ```
 
-<span id="toggle_restore">开关恢复</span>
-
+#### 开关恢复
 ```json
 {
  "action": "RESTORE",
@@ -595,8 +578,7 @@ FeaturePorbe Webhook 判定 Response code 在 [200 ～ 300）之间为成功，�
 }
 ```
 
-<span id="toggle_approval">开关发起审批</span>
-
+#### 开关发起审批
 ```json
 {
  "action": "CREATE_APPROVAL",
@@ -625,8 +607,7 @@ FeaturePorbe Webhook 判定 Response code 在 [200 ～ 300）之间为成功，�
 }
 ```
 
-<span id="toggle_update_approval">开关更新审批单</span>
-
+#### 开关更新审批单
 ```json
 {
  "action": "UPDATE_APPROVAL",
@@ -655,10 +636,9 @@ FeaturePorbe Webhook 判定 Response code 在 [200 ～ 300）之间为成功，�
 }
 ```
 
-### 成员
+### 成员(Member)
 
-<span id="member_create">成员创建</span>
-
+#### 成员创建
 ```json
 {
  "action": "CREATE",
@@ -676,8 +656,7 @@ FeaturePorbe Webhook 判定 Response code 在 [200 ～ 300）之间为成功，�
 }
 ```
 
-<span id="member_update">成员更新</span>
-
+#### 成员更新
 ```json
 {
  "action": "UPDATE",
@@ -695,8 +674,7 @@ FeaturePorbe Webhook 判定 Response code 在 [200 ～ 300）之间为成功，�
 }
 ```
 
-<span id="member_delete">成员删除</span>
-
+#### 成员删除
 ```json
 {
  "action": "DELETE",
@@ -715,8 +693,7 @@ FeaturePorbe Webhook 判定 Response code 在 [200 ～ 300）之间为成功，�
 
 ### Webhook
 
-<span id="webhook_create">Webhook创建</span>
-
+#### Webhook创建
 ```json
 {
  "action": "CREATE",
@@ -737,8 +714,7 @@ FeaturePorbe Webhook 判定 Response code 在 [200 ～ 300）之间为成功，�
 }
 ```
 
-<span id="webhook_update">Webhook更新</span>
-
+#### Webhook更新
 ```json
 {
  "action": "UPDATE",
@@ -759,25 +735,24 @@ FeaturePorbe Webhook 判定 Response code 在 [200 ～ 300）之间为成功，�
 }
 ```
 
-<span id="webhook_delete">Webhook删除</span>
-
+#### Webhook删除
 ```json
 {
- "action": "DELETE",
- "data": {
-  "createdBy": "jianggang@featureprobe.com",
-  "createdTime": 1669363048000,
-  "description": "This a test webhook",
-  "id": 37,
-  "modifiedBy": "Admin",
-  "modifiedTime": 1669363077000,
-  "name": "Test",
-  "status": "ENABLE",
-  "url": "http://127.0.0.1/demo"
- },
- "operator": "jianggang@featureprobe.com",
- "resource": "WEBHOOK",
- "timestamp": 1669363176546
+  "action": "DELETE",
+  "data": {
+    "createdBy": "jianggang@featureprobe.com",
+    "createdTime": 1669363048000,
+    "description": "This a test webhook",
+    "id": 37,
+    "modifiedBy": "Admin",
+    "modifiedTime": 1669363077000,
+    "name": "Test",
+    "status": "ENABLE",
+    "url": "http://127.0.0.1/demo"
+  },
+  "operator": "jianggang@featureprobe.com",
+  "resource": "WEBHOOK",
+  "timestamp": 1669363176546
 }
 ```
 
