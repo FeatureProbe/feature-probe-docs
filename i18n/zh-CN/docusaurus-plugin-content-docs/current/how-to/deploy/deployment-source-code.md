@@ -29,7 +29,7 @@ sidebar_position: 3
    ```
 
 :::note
-无须手工创建表结构。初次启动 API 服务时会自动创建所有表和初始化数据。
+无须手工创建表结构。初次启动 API 服务时会自动创建所有表和初始化数据。如果希望手工导入 DML/DDL 请参考[初始化数据库](/reference/database-setup)文档。
 :::
 
 

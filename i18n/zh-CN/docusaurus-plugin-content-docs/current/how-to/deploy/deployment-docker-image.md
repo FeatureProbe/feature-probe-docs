@@ -31,7 +31,7 @@ sidebar_position: 2
 
 1. 运行 MySQL 数据库实例:
    :::tip
-   如果使用您已经部署好的其他MySQL环境，可以跳过此步骤。在下一步API服务的启动参数中填入您自己的MySQL环境配置信息。
+   如果使用您已经部署好的其他MySQL环境（可参考[初始化数据库](/reference/database-setup)文档），可以跳过此步骤。在下一步API服务的启动参数中填入您自己的MySQL环境配置信息。
    :::
 
    ```bash
