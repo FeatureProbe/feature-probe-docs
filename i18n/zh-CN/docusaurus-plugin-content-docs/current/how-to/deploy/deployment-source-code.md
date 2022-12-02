@@ -213,9 +213,8 @@ mvn clean package
    * python3
      * [安装](https://realpython.com/installing-python/#)
      
-
    :::info
-   国内建议切换为 npm 中国镜像站：`npm config set registry https://npmmirror.com/mirrors/`
+   国内建议切换为 npm 中国镜像站：`npm config set registry https://registry.npmmirror.com/`
    :::
 
 2. 获取源码并编译出可部署的静态文件：
