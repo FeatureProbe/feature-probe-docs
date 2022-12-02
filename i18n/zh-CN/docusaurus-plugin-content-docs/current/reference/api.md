@@ -10,10 +10,10 @@ sidebar_position: 3
 
 您在平台上创建并获取到 Access Token 后，即可通过该 Token 来访问所有的 REST API ，访问时需要加上如下请求头参数：
 
-| **Header**    | **Description**                 | E.g                                 |
-| ------------- | ------------------------------- | ----------------------------------- |
-| Authorization | 个人或应用 Access Token         | -H 'Authorization: api-testkey'     |
-| Content-Type  | 发送的数据协议类型，只支持 JSON | -H 'Content-Type: application/json' |
+| **Header**    | **Description**                 | E.g                                  |
+| ------------- | ------------------------------- | ------------------------------------ |
+| Authorization | 个人或应用 Access Token         | -H 'Authorization: API_ACCESS_TOKEN' |
+| Content-Type  | 发送的数据协议类型，只支持 JSON | -H 'Content-Type: application/json'  |
 
 所有对 API 的调用请使用 HTTPS 方式。
 
