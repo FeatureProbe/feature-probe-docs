@@ -61,8 +61,8 @@ $ ls -1 feature-probe-admin/src/main/resources/db/migration/V* \
 将生成的 `rollup.sql` 导入到 `feature_probe` 库中即可。
 
 ```
-use feature_probe;
-source ./rollup.sql;
+mysql> use feature_probe;
+mysql> source ./rollup.sql;
 ```
 
 导入完成后使用 `show tables` 可以看到所有表结构：
