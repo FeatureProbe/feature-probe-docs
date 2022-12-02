@@ -4,23 +4,24 @@ sidebar_position: 6
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Webhook接入
+# Webhook Access
 
-通过webhook配置，可以向您推送FeatureProbe平台发生的事件数据，Webhook是一个http请求回调接口，需要您的团队按照以下方式提供实现；
-FeatureProbe平台发生某个事件时，会去回调该接口，并把该事件的数据以json格式推送到您的服务器。
+By configuring webhook, you can push the event data of FeatureProbe platform to your server.
+Webhook is an http request callback interface. Your team needs to provide the implementation in the following ways.
+When an event occurs on the FeatureProbe platform, it will call back the interface and push the event data to your server in json format.
 
-## 配置Webhook
+## Configure Webhook
 
-如何在FeatureProbe平台配置Webhook参考 [配置Webhook](../how-to/platform/webhooks.md)
+How to configure Webhook on the FeatureProbe platform. [Configure Webhook](../how-to/platform/webhooks.md)
 
-## 接入Webhook
+## Access Webhook
 
 
-### 请求方法
+### Request Method
 
-支持 http/https POST 方法
+support http/https POST Method
 
-### 请求头
+### Request Header
 
 ```text
 Content-Type: application/json; charset=utf-8 
@@ -28,9 +29,9 @@ User-Agent: FeatureProbe-Webhook/1.0
 X-FeatureProbe-Sign: xxxxxxxxxxxxxxx
 ```
 
-### 请求体
+### Request Body
 
-请求体格式整体如下
+* General structure
 
 ```json
 {
@@ -46,55 +47,55 @@ X-FeatureProbe-Sign: xxxxxxxxxxxxxxx
 }
 ```
 
-统一字段说明
+* Field description
 
-| 字段             | 说明              |
+
+| Field             | Description        |
 |----------------|-----------------|
-| resource       | 事件对应实体          |
-| action         | 事件类型            |
-| operator       | 操作人             |
-| timestamp      | 操作时间            |
+| resource       | event entity          |
+| action         | event type            |
+| operator       | Person triggered by the event  |
+| timestamp      | Time of the event     |
 
 
-具体事件的格式会不同. FeatureProbe平台Webhook所有事件如下：
+* All events of the FeatureProbe platform Webhook are as follows:
 
-| 资源      | 事件                 |  resource                      | action                   |
+| entity      | event                 |  resource                      | action                   |
 |---------|--------------------|-------------------------------|--------------------------|
-| 项目      | [创建](#项目创建)        | PROJECT           | CREATE                   |
-|         | [更新](#项目更新)        | PROJECT    | UPDATE                   |
-|         | [删除](#项目删除)        | PROJECT      | DELETE                   |
-|         | [更新审批设置](#项目更新审批设置) | PROJECT  | UPDATE_APPROVAL_SETTINGS |
-| 环境      | [创建](#环境创建)        | ENVIRONMENT     | CREATE                   |
-|         | [更新](#环境更新)        | ENVIRONMENT     | UPDATE                   |
-|         | [下线](#环境更新)        | ENVIRONMENT    | OFFLINE                  |
-|         | [恢复](#环境恢复)        | ENVIRONMENT     | RESTORE                  |
-| 人群      | [创建](#人群创建)        | SEGMENT     | CREATE                   |
-|         | [更新](#人群更新)        |   SEGMENT  | UPDATE                   |
-|         | [发布](#人群发布)        | SEGMENT    | PUBLISH                  |
-|         | [删除](#人群删除)        | SEGMENT     | DELETE                   |
-| 开关      | [创建](#开关创建)        | TOGGLE     | CREATE                   |
-|         | [更新](#开关更新)                  |    TOGGLE   | UPDATE                   |
-|         | [发布](#开关发布)                 |    TOGGLE  | PUBLISH                  |
-|         | [下线](#开关下线)                 |    TOGGLE   | OFFLINE                  |
-|         | [恢复](#开关恢复)                 |   TOGGLE    | RESTORE                  |
-|         | [发起审批](#开关发起审批)               |    TOGGLE | CREATE_APPROVAL          |
-|         | [审批单状态变更](#开关更新审批单)            | TOGGLE  | UPDATE_APPROVAL                         |
-| 成员      | [创建](#成员创建)                 | MEMBER     | CREATE |
-|         | [更新](#成员更新)                  | MEMBER     | UPDATE |
-|         | [删除](#成员删除)                  | MEMBER      | DELETE |
-| Webhook | [创建](#webhook创建)                 | WEBHOOK | CREATE |
-|         | [更新](#webhook更新)                 | WEBHOOK | UPDATE |
-|         | [删除](#webhook删除)                 | WEBHOOK | DELETE |
+| project      | [create](#create-project)        | PROJECT           | CREATE                   |
+|         | [update](#update-project)        | PROJECT    | UPDATE                   |
+|         | [delete](#delete-project)        | PROJECT      | DELETE                   |
+|         | [update approval settings](#update-approval-settings) | PROJECT  | UPDATE_APPROVAL_SETTINGS |
+| environment      | [create](#create-environment)        | ENVIRONMENT     | CREATE                   |
+|         | [update](#update-environment)        | ENVIRONMENT     | UPDATE                   |
+|         | [offline](#offline-environment)        | ENVIRONMENT    | OFFLINE                  |
+|         | [restore](#restore-environment)        | ENVIRONMENT     | RESTORE                  |
+| segment      | [create](#create-segment)        | SEGMENT     | CREATE                   |
+|         | [update](#update-segment)        |   SEGMENT  | UPDATE                   |
+|         | [publish](#publish-segment)        | SEGMENT    | PUBLISH                  |
+|         | [delete](#delete-segment)        | SEGMENT     | DELETE                   |
+| toggle      | [create](#create-toggle)        | TOGGLE     | CREATE                   |
+|         | [update](#update-toggle)                  |    TOGGLE   | UPDATE                   |
+|         | [publish](#publish-toggle)                 |    TOGGLE  | PUBLISH                  |
+|         | [offline](#offline-toggle)                 |    TOGGLE   | OFFLINE                  |
+|         | [restore](#restore-toggle)                 |   TOGGLE    | RESTORE                  |
+|         | [approval](#approval-toggle)               |    TOGGLE | CREATE_APPROVAL          |
+|         | [update approval](#update-approval-toggle)            | TOGGLE  | UPDATE_APPROVAL                         |
+| member      | [create](#create-member)                 | MEMBER     | CREATE |
+|         | [update](#update-member)                  | MEMBER     | UPDATE |
+|         | [delete](#delete-member)                  | MEMBER      | DELETE |
+| webhook | [create](#create-webhook)                 | WEBHOOK | CREATE |
+|         | [update](#update-webhook)                 | WEBHOOK | UPDATE |
+|         | [delete](#delete-webhook)                 | WEBHOOK | DELETE |
 
 
-### 验证Webhook请求 （可选）
+### Validate Webhook Request（Optional）
 
-FeaturePobe Webhook提供了一种安全验证方式，用于防止请求伪造（CSRF攻击）。
-FeaturePobe服务端在推送数据的时候，会使用Secret Key对请求体数据进行sha1签名，将签名放在请求头 X-FeatureProbe-Sign 中，
-对接时可以同样的算法计算该Sign，两者需要一致。
+FeaturePobe Webhook provides a security authentication method to prevent request forgery (CSRF attack).
+When the FeaturePobe server pushes data, it will use the Secret Key to sha1 sign the request body data and place the signature in the request header X-FeatureProbe Sign,The same algorithm can be used to calculate the sign during docking, and the two must be consistent.
 
 
-#### 各类语言签名计算参考
+#### Signature Reference
 
 <Tabs groupId="language">
 <TabItem value="java" label="Java" default>
@@ -138,15 +139,15 @@ func sign(secretKey string, content string) string{
 </TabItem>
 </Tabs>
 
-## 回调结果判断
+## How to determine callback results
 
-FeaturePorbe Webhook 判定 Response code 在 [200 ～ 300）之间为成功，其他都为失败。
+FeaturePorbe Webhook thinks that the response code between [200~300] is a success, and the others are failures.
 
-## 各类事件Request Body示例
+## All event Request Body
 
-### 项目（Project）
+### Project
 
-#### 项目创建
+#### Create Project
 ```json
 {
  "action": "CREATE",
@@ -168,7 +169,7 @@ FeaturePorbe Webhook 判定 Response code 在 [200 ～ 300）之间为成功，�
 }
 ```
 
-#### 项目更新
+#### Update Project
 ```json
 {
  "action": "UPDATE",
@@ -191,7 +192,7 @@ FeaturePorbe Webhook 判定 Response code 在 [200 ～ 300）之间为成功，�
 }
 ```
 
-#### 项目删除
+#### DELETE Project
 ```json
 {
  "action": "DELETE",
@@ -214,7 +215,7 @@ FeaturePorbe Webhook 判定 Response code 在 [200 ～ 300）之间为成功，�
 }
 ```
 
-#### 项目更新审批设置
+#### Update Approval Settings
 ```json
 {
  "action": "UPDATE_APPROVAL_SETTINGS",
@@ -238,9 +239,9 @@ FeaturePorbe Webhook 判定 Response code 在 [200 ～ 300）之间为成功，�
 }
 ```
 
-### 环境（Environment）
+### Environment
 
-#### 环境创建
+#### Create Environment
 ```json
 {
  "action": "CREATE",
@@ -258,7 +259,7 @@ FeaturePorbe Webhook 判定 Response code 在 [200 ～ 300）之间为成功，�
 }
 ```
 
-#### 环境更新
+#### Update Environment
 ```json
 {
  "action": "UPDATE",
@@ -277,7 +278,7 @@ FeaturePorbe Webhook 判定 Response code 在 [200 ～ 300）之间为成功，�
 }
 ```
 
-#### 环境下线
+#### Offline Environment
 ```json
 {
  "action": "OFFLINE",
@@ -296,7 +297,7 @@ FeaturePorbe Webhook 判定 Response code 在 [200 ～ 300）之间为成功，�
 }
 ```
 
-#### 环境恢复
+#### Restore Environment
 ```json
 {
  "action": "RESTORE",
@@ -315,9 +316,9 @@ FeaturePorbe Webhook 判定 Response code 在 [200 ～ 300）之间为成功，�
 }
 ```
 
-### 人群(Segment)
+### Segment
 
-#### 人群创建
+#### Create Segment
 ```json
 {
  "action": "CREATE",
@@ -337,7 +338,7 @@ FeaturePorbe Webhook 判定 Response code 在 [200 ～ 300）之间为成功，�
 }
 ```
 
-#### 人群更新
+#### Update Segment
 ```json
 {
  "action": "UPDATE",
@@ -357,7 +358,7 @@ FeaturePorbe Webhook 判定 Response code 在 [200 ～ 300）之间为成功，�
 }
 ```
 
-#### 人群发布
+#### Publish Segment
 ```json
 {
  "action": "PUBLISH",
@@ -385,7 +386,7 @@ FeaturePorbe Webhook 判定 Response code 在 [200 ～ 300）之间为成功，�
 }
 ```
 
-#### 人群删除
+#### Delete Segment
 ```json
 {
  "action": "DELETE",
@@ -413,9 +414,9 @@ FeaturePorbe Webhook 判定 Response code 在 [200 ～ 300）之间为成功，�
 }
 ```
 
-### 开关(Toggle)
+### Toggle
 
-#### 开关创建
+#### Create Toggle
 ```json
 {
  "action": "CREATE",
@@ -448,7 +449,7 @@ FeaturePorbe Webhook 判定 Response code 在 [200 ～ 300）之间为成功，�
 }
 ```
 
-#### 开关更新
+#### Update Toggle
 ```json
 {
  "action": "UPDATE",
@@ -481,7 +482,7 @@ FeaturePorbe Webhook 判定 Response code 在 [200 ～ 300）之间为成功，�
 }
 ```
 
-#### 开关发布
+#### Publish Toggle
 ```json
 {
  "action": "PUBLISH",
@@ -522,7 +523,7 @@ FeaturePorbe Webhook 判定 Response code 在 [200 ～ 300）之间为成功，�
 }
 ```
 
-#### 开关下线
+#### Offline Toggle
 ```json
 {
  "action": "OFFLINE",
@@ -555,7 +556,7 @@ FeaturePorbe Webhook 判定 Response code 在 [200 ～ 300）之间为成功，�
 }
 ```
 
-#### 开关恢复
+#### Restore Toggle
 ```json
 {
  "action": "RESTORE",
@@ -588,7 +589,7 @@ FeaturePorbe Webhook 判定 Response code 在 [200 ～ 300）之间为成功，�
 }
 ```
 
-#### 开关发起审批
+#### Approval Toggle
 ```json
 {
  "action": "CREATE_APPROVAL",
@@ -617,7 +618,7 @@ FeaturePorbe Webhook 判定 Response code 在 [200 ～ 300）之间为成功，�
 }
 ```
 
-#### 开关更新审批单
+####  Update Approval Toggle
 ```json
 {
  "action": "UPDATE_APPROVAL",
@@ -646,9 +647,9 @@ FeaturePorbe Webhook 判定 Response code 在 [200 ～ 300）之间为成功，�
 }
 ```
 
-### 成员(Member)
+### Member
 
-#### 成员创建
+#### Create Member
 ```json
 {
  "action": "CREATE",
@@ -666,7 +667,7 @@ FeaturePorbe Webhook 判定 Response code 在 [200 ～ 300）之间为成功，�
 }
 ```
 
-#### 成员更新
+#### Update Member
 ```json
 {
  "action": "UPDATE",
@@ -684,7 +685,7 @@ FeaturePorbe Webhook 判定 Response code 在 [200 ～ 300）之间为成功，�
 }
 ```
 
-#### 成员删除
+#### Delete Member
 ```json
 {
  "action": "DELETE",
@@ -703,7 +704,7 @@ FeaturePorbe Webhook 判定 Response code 在 [200 ～ 300）之间为成功，�
 
 ### Webhook
 
-#### Webhook创建
+#### Create Webhook
 ```json
 {
  "action": "CREATE",
@@ -724,7 +725,7 @@ FeaturePorbe Webhook 判定 Response code 在 [200 ～ 300）之间为成功，�
 }
 ```
 
-#### Webhook更新
+#### Update Webhook
 ```json
 {
  "action": "UPDATE",
@@ -745,7 +746,7 @@ FeaturePorbe Webhook 判定 Response code 在 [200 ～ 300）之间为成功，�
 }
 ```
 
-#### Webhook删除
+#### Delete Webhook
 ```json
 {
   "action": "DELETE",
