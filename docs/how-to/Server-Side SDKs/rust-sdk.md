@@ -1,5 +1,5 @@
 ---
-sidebar_position: 3
+sidebar_position: 6
 ---
 
 # Rust SDK
@@ -46,22 +46,22 @@ After you install and import the SDK, create a single, shared instance of the Fe
 
 ```rust
 fn main() {
-    let remote_url = "http://localhost:4007";
+    let remote_url = url::Url::parse("http://localhost:4007").expect("invalid url");
+    // Server SDK key in Project List Page.
+    let server_sdk_key = "server-7fa2f771259cb7235b96433d70b91e99abcf6ff8".to_owned();
 
     let config = FPConfig {
-        remote_url: remote_url.to_owned(),
-        server_sdk_key: args.server_sdk_key.to_owned(),
+        remote_url,
+        server_sdk_key,
         refresh_interval: Duration::from_secs(5),
-        wait_first_resp: true,
+        start_wait: Some(Duration::from_secs(5)),
+        ..Default::default()
     };
 
-    let fp = match FeatureProbe::new(config) {
-        Ok(fp) => fp,
-        Err(e) => {
-            tracing::error!("{:?}", e);
-            return;
-        }
-    };
+    let fp =  FeatureProbe::new(config);
+    if !fp.initialized() {
+        println!("FeatureProbe failed to initialize, will return default value");
+    }
 }
 ```
 

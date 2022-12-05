@@ -2,11 +2,11 @@
 sidebar_position: 2
 ---
 
-# SDK基本概念
+# SDK 基本概念
 
 本文档主要介绍 FeatureProbe SDK 的分类，实现的原理，相同点和不同点。
 
-## SDK 原理
+## SDK 作用
 
 FeatureProbe SDK 通过 User 对象存储用户的特有属性，根据在 FeatureProbe 的 UI 平台中配置的开关规则，匹配属性，返回对应设置的值。
 
@@ -21,9 +21,6 @@ FeatureProbe SDK 分为 Client-side SDK 和 Server-side SDK 两种
 * 一般Client SDK和用户有一对一的关系，Client SDK总是代表同一个用户请求开关的结果。
 * 设备的性能和安全的级别不如在 IDC 中的服务器
 
-所以 Client-side SDK 本身不含有规则运算的功能，通过把所代表的用户的各种属性上传服务端，由服务端（FeatureProbe Server）计算所有开关对于当前用户的返回值，
-然后返回给 Client-side SDK。FeatureProbe SDK 与 FeatureProbe 服务端的交互是异步的。业务代码获取对应的开关值时，是从 FeatureProbe SDK 直接获取的内存缓存结果。
-
 ### Server-side SDK
 
 主要用在业务系统的后端服务中，支持 Golang，Java，Rust，Python 等语言。有以下特点：
@@ -31,8 +28,9 @@ FeatureProbe SDK 分为 Client-side SDK 和 Server-side SDK 两种
 * 业务系统后端服务通常会处理大量用户的请求，需要代表不同用户请求FeatureProbe SDK，拿到每个用户的开关结果。
 * 服务器的性能较高，可以承担部分计算任务
 
-所以服务端SDK内部存储的是开关规则，规则的计算是在 SDK 中实现的。服务端会异步请求FeatureProbe server，获取最新的开关规则。
-当业务代码调用SDK时，会根据内存中缓存的规则，即时计算返回值。
+:::tip
+了解更多关于 Client-side SDK 和 Server-side SDK 区别，可以查看[SDK 实现原理](/reference/sdk-specification)文档。
+:::
 
 ## SDK Key
 

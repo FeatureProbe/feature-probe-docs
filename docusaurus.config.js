@@ -8,7 +8,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'Feature Probe',
   tagline: 'An open source feature management service',
-  url: 'https://featureprobe.github.io',
+  url: 'https://docs.featureprobe.io',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -101,6 +101,16 @@ const config = {
             label: 'GitHub',
             position: 'right',
           },
+          {
+            href: 'https://gitee.com/featureprobe',
+            label: 'Gitee',
+            position: 'right',
+          },
+          {
+            href: 'https://featureprobe.io',
+            label: 'Demo',
+            position: 'right',
+          },
         ],
       },
       footer: {
@@ -112,6 +122,10 @@ const config = {
               {
                 label: 'Docs',
                 to: '/',
+              },
+              {
+                label: 'Demo',
+                href: 'https://featureprobe.io',
               },
             ],
           },
@@ -138,6 +152,10 @@ const config = {
               {
                 label: 'GitHub',
                 href: 'https://github.com/FeatureProbe/FeatureProbe',
+              },
+              {
+                label: 'Gitee',
+                href: 'https://gitee.com/featureprobe',
               },
             ],
           },

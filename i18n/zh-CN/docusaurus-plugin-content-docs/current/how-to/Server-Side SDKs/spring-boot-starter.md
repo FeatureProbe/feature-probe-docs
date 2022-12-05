@@ -1,10 +1,10 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 ---
 
-# Java SDK
+# Spring Boot Starter
 
-本文介绍如何在一个 Java 项目中使用FeatureProbe SDK。
+本文介绍如何在一个 Spring Boot 项目中使用FeatureProbe SDK。
 
 :::tip
 对于首次使用FeatureProbe的用户，我们强烈建议你在阅读过[灰度放量教程](../../tutorials/rollout_tutorial/)之后，再回到这篇文章继续阅读。
@@ -12,23 +12,22 @@ sidebar_position: 1
 
 ## 接入业务代码
 
-后端项目通常只需要实例化一个FeatureProbe SDK（Client）。
-然后针对不同用户的请求，调用FeatureProbe Client获取对每一个用户的开关处理结果。
+对于Spring Boot项目，FeatureProbe提供一个开箱即用的 Starter，方便在Spring boot中快速集成FeatureProbe。
 
 :::info
 服务端SDK采用异步连接FeatureProbe服务器拉取判定规则的方式，判定规则会在本地存缓。所有对用户代码暴露的接口都只涉及内存操作，调用时不必担心性能问题。
 :::
 
-### 步骤 1. 安装 FeatureProbe SDK
+### 步骤 1. 安装 FeatureProbe Starter
 
-首先，在您的应用程序中安装 FeatureProbe SDK 作为依赖项。
+首先，在您的应用程序中安装 FeatureProbe Starter 作为依赖项。
 
 #### Apache Maven
 
 ```xml
 <dependency>
     <groupId>com.featureprobe</groupId>
-    <artifactId>server-sdk-java</artifactId>
+    <artifactId>featureprobe-spring-boot-starter</artifactId>
     <version>1.4.0</version>
 </dependency>
 ```
@@ -36,41 +35,49 @@ sidebar_position: 1
 #### Gradle Groovy DSL
 
 ```text
-implementation 'com.featureprobe:server-sdk-java:1.4.0'
+implementation 'com.featureprobe:featureprobe-spring-boot-starter:1.4.0'
 ```
 
-### 步骤 2. 创建一个 FeatureProbe instance
+### 步骤 2. 配置 FeatureProbe instance
 
-安装并导入 SDK 后，创建 FeatureProbe sdk 的单个共享实例。
+安装并导入 Starter 后，根据当前环境配置需要的 FeatureProbe instance。
 
-```java
-public class Demo {
-    private static final FPConfig config = FPConfig.builder()
-        .remoteUri(/* FeatureProbe Server URI */)
-        .build();
-
-    private static final FeatureProbe fpClient = new FeatureProbe(
-        /* FeatureProbe Server SDK Key */, config);
-  
-  	if（!fpClient.initialized()) {
-				System.out.println("SDK failed to initialize!")
-		}
-}
+```yaml
+spring:
+  featureprobe:
+    event-url: https://featureprobe.io/server/api/events
+    synchronizer-url: https://featureprobe.io/server/api/server-sdk/toggles
+    sdk-key: server-9e53c5db4fd75049a69df8881f3bc90edd58fb06
+    refresh-interval: 5
 ```
+
+| 配置项                                 | 描述              | 是否必须 |
+|:------------------------------------|:----------------|-----:|
+| spring.featureprobe.event-url       | 事件上传Url         |    Y |
+| spring.featureprobe.synchronizer-url| 开关数据同步Url       |    Y |
+| spring.featureprobe.sdk-key         | 当前环境SDK KEY     |    Y |
+| spring.featureprobe.refresh-interval| 开关数据同步频率（s）默认5s |    N |
+
+
 
 ### 步骤 3. 使用 FeatureProbe 开关获取设置的值
 
 您可以使用 sdk 拿到对应开关名设置的值。
 
 ```java
-FPUser user = new FPUser();
-    user.with("ATTRIBUTE_NAME_IN_RULE", VALUE_OF_ATTRIBUTE);    // Call with() for each attribute used in Rule.
-    boolean boolValue = fpClient.boolValue("YOUR_TOGGLE_KEY", user, false);
-    if (boolValue) {
-    // the code to run if the toggle is on
-    } else {
-    // the code to run if the toggle is off
-    }
+@Resource
+FeatureProbe fpClient;
+```
+
+```java
+FPUser user=new FPUser();
+user.with("ATTRIBUTE_NAME_IN_RULE",VALUE_OF_ATTRIBUTE);    // Call with() for each attribute used in Rule.
+boolean boolValue=fpClient.boolValue("YOUR_TOGGLE_KEY",user,false);
+if(boolValue){
+// the code to run if the toggle is on
+}else{
+// the code to run if the toggle is off
+}
 ```
 
 ### 步骤 4. 程序退出前关闭 FeatureProbe Client

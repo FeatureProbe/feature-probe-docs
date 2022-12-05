@@ -101,6 +101,19 @@ This SDK takes the following options:
 | clientSdkKey      | yes            | n/a     | The Client SDK Key is used to authentification   |
 | user              | yes            | n/a     | The User with attributes like name, age is used when toggle evaluation |
 | refreshInterval   | no            | 1000     | The SDK check for updated in millisecond   |
+| timeoutInterval   | no            | 1000    | Timeout for SDK initialization, SDK will emit an `error` event when timeout is reaching  |
+
+
+## SDK Open API
+
+API Docs: [SDK API](https://featureprobe.github.io/client-sdk-js/)
+
+## SDK Events
+
+- **ready** - Emit `ready` event after successfully fetching toggles from `Server`
+- **cache_ready** - Emit `cache_ready` event after successfully fetching toggles from `LocalStorage`
+- **error** - Emit `error` event when error fetching toggles from `Server` and timeout exceeded
+- **update** - Emit `update` event every time successfully fetching toggles from `Server`, except for the first time (Emit `ready` event first time)
 
 ## Testing
 

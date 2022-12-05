@@ -1,5 +1,5 @@
 ---
-sidebar_position: 5
+sidebar_position: 6
 ---
 
 import Tabs from '@theme/Tabs';
@@ -38,13 +38,14 @@ import TabItem from '@theme/TabItem';
 
 ### 1.4 接入引导提示 “您没有此 SDK 密钥连接成功的应用程序” 该如何排查？
 
-- 检查  `RemoteURL` 和 `ServerSdkKey` 与当前访问开关所在环境是否一致：
+- 检查  `RemoteURL` 和 `ServerSdkKey` 或 `ClientSdkKey` 与当前访问开关所在环境是否一致：
 
   - RemoteUrl
     - 官方测试环境： https://featureprobe.io/server
     - Docker-compose 环境： http://{运行 docker compose 机器IP地址}:4007
     - Docker image 部署或编译部署： http://{FEATURE_PROBE_SERVER_IP}:{FP_SERVER_PORT}
   - ServerSdkKey: *<[如何获取 ServerSdkKey](/tutorials/backend_custom_attribute#编写代码)>*
+  - ClientSdkKey: *<[如何获取 ClientSdkKey](/tutorials/backend_custom_attribute#控制前端程序)>*
 
 - 检查 FeatureProbe Server 服务是否正常：
 
@@ -113,9 +114,63 @@ import TabItem from '@theme/TabItem';
   ~~~
   
   </TabItem>
+  <TabItem value="JavaScript" label="JavaScript">
+  
+  ~~~js title="demo.js"
+  const fp = new FeatureProbe({
+    remoteUrl: /* remoteUrl */,
+    clientSdkKey: /* clientSdkKey */
+    user: /* user */
+    // highlight-start
+    timeoutInterval: 5000, // 5 seconds
+    // highlight-end
+  })
+  ~~~
+  
+  </TabItem>
+
+   <TabItem value="MiniProgram" label="MiniProgram">
+  
+  ~~~js title="demo.js"
+  fpClient.init({
+    remoteUrl: /* remoteUrl */,
+    clientSdkKey: /* clientSdkKey */
+    user: /* user */
+    // highlight-start
+    timeoutInterval: 5000, // 5 seconds
+    // highlight-end
+  })
+  ~~~
+  
+  </TabItem>
+
   </Tabs>
 
 
+- 前端SDK可以监听SDK是否发布的 `error` 事件，同时在浏览器控制台也可以看到错误详情：
+
+  <Tabs groupId="language">
+  <TabItem value="JavaScript" label="JavaScript">
+  
+  ~~~js title="demo.js"
+  fp.on("error", function() {
+    console.log("JavaScript SDK初始化报错了！")
+  })
+  ~~~
+  
+  </TabItem>
+
+   <TabItem value="MiniProgram" label="MiniProgram">
+  
+  ~~~js title="demo.js"
+  fpClient.on("error", function() {
+    console.log("MiniProgram SDK初始化报错了！")
+  })
+  ~~~
+  
+  </TabItem>
+
+  </Tabs>
 
 
 

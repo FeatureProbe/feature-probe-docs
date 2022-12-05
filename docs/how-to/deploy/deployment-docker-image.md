@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# All-in-One Deploy Guide
+# Docker Deploy Guide
 
 > This document describes how to deploy the FeatureProbe service.
 

@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 5
 ---
 
 # Python SDK
@@ -7,7 +7,7 @@ sidebar_position: 1
 本文介绍如何在一个 Python 项目中使用 FeatureProbe SDK。
 
 :::tip
-对于首次使用FeatureProbe的用户，我们强烈建议你在阅读过[灰度放量教程](https://docs.featureprobe.io/zh-CN/tutorials/backend_rollout)之后，再回到这篇文章继续阅读。
+对于首次使用FeatureProbe的用户，我们强烈建议你在阅读过[灰度放量教程](../../tutorials/rollout_tutorial/)之后，再回到这篇文章继续阅读。
 :::
 
 ## 接入业务代码
@@ -50,6 +50,9 @@ import featureprobe as fp
 
 config = fp.Config(remote_uri=/* FeatureProbe Server URI */, sync_mode='pooling', refresh_interval=3)
 client = fp.Client(/* FeatureProbe Server SDK Key */, config)
+
+if not client.initialized():
+		print("SDK failed to initialize!")
 ```
 
 :::note

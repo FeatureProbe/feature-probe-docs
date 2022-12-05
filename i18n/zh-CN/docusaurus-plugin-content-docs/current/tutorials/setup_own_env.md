@@ -36,7 +36,7 @@ FeatureProbe包含5个独立镜像，需要这5个镜像全部启动成功后才
 
 ## 验证安装结果
 
-打开浏览器，访问 http://localhost:4009 ，可以看到以下登录页面：
+打开浏览器，访问 [http://localhost:4009](http://localhost:4009) ，可以看到以下登录页面：
 ![login](/docker_login.png)
 
 使用默认帐号登录：

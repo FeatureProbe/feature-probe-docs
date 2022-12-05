@@ -22,7 +22,7 @@ API 模块和 Server 模块在启动时参数说明。
 | app.security.jwt.keystore-password      | password          | 否       | 生成证书时 storepass                                         |
 | app.security.jwt.private-key-passphrase | password          | 否       | 生成证书时的 keypass                                         |
 
-*上述参数使用 docker 方式启动程序通过 Environment 传入，如以 jar 包启动通过 java -D 传入.*
+*上述参数使用 docker 方式启动程序通过 Environment 传入，如以 jar 包启动通过 java ` --` 传入.*
 
 ### 安全认证配置
 

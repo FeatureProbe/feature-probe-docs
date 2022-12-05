@@ -1,5 +1,5 @@
 ---
-sidebar_position: 3
+sidebar_position: 6
 ---
 
 # Rust SDK
@@ -8,7 +8,7 @@ sidebar_position: 3
 本文介绍如何在一个 Rust 项目中使用 FeatureProbe SDK。
 
 :::tip
-对于首次使用FeatureProbe的用户，我们强烈建议你在阅读过[灰度放量教程](https://docs.featureprobe.io/zh-CN/tutorials/backend_rollout)之后，再回到这篇文章继续阅读。
+对于首次使用FeatureProbe的用户，我们强烈建议你在阅读过[灰度放量教程](../../tutorials/rollout_tutorial/)之后，再回到这篇文章继续阅读。
 :::
 
 ## 接入业务代码
@@ -41,20 +41,22 @@ use feature_probe_server_sdk::{FPConfig, FPUser, FeatureProbe};
 
 ```rust
 fn main() {
+    let remote_url = url::Url::parse("http://localhost:4007").expect("invalid url");
+    // Server SDK key in Project List Page.
+    let server_sdk_key = "server-7fa2f771259cb7235b96433d70b91e99abcf6ff8".to_owned();
+
     let config = FPConfig {
-        remote_url: /* FeatureProbe Server URI */,
-        server_sdk_key: /* FeatureProbe Server SDK Key */,
+        remote_url,
+        server_sdk_key,
         refresh_interval: Duration::from_secs(5),
-        wait_first_resp: true,
+        start_wait: Some(Duration::from_secs(5)),
+        ..Default::default()
     };
 
-    let fp = match FeatureProbe::new(config) {
-        Ok(fp) => fp,
-        Err(e) => {
-            tracing::error!("{:?}", e);
-            return;
-        }
-    };
+    let fp =  FeatureProbe::new(config);
+    if !fp.initialized() {
+        println!("FeatureProbe failed to initialize, will return default value");
+    }
 }
 ```
 

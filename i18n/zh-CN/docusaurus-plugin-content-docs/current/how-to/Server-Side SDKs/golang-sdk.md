@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 ---
 
 # Golang SDK
@@ -7,7 +7,7 @@ sidebar_position: 2
 本文介绍如何在一个 Golang 项目中使用 FeatureProbe SDK。
 
 :::tip
-对于首次使用FeatureProbe的用户，我们强烈建议你在阅读过[灰度放量教程](https://docs.featureprobe.io/zh-CN/tutorials/backend_rollout)之后，再回到这篇文章继续阅读。
+对于首次使用FeatureProbe的用户，我们强烈建议你在阅读过[灰度放量教程](../../tutorials/rollout_tutorial/)之后，再回到这篇文章继续阅读。
 :::
 
 ## 接入业务代码
@@ -41,10 +41,14 @@ go get github.com/featureprobe/server-sdk-go
 config := featureprobe.FPConfig{
     RemoteUrl:       /* FeatureProbe Server URI */,
     ServerSdkKey:    /* FeatureProbe Server SDK Key */,
-    RefreshInterval: 1000,
+    RefreshInterval: 2 * time.Second,
 }
 
-fpClient, err := featureprobe.NewFeatureProbe(config)
+fpClient := featureprobe.NewFeatureProbe(config)
+
+if !fpClient.Initialized() {
+  fmt.Println("SDK failed to initialize!")
+}
 ```
 
 ### 步骤 3. 使用 FeatureProbe 开关获取设置的值
