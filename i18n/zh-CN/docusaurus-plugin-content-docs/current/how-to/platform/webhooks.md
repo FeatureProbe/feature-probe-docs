@@ -4,10 +4,10 @@ sidebar_position: 7
 
 # 配置Webhook
 
-FeatureProbe支持推送消息到第三方应用的能力。
+FeatureProbe提供推送消息到第三方应用的能力。
 ![WebHook list](/WebHook_list.png)
 
-## 添加WebHook
+## 创建WebHook
 
 1. WebHook的状态（开启后，WebHook的配置内容才能生效）
 2. 填写WebHook名称
