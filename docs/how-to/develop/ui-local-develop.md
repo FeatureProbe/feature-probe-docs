@@ -12,8 +12,8 @@ sidebar_position: 1
 
 
 ```shell
-git clone https://github.com/FeatureProbe/feature-probe-ui.git
-cd feature-probe-ui
+git clone git@github.com:FeatureProbe/FeatureProbe.git
+cd FeatureProbe/feature-probe-ui
 yarn install
 ```
 
