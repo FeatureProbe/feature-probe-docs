@@ -10,16 +10,18 @@ sidebar_position: 1
 
 ### 安装
 
-
 ```shell
+<<<<<<< HEAD
 git clone git@github.com:FeatureProbe/FeatureProbe.git
 cd FeatureProbe/feature-probe-ui
+=======
+git clone https://github.com/FeatureProbe/FeatureProbe.git
+cd FeatureProbe/feature-probe-ui/
+>>>>>>> ede3951 (add ui-local-develop docs)
 yarn install
 ```
 
-:::tip
-强烈建议使用`yarn`作为包管理器。如果你正在使用`npm install`进行安装并遇到以下报错，请使用`npm install——legacy-peer-deps`命令代替。
-:::
+
 
 ![toggles screenshot](/local_develop_install_error.png)
 
