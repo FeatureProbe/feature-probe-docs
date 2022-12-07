@@ -52,10 +52,12 @@ sidebar_position: 2
    ```bash
    docker run -p 4008:4008 \
       -e server.port=4008 \
-      -e spring.datasource.jdbc-url=jdbc:mysql://10.100.1.4:13306/feature_probe \  # 数据库 IP/端口和库名
+      -e spring.datasource.jdbc-url=jdbc:mysql://10.100.1.4:13306/feature_probe \
       -e spring.datasource.username=root \
       -e spring.datasource.password=root \
       --net=host --name featureProbeAPI -d featureprobe/api
+      
+   # 上述 10.100.1.4:13306 为 MySQL Server 的 IP 和端口，请根据实际情况调整
    ```
    :::info
    API服务更详细的启动参数说明见 [FeatureProbe API 参数说明文档](../../reference/deployment-configuration#featureprobe-api)
@@ -66,10 +68,12 @@ sidebar_position: 2
    ```bash
    docker run -p 4007:4007 \
      -e FP_SERVER_PORT=4007 \
-     -e FP_TOGGLES_URL=http://10.100.1.1:4008/api/server/toggles \  # FeatureProbe API IP 和端口号
+     -e FP_TOGGLES_URL=http://10.100.1.1:4008/api/server/toggles \
      -e FP_EVENTS_URL=http://10.100.1.1:4008/api/server/events \
      -e FP_KEYS_URL=http://10.100.1.1:4008/api/server/sdk_keys \
      --net=host --name featureProbeServer -d featureprobe/server
+     
+   # 上述 10.100.1.1:4008 为 FeatureProbe API 服务 IP 和端口，请根据实际情况调整
    ```
    :::info
    Server服务更详细启动参数说明详见 [FeatureProbe Server 参数说明文档](../../reference/deployment-configuration#featureprobe-server)
@@ -87,10 +91,12 @@ sidebar_position: 2
 
    ```nginx
    upstream featureProbeAPI {
-       server 10.100.1.1:4008; # FeatureProbeAPI IP和端口
+        # FeatureProbeAPI 服务的 IP 和端口，请根据实际情况调整
+       server 10.100.1.1:4008;
    }
    
    server {
+     # 访问的 UI 端口
      listen 4009;  # UI 端口
    
      location / {
