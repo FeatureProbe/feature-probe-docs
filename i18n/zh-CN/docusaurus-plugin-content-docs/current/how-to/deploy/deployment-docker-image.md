@@ -15,7 +15,7 @@ sidebar_position: 2
 
 ## 子服务独立部署
 
-使用各模块提供的 [docker 镜象](https://hub.docker.com/repository/docker/featureprobe)在 Linux/Unix/Mac 独立部署。
+使用各模块提供的 [docker 镜象](https://hub.docker.com/u/featureprobe)在 Linux/Unix/Mac 独立部署。
 需要部署有三个服务镜像，如下部署示例：
 
 | 示例机器   | 部署模块            | 端口          |
