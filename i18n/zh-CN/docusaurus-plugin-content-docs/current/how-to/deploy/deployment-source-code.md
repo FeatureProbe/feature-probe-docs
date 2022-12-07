@@ -10,11 +10,16 @@ sidebar_position: 3
 
 需要编译部署的模块主要有三个：
 
-| 示例机器   | 部署模块            | 端口          |
-| ---------- | ------------------- | ------------- |
-| 10.100.1.1 | FeatureProbe API    | 4008          |
-| 10.100.1.1 | FeatureProbe UI     | 4009（Nginx） |
-| 10.100.1.2 | FeatureProbe Server | 4007          |
+:::info
+从 v1.11.0 及之后版本, API服务会集成UI服务，启动API服务后，访问API服务根路径即为FeatureProbe管理页面。
+可根据部署架构需要，选择是否需要单独部署UI服务。
+:::
+
+| 示例机器   | 部署模块            | 端口              |
+| ---------- | ------------------- |-----------------|
+| 10.100.1.1 | FeatureProbe API    | 4008            |
+| 10.100.1.1 | FeatureProbe UI     | 4009（Nginx）（可选） |
+| 10.100.1.2 | FeatureProbe Server | 4007            |
 
 ## 创建数据库
 
@@ -48,8 +53,8 @@ sidebar_position: 3
 2. 获取源码并编译出部署包：
 
 ```bash
-git clone https://gitee.com/FeatureProbe/feature-probe-api.git
-cd feature-probe-api
+git clone https://gitee.com/FeatureProbe/FeatureProbe.git
+cd FeatureProbe/feature-probe-api
 mvn clean package
 ```
 
@@ -82,7 +87,7 @@ mvn clean package
 
    在部署机运行：
    ```bash
-   curl "http://localhost:4008/api/actuator/health"
+   curl "http://localhost:4008/actuator/health"
    ```
 
    显示如下信息则表示启动成功：
@@ -213,16 +218,15 @@ mvn clean package
    * python3
      * [安装](https://realpython.com/installing-python/#)
      
-
    :::info
-   国内建议切换为 npm 中国镜像站：`npm config set registry https://npmmirror.com/mirrors/`
+   国内建议切换为 npm 中国镜像站：`npm config set registry https://registry.npmmirror.com/`
    :::
 
 2. 获取源码并编译出可部署的静态文件：
 
    ```bash
-   git clone https://gitee.com/FeatureProbe/feature-probe-ui.git
-   cd feature-probe-ui
+   git clone https://gitee.com/FeatureProbe/FeatureProbe.git
+   cd FeatureProbe/feature-probe-ui
    yarn install --frozen-lockfile
    yarn build
    ```
