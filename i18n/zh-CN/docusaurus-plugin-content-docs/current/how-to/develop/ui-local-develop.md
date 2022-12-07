@@ -11,17 +11,10 @@ sidebar_position: 1
 ### 安装
 
 ```shell
-<<<<<<< HEAD
-git clone git@github.com:FeatureProbe/FeatureProbe.git
-cd FeatureProbe/feature-probe-ui
-=======
 git clone https://github.com/FeatureProbe/FeatureProbe.git
 cd FeatureProbe/feature-probe-ui/
->>>>>>> ede3951 (add ui-local-develop docs)
 yarn install
 ```
-
-
 
 ![toggles screenshot](/local_develop_install_error.png)
 
