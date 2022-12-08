@@ -93,6 +93,8 @@ FeaturePobe Webhook提供了一种安全验证方式，用于防止请求伪造�
 FeaturePobe服务端在推送数据的时候，会使用Secret Key对请求体数据进行sha1签名，将签名放在请求头 X-FeatureProbe-Sign 中，
 对接时可以同样的算法计算该Sign，两者需要一致。
 
+![api_webhook_secretkey](/api_webhook_secretkey.png)
+
 
 #### 各类语言签名计算参考
 
