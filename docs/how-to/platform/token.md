@@ -29,11 +29,17 @@ After the shared token is deleted, the shared token will become invalid.
 
 ## Personal Tokens
 
+![personal list](/personal_list_en.png)
+
 ### Create a personal token
 Anyone can create their own personal Token, once created, it cannot be changed.
 1. Fill in the name of the personal Token (personal name is unique)
 2. Click the Create button to complete the creation of personal Token.
 3. After the creation is complete, you need to click "Copy Token" immediately, otherwise the Token will be hidden after leaving this page (if it is not saved in time, it is recommended to delete and create a new Token).
+
+![personal create](/personal_create_en.png)
+
+![personal copy](/personal_copy_en.png)
 
 ### Delete personal Token
 After the personal Token is deleted, the personal Token will become invalid.
