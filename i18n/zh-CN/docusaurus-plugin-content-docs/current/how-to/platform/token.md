@@ -26,14 +26,19 @@ FeatureProbe提供2种不同的Tokens（共享Tokens、个人Tokens）用于访�
 ### 删除共享Token
 删除共享Token后，该共享Token将失效。
 
-
 ## 个人Tokens
+
+![personal list](/personal_list.png)
 
 ### 创建个人Token
 任何人都可以创建自己的个人Token，一旦创建，不可更改。
 1. 填写个人Token的名称（个人下名称唯一）
 2. 点击创建按钮，即可完成个人Token的创建。
 3. 创建完成后，需要马上点击”复制token“，否则离开该页面后，Token将会被隐藏（如果未及时保存，建议删除并重新创建一个新的Token）。
+
+![personal create](/personal_create.png)
+
+![personal copy](/personal_copy.png)
 
 ### 删除个人Token
 删除个人Token后，该个人Token将失效。
