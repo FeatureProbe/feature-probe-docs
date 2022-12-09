@@ -10,12 +10,18 @@ FeatureProbe提供2种不同的Tokens（共享Tokens、个人Tokens）用于访�
 
 ## 共享Tokens
 
+![shared list](/shared_list.png)
+
 ### 创建共享Token
 任何人都可以创建共享Token，一旦创建，不可更改。
 1. 填写共享Token的名称（租户下名称唯一）
 2. 选择角色（不支持授予比自己权限更多的角色）
 3. 点击创建按钮，即可完成共享Token的创建。
 4. 创建完成后，需要马上点击”复制token“，否则离开该页面后，Token将会被隐藏（如果未及时保存，建议删除并重新创建一个新的Token）。
+
+![shared create](/shared_create.png)
+
+![shared copy](/shared_copy.png)
 
 ### 删除共享Token
 删除共享Token后，该共享Token将失效。
