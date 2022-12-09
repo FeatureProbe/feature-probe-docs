@@ -22,3 +22,6 @@ WebHookURL变更后，当特定事件发生时，我们将发送POST消息到这
 
 ## 删除WebHook
 删除WebHook后，我们将停止发送任何POST消息到这个URL。
+
+## 接入WebHook
+想了解更多接入内容，请参考[WebHook接入文档](https://docs.featureprobe.io/zh-CN/reference/webhook-access/)
