@@ -10,24 +10,31 @@ sidebar_position: 1
 
 ### Installation
 
+Clone code to your local
 
 ```shell
 git clone git@github.com:FeatureProbe/FeatureProbe.git
 cd FeatureProbe/feature-probe-ui
+```
+
+Use `yarn` to install dependencies
+
+```shell
 yarn install
 ```
 
-:::tip
+:::info
 It is highly recommended that use `yarn` as the package manager.If you are using `npm install` to install and encountering this error as below, use `npm install --legacy-peer-deps` instead
-:::
- 
+
 ![toggles screenshot](/local_develop_install_error.png)
+:::
+
 
 ```shell
 npm install --legacy-peer-deps
 ```
 
-### Local Development
+### Start development server
 
 ```
 yarn start

@@ -10,19 +10,31 @@ sidebar_position: 1
 
 ### 安装
 
+克隆代码
+
 ```shell
-git clone https://github.com/FeatureProbe/FeatureProbe.git
-cd FeatureProbe/feature-probe-ui/
+git clone git@github.com:FeatureProbe/FeatureProbe.git
+cd FeatureProbe/feature-probe-ui
+```
+
+使用`yarn`安装依赖
+
+```shell
 yarn install
 ```
 
+:::info
+我们推荐您使用`yarn`作为包管理工具，如果您使用`npm install`安装依赖并遇到如下报错，请使用`npm install --legacy-peer-deps`命令替代。
+
 ![toggles screenshot](/local_develop_install_error.png)
+:::
+
 
 ```shell
 npm install --legacy-peer-deps
 ```
 
-### 本地开发
+### 启动本地服务
 
 ```
 yarn start
