@@ -43,7 +43,7 @@ mvn clean compile
 编译完成后UI项目的静态文件会在 feature-probe-admin 模块target/classes/static 目录下
 
 :::note
-如果想关闭关闭UI编译选项，请将 FeatureProbe/feature-probe-api/feature-probe-admin/pom.xml 如下配置置为 false .
+如果想关闭关闭UI编译选项，请将 FeatureProbe/feature-probe-api/feature-probe-admin/pom.xml 如下配置置为 true .
 ![skip_compile_ui](/skip_compile_ui.png)
 :::
 
