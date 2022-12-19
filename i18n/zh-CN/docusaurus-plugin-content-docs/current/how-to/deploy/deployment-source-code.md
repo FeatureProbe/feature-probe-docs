@@ -252,7 +252,7 @@ mvn clean package
    vi FeatureProbe/feature-probe-ui/craco.config.js
    ```
 
-   (2) 在原有配置的基础上，在webpack - configure - output 对象中添加 `publicPath` 字段，比如设置值为：featureprobe
+   (2) 在原有配置的基础上，在webpack - configure - output 对象中添加 `publicPath` 字段，比如设置值为：/featureprobe/
 
    ```js
    module.exports = {
@@ -268,7 +268,25 @@ mvn clean package
 
    (3) 执行完 `yarn build` 命令后，通过 `vi build/index.html` 查看index.html文件，可以发现文件中的静态资源js、css文件均已添加了上了publicPath中配置的前缀
 
-   ![yarn build](/yarn.build.png)
+   ![yarn build](/yarn_build.png)
+
+   (4) 为了加快访问速度，你可以选择将静态资源（js、css等）文件上传到CDN服务器，在编译阶段也可以将publicPath配置成CDN的地址：
+
+   ```js
+   module.exports = {
+      webpack: {
+         configure: {
+            output: { 
+               publicPath: 'https://cdn.domain.com/'
+            },
+         }
+      }
+   };
+   ```
+
+   编译后html中的静态资源（js、css等）都是携带CDN地址的路径：
+
+   ![yarn build CND](/yarn_build_cdn.png)
 
 
 ### 部署步骤
@@ -331,10 +349,10 @@ mvn clean package
    ~~~
 
    :::info【可选】
-   实际使用中，如果配置了自定义产出物路径，比如：将`publicPath`配置成`/featureprobe/`，需要将上述nginx配置中的`location /`更改给`location /featureprobe/`，才能正确匹配到html、js和css等静态文件。
+   实际使用中，如果配置了自定义产出物路径，比如：将`publicPath`配置成`/featureprobe/`，需要将上述nginx配置中的`location /`更改为`location /featureprobe/`，才能正确匹配到html、js和css等静态文件。
 
    ~~~
-   location /pulbicPath/ {
+   location /featureprobe/ {
       index  index.html index.htm;
       root /usr/share/nginx/html;  # UI 静态文件目录
       try_files $uri /index.html;
