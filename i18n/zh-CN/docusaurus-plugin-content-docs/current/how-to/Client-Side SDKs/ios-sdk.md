@@ -6,6 +6,17 @@ sidebar_position: 3
 
 ## iOS Usage
 
+:::note SDK quick links
+除了本参考指南外，我们还提供源代码、示例应用程序，相关链接如下所示：
+
+| **Resource**  | **Location**                                                 |
+| ------------- | ------------------------------------------------------------ |
+| GitHub 代码库 | [Client Side SDK for iOS](https://github.com/FeatureProbe/client-sdk-mobile/tree/main/sdk-ios) |
+| 接入示例      | [demo-cocoapods](https://github.com/FeatureProbe/client-sdk-mobile/tree/main/examples/demo-cocoapods)、[demo-objc](https://github.com/FeatureProbe/client-sdk-mobile/tree/main/examples/demo-objc)、[demo-swiftpm](https://github.com/FeatureProbe/client-sdk-mobile/tree/main/examples/demo-swiftpm) |
+| 已发布模块    | [CocoaPods](https://cocoapods.org/pods/FeatureProbe)         |
+
+:::
+
 ### Swift
 
 #### Step 1. 安装 SDK

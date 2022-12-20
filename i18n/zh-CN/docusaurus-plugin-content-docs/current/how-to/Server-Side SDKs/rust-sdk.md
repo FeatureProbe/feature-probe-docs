@@ -4,8 +4,19 @@ sidebar_position: 6
 
 # Rust SDK
 
-
 本文介绍如何在一个 Rust 项目中使用 FeatureProbe SDK。
+
+:::note SDK quick links
+除了本参考指南外，我们还提供源代码、API 参考文档和示例应用程序，相关链接如下所示：
+
+| **Resource**  | **Location**                                                 |
+| ------------- | ------------------------------------------------------------ |
+| SDK API 文档  | [ SDK API docs](https://docs.rs/feature-probe-server-sdk/latest/feature_probe_server_sdk/) |
+| GitHub 代码库 | [Server-SDK for Rust](https://github.com/FeatureProbe/server-sdk-rust) |
+| 接入示例      | [Demo code](https://github.com/FeatureProbe/server-sdk-rust/blob/main/examples/demo.rs) |
+| 已发布模块    | [crates.io](https://crates.io/crates/feature-probe-server-sdk) |
+
+:::
 
 :::tip
 对于首次使用FeatureProbe的用户，我们强烈建议你在阅读过[灰度放量教程](../../tutorials/rollout_tutorial/)之后，再回到这篇文章继续阅读。

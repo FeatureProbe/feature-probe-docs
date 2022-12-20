@@ -4,6 +4,20 @@ sidebar_position: 1
 
 # JavaScript SDK
 
+本文介绍如何在一个前端项目中使用 FeatureProbe SDK。
+
+:::note SDK quick links
+除了本参考指南外，我们还提供源代码、API 参考文档和示例应用程序，相关链接如下所示：
+
+| **Resource**  | **Location**                                                 |
+| ------------- | ------------------------------------------------------------ |
+| SDK API 文档  | [ SDK API docs](https://featureprobe.github.io/client-sdk-js/) |
+| GitHub 代码库 | [Client Side SDK for JavaScript](https://github.com/FeatureProbe/client-sdk-js) |
+| 接入示例      | [Demo code](https://github.com/FeatureProbe/client-sdk-js/blob/main/example/index.html) (HTML+JS) |
+| 已发布模块    | [npm](https://www.npmjs.com/package/featureprobe-client-sdk-js) |
+
+:::
+
 ## 快速尝试 Demo Code
 
 我们提供了一个可运行的演示代码，让您了解如何使用 FeatureProbe SDK

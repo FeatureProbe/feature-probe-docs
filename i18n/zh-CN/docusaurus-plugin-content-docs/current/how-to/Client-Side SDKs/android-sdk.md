@@ -4,6 +4,17 @@ sidebar_position: 2
 
 # Android SDK
 
+:::note SDK quick links
+除了本参考指南外，我们还提供源代码、示例应用程序，相关链接如下所示：
+
+| **Resource**  | **Location**                                                 |
+| ------------- | ------------------------------------------------------------ |
+| GitHub 代码库 | [Client Side SDK for Android](https://github.com/FeatureProbe/client-sdk-mobile/tree/main/sdk-android) |
+| 接入示例      | [Demo code](https://github.com/FeatureProbe/client-sdk-mobile/tree/main/examples/demo-android) (Kotlin) |
+| 已发布模块    | [maven](https://mvnrepository.com/artifact/com.featureprobe/client-sdk-android) |
+
+:::
+
 ## Kotlin
 
 ### 步骤 1. 安装 SDK
