@@ -205,14 +205,13 @@ mvn clean package
    <h1>Feature Probe Server</h1>
    ```
 
-
 ## 编译部署 UI 服务
 
 ### 编译步骤 
 
 1. 环境准备
 
-   * Node.js 16+ : [下载](https://nodejs.org/zh-cn/download/)
+   * Node.js 16.13+ : [下载](https://nodejs.org/zh-cn/download/)
    * yarn
      * 安装： `npm install -g yarn`
    * python3
@@ -237,6 +236,58 @@ mvn clean package
    $ ls build 
    asset-manifest.json favicon.ico         index.html          static/
    ```
+
+3. 【可选】自定义配置产出物路径：
+   
+   生产环境部署，在域名配置时可以有两个选择：
+   * 将FeatureProbe服务单独部署成为一个独立的域名，比如：通过 https://your.domain.com 的方式直接访问FeatureProbe入口页面
+   * 和几个服务共用一个域名，以路径（/path）的形式来进行服务区分，比如：通过 https://your.domain.com/featureprobe 的方式访问FeatureProbe入口页面
+
+   目前我们默认支持第一种方式，如果你是以第二种方式进行部署，需要将源码做一些修改：
+
+   (1) 打开 `craco.config.js` 文件
+
+   ```bash
+   cd feature-probe-ui
+   vi FeatureProbe/feature-probe-ui/craco.config.js
+   ```
+
+   (2) 在原有配置的基础上，在webpack - configure - output 对象中添加 `publicPath` 字段，比如设置值为：/featureprobe/
+
+   ```js
+   module.exports = {
+      webpack: {
+         configure: {
+            output: { 
+               publicPath: '/featureprobe/'
+            },
+         }
+      }
+   };
+   ```
+
+   (3) 执行完 `yarn build` 命令后，通过 `vi build/index.html` 查看index.html文件，可以发现文件中的静态资源js、css文件均已添加了上了publicPath中配置的前缀
+
+   ![yarn build](/yarn_build.png)
+
+   (4) 为了加快访问速度，你可以选择将静态资源（js、css等）文件上传到CDN服务器，在编译阶段也可以将publicPath配置成CDN的地址：
+
+   ```js
+   module.exports = {
+      webpack: {
+         configure: {
+            output: { 
+               publicPath: 'https://cdn.domain.com/'
+            },
+         }
+      }
+   };
+   ```
+
+   编译后html中的静态资源（js、css等）都是携带CDN地址的路径：
+
+   ![yarn build CND](/yarn_build_cdn.png)
+
 
 ### 部署步骤
 
@@ -296,6 +347,20 @@ mvn clean package
      }
    }
    ~~~
+
+   :::info【可选】
+   实际使用中，如果配置了自定义产出物路径，比如：将`publicPath`配置成`/featureprobe/`，需要将上述nginx配置中的`location /`更改为`location /featureprobe/`，才能正确匹配到html、js和css等静态文件。
+
+   ~~~
+   location /featureprobe/ {
+      index  index.html index.htm;
+      root /usr/share/nginx/html;  # UI 静态文件目录
+      try_files $uri /index.html;
+   }
+   ~~~
+
+   :::
+   
 
 2. 执行 `reload nginx` 配置，使上述配置生效：
 

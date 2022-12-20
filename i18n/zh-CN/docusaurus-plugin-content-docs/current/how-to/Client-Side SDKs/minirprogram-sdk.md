@@ -59,12 +59,12 @@ npm install featureprobe-client-sdk-miniprogram --save
 
 
 ```js
-import { featureProbeClient, FPUser } from 'featureprobe-client-sdk-miniprogram';
+import { initialize, FPUser } from 'featureprobe-client-sdk-miniprogram';
 
 const user = new FPUser();
 user.with("userId", /* userId */);
 
-featureProbeClient.init({
+const featureProbeClient = initialize({
   remoteUrl: "https://featureprobe.io/server",
   // remoteUrl: "https://127.0.0.1:4007", // for local docker
   clientSdkKey: /* clientSdkKey */

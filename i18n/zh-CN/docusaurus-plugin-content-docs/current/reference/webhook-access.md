@@ -4,7 +4,7 @@ sidebar_position: 6
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Webhook接入
+# Webhook消息格式
 
 通过webhook配置，可以向您推送FeatureProbe平台发生的事件数据，Webhook是一个http请求回调接口，需要您的团队按照以下方式提供实现；
 FeatureProbe平台发生某个事件时，会去回调该接口，并把该事件的数据以json格式推送到您的服务器。
@@ -13,7 +13,7 @@ FeatureProbe平台发生某个事件时，会去回调该接口，并把该事�
 
 如何在FeatureProbe平台配置Webhook参考 [配置Webhook](../how-to/platform/webhooks.md)
 
-## 接入Webhook
+## 处理Webhook消息
 
 
 ### 请求方法
@@ -92,6 +92,8 @@ X-FeatureProbe-Sign: xxxxxxxxxxxxxxx
 FeaturePobe Webhook提供了一种安全验证方式，用于防止请求伪造（CSRF攻击）。
 FeaturePobe服务端在推送数据的时候，会使用Secret Key对请求体数据进行sha1签名，将签名放在请求头 X-FeatureProbe-Sign 中，
 对接时可以同样的算法计算该Sign，两者需要一致。
+
+![api_webhook_secretkey](/api_webhook_secretkey.png)
 
 
 #### 各类语言签名计算参考

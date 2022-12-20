@@ -14,3 +14,13 @@ slug: /
   +   我们希望知道每一个新功能产生的业务价值是什么
 
 功能管理 (Feature Management，也有译作特性管理) 就是能够达成以上目标的软件工程实践。 FeatureProbe 是支撑这一实践的平台工具。
+
+# 视频介绍
+
+<iframe
+  title='FeatureProbe introduction'
+  src="//player.bilibili.com/player.html?bvid=BV1GG4y1R7oH&page=1" 
+  scrolling="no" 
+  frameBorder="no" 
+  allowFullScreen={true}
+/>
