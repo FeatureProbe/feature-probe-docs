@@ -25,9 +25,11 @@ sidebar_position: 2
 | 10.100.1.2 | FeatureProbe Server | 4007          |
 | 10.100.1.3 | 数据库（MySQL）     | 13306         |
 
-### 操作步骤
+:::tip
+上述IP地址请根据实际部署环境替换为实际IP地址，而不是127.0.0.1（Docker默认采用bridge网络模式，并不指向宿主机）
+:::
 
-*为简化部署步骤，下述容器互联使用共享宿主机网络，关于不同网络模式使用可参考 [Docker Networking overview](https://docs.docker.com/network/)。*
+### 操作步骤
 
 1. 运行 MySQL 数据库实例:
    :::tip
@@ -39,7 +41,7 @@ sidebar_position: 2
        -e MYSQL_TCP_PORT=13306 \
        -e MYSQL_ROOT_PASSWORD=root \
        -e MYSQL_DATABASE=feature_probe \
-       --net=host --name database -d mariadb
+       --name database -d mariadb
    ```
 
    :::tip
@@ -55,7 +57,7 @@ sidebar_position: 2
       -e spring.datasource.jdbc-url=jdbc:mysql://10.100.1.4:13306/feature_probe \
       -e spring.datasource.username=root \
       -e spring.datasource.password=root \
-      --net=host --name featureProbeAPI -d featureprobe/api
+      --name featureProbeAPI -d featureprobe/api
       
    # 上述 10.100.1.4:13306 为 MySQL Server 的 IP 和端口，请根据实际情况调整
    ```
@@ -71,7 +73,7 @@ sidebar_position: 2
      -e FP_TOGGLES_URL=http://10.100.1.1:4008/api/server/toggles \
      -e FP_EVENTS_URL=http://10.100.1.1:4008/api/server/events \
      -e FP_KEYS_URL=http://10.100.1.1:4008/api/server/sdk_keys \
-     --net=host --name featureProbeServer -d featureprobe/server
+     --name featureProbeServer -d featureprobe/server
      
    # 上述 10.100.1.1:4008 为 FeatureProbe API 服务 IP 和端口，请根据实际情况调整
    ```
@@ -84,7 +86,7 @@ sidebar_position: 2
    ```bash
    docker run -p 4009:4009 \
    -v /my_custom/default.conf:/etc/nginx/conf.d/default.conf \
-   --net=host --name featureProbeUI -d featureprobe/ui 
+   --name featureProbeUI -d featureprobe/ui 
    ```
 
    为保证 API 和 UI 端口一致(避免请求跨域)，需要自定义 nginx 配置转发 API 请求，`/my_custom/default.conf` 配置如下示例：
