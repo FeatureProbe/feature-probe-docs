@@ -180,9 +180,9 @@ mvn clean package
    #/bin/bash
    
    export FP_SERVER_PORT=4007  # FeatureProbe Server 端口
-   export FP_TOGGLES_URL=http://10.100.1.1:4008/api/server/toggles  # FeatureProbe API IP 和端口号
-   export FP_EVENTS_URL=http://10.100.1.1:4008/api/server/events
-   export FP_KEYS_URL=http://10.100.1.1:4008/api/server/sdk_keys
+   export FP_TOGGLES_URL=http://10.100.1.1:4008/internal/server/toggles  # FeatureProbe API IP 和端口号
+   export FP_EVENTS_URL=http://10.100.1.1:4008/internal/server/events
+   export FP_KEYS_URL=http://10.100.1.1:4008/internal/server/sdk_keys
    export FP_REFRESH_SECONDS=1
    
    ./feature_probe_server 

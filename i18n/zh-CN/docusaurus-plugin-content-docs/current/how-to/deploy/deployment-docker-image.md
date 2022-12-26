@@ -70,9 +70,9 @@ sidebar_position: 2
    ```bash
    docker run -p 4007:4007 \
      -e FP_SERVER_PORT=4007 \
-     -e FP_TOGGLES_URL=http://10.100.1.1:4008/api/server/toggles \
-     -e FP_EVENTS_URL=http://10.100.1.1:4008/api/server/events \
-     -e FP_KEYS_URL=http://10.100.1.1:4008/api/server/sdk_keys \
+     -e FP_TOGGLES_URL=http://10.100.1.1:4008/internal/server/toggles \
+     -e FP_EVENTS_URL=http://10.100.1.1:4008/internal/server/events \
+     -e FP_KEYS_URL=http://10.100.1.1:4008/internal/server/sdk_keys \
      --name featureProbeServer -d featureprobe/server
      
    # 上述 10.100.1.1:4008 为 FeatureProbe API 服务 IP 和端口，请根据实际情况调整
