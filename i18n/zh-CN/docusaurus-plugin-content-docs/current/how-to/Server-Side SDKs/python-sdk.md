@@ -6,6 +6,20 @@ sidebar_position: 5
 
 本文介绍如何在一个 Python 项目中使用 FeatureProbe SDK。
 
+:::note SDK quick links
+除了本参考指南外，我们还提供源代码、API 参考文档和示例应用程序，相关链接如下所示：
+
+| **Resource**  | **Location**                                                 |
+| ------------- | ------------------------------------------------------------ |
+| SDK API 文档  | [ SDK API docs](https://test-fp-server-py.readthedocs.io/en/latest/api.html) |
+| GitHub 代码库 | [Server-SDK for Python](https://github.com/FeatureProbe/server-sdk-python) |
+| 接入示例      | [Demo code](https://github.com/FeatureProbe/server-sdk-python/blob/main/demo.py) |
+| 已发布模块    | [ PyPI](https://pypi.org/project/featureprobe-server-sdk-python/) |
+
+:::
+
+
+
 :::tip
 对于首次使用FeatureProbe的用户，我们强烈建议你在阅读过[灰度放量教程](../../tutorials/rollout_tutorial/)之后，再回到这篇文章继续阅读。
 :::

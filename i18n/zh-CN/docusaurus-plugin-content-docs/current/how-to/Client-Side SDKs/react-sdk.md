@@ -8,6 +8,18 @@ sidebar_position: 5
 React SDK是在 JavaScript SDK的基础上进行的封装，主要为了提升在React项目中的使用体验。JavaScript SDK中的大部分方法在React SDK中也同样适用，详见[JavaScript SDK](./javascript-sdk.md)。
 :::
 
+:::note SDK quick links
+除了本参考指南外，我们还提供源代码、API 参考文档和示例应用程序，相关链接如下所示：
+
+| **Resource**  | **Location**                                                 |
+| ------------- | ------------------------------------------------------------ |
+| SDK API 文档  | [ SDK API docs](https://featureprobe.github.io/client-sdk-react/) |
+| GitHub 代码库 | [Client Side SDK for React](https://github.com/FeatureProbe/client-sdk-react) |
+| 接入示例      | [Demo code](https://github.com/FeatureProbe/client-sdk-react/tree/main/example) |
+| 已发布模块    | [npm](https://www.npmjs.com/package/featureprobe-client-sdk-react) |
+
+:::
+
 ## 快速尝试 Demo Code
 
 我们提供了一个可运行的演示代码，让您了解如何使用 `FeatureProbe` SDK。

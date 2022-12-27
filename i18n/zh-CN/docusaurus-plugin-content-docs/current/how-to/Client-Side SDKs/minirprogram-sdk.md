@@ -8,6 +8,18 @@ sidebar_position: 4
 此SDK仅适用于微信小程序，其他小程序包括：支付宝、百度、钉钉、今日头条正在准备中。
 :::
 
+:::note SDK quick links
+除了本参考指南外，我们还提供源代码、API 参考文档和示例应用程序，相关链接如下所示：
+
+| **Resource**  | **Location**                                                 |
+| ------------- | ------------------------------------------------------------ |
+| SDK API 文档  | [ SDK API docs](https://featureprobe.github.io/client-sdk-miniprogram/) |
+| GitHub 代码库 | [Client Side SDK for MiniProgram](https://github.com/FeatureProbe/client-sdk-miniprogram) |
+| 接入示例      | [Demo code](https://github.com/FeatureProbe/client-sdk-miniprogram/tree/main/example) |
+| 已发布模块    | [npm](https://www.npmjs.com/package/featureprobe-client-sdk-miniprogram) |
+
+:::
+
 ## 快速尝试 Demo Code
 
 我们提供了一个可运行的演示代码，让您了解如何使用 FeatureProbe SDK。

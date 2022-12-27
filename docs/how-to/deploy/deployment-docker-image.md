@@ -49,9 +49,9 @@ Deploy independently on Linux/Unix using the [docker image](https://hub.docker.c
 
    ```bash
    docker run -e FP_SERVER_PORT=4007 -e \
-     FP_TOGGLES_URL=http://backendAPI:4008/api/server/toggles \
-     FP_EVENTS_URL=http://backendAPI:4008/api/server/events \
-     FP_KEYS_URL=http://backendAPI:4008/api/server/sdk_keys \
+     FP_TOGGLES_URL=http://backendAPI:4008/internal/server/toggles \
+     FP_EVENTS_URL=http://backendAPI:4008/internal/server/events \
+     FP_KEYS_URL=http://backendAPI:4008/internal/server/sdk_keys \
      --network featureProbeNet --name serverAPI -d featureprobe/server
    ```
 

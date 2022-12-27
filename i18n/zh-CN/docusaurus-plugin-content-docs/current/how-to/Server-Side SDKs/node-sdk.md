@@ -6,6 +6,20 @@ sidebar_position: 4
 
 本文介绍如何在一个 Node.js 项目中使用 FeatureProbe SDK。
 
+:::note SDK quick links
+除了本参考指南外，我们还提供源代码、API 参考文档和示例应用程序，相关链接如下所示：
+
+| **Resource**  | **Location**                                                 |
+| ------------- | ------------------------------------------------------------ |
+| SDK API 文档  | [ SDK API docs](https://featureprobe.github.io/server-sdk-node/) |
+| GitHub 代码库 | [Server-SDK for Node.js](https://github.com/FeatureProbe/server-sdk-node) |
+| 接入示例      | [Demo code](https://github.com/FeatureProbe/server-sdk-node/blob/main/example/demo.js) (TypeScript) |
+| 已发布模块    | [ npm](https://www.npmjs.com/package/featureprobe-server-sdk-node) |
+
+:::
+
+
+
 :::tip
 对于首次使用 FeatureProbe 的用户，我们强烈建议你在阅读过[灰度放量教程](../../tutorials/rollout_tutorial/)之后，再回到这篇文章继续阅读。
 :::
